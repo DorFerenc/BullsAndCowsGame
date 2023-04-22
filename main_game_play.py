@@ -12,7 +12,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0") #Path(r"C:\Users\dorfe\PycharmProjects\Tkinter-Designer\build\assets\frame0")
-
+OFFSET_MENU = 30
 
 
 def relative_to_assets(path: str) -> Path:
@@ -44,20 +44,29 @@ canvas.create_rectangle(
     fill="#3A7FF6",
     outline="")
 
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
+canvas.create_text(
+    13.0,
+    8.0,
+    anchor="nw",
+    text="Menu:",
+    fill="#FF738E",
+    font=("Inter Regular", 32 * -1)
+)
+
+entry_image_screen2 = PhotoImage(
+    file=relative_to_assets("entry_screen2.png"))
+entry_bg_screen2 = canvas.create_image(
     1078.0,
     342.5,
-    image=entry_image_1
+    image=entry_image_screen2
 )
-entry_1 = Text(
+entry_screen2 = Text(
     bd=0,
     bg="#FFA53C",
     fg="#000716",
     highlightthickness=0
 )
-entry_1.place(
+entry_screen2.place(
     x=883.0,
     y=0.0,
     width=390.0,
@@ -73,80 +82,80 @@ canvas.create_text(
     font=("Inter Regular", 48 * -1)
 )
 
-entry_image_2 = PhotoImage(
+entry_image_guess_1 = PhotoImage(
     file=relative_to_assets("entry_2.png"))
-entry_bg_2 = canvas.create_image(
+entry_bg_guess_1 = canvas.create_image(
     330.0,
     143.05126953125,
-    image=entry_image_2
+    image=entry_image_guess_1
 )
-entry_2 = Entry(
+entry_guess_1 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_2.place(
+entry_guess_1.place(
     x=294.0,
     y=108.0,
     width=72.0,
     height=68.1025390625
 )
 
-entry_image_3 = PhotoImage(
+entry_image_guess_2 = PhotoImage(
     file=relative_to_assets("entry_3.png"))
-entry_bg_3 = canvas.create_image(
+entry_bg_guess_2 = canvas.create_image(
     419.5,
     143.05126953125,
-    image=entry_image_3
+    image=entry_image_guess_2
 )
-entry_3 = Entry(
+entry_guess_2 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_3.place(
+entry_guess_2.place(
     x=384.0,
     y=108.0,
     width=71.0,
     height=68.1025390625
 )
 
-entry_image_4 = PhotoImage(
+entry_image_guess_3 = PhotoImage(
     file=relative_to_assets("entry_4.png"))
-entry_bg_4 = canvas.create_image(
+entry_bg_guess_3 = canvas.create_image(
     508.5,
     143.05126953125,
-    image=entry_image_4
+    image=entry_image_guess_3
 )
-entry_4 = Entry(
+entry_guess_3 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_4.place(
+entry_guess_3.place(
     x=473.0,
     y=108.0,
     width=71.0,
     height=68.1025390625
 )
 
-entry_image_5 = PhotoImage(
+entry_image_guess_4 = PhotoImage(
     file=relative_to_assets("entry_5.png"))
-entry_bg_5 = canvas.create_image(
+entry_bg_guess_4 = canvas.create_image(
     601.0,
     143.05126953125,
-    image=entry_image_5
+    image=entry_image_guess_4
 )
-entry_5 = Entry(
+entry_guess_4 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_5.place(
+entry_guess_4.place(
     x=565.0,
     y=108.0,
     width=72.0,
@@ -189,115 +198,99 @@ canvas.create_text(
     font=("Inter Regular", 15 * -1)
 )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
+button_image_Guess = PhotoImage(
+    file=relative_to_assets("button_Guess.png"))
+button_Guess = Button(
+    image=button_image_Guess,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=lambda: print("button_Guess clicked"),
     relief="flat"
 )
-button_1.place(
+button_Guess.place(
     x=295.0,
     y=343.0,
     width=250.0,
     height=70.1025390625
 )
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
+button_image_new_game = PhotoImage(
+    file=relative_to_assets("button_new_game.png"))
+button_new_game = Button(
+    image=button_image_new_game,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=lambda: print("button_new_game clicked"),
     relief="flat"
 )
-button_2.place(
+button_new_game.place(
     x=13.0,
-    y=23.0,
+    y=23.0 + OFFSET_MENU,
     width=250.0,
     height=70.1025390625
 )
 
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
-button_3 = Button(
-    image=button_image_3,
+button_image_prev_game = PhotoImage(
+    file=relative_to_assets("button_prev_game.png"))
+button_prev_game = Button(
+    image=button_image_prev_game,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=lambda: print("button_prev_game clicked"),
     relief="flat"
 )
-button_3.place(
+button_prev_game.place(
     x=13.0,
-    y=108.0,
+    y=108.0 + OFFSET_MENU,
     width=250.0,
     height=70.1025390625
 )
 
-button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
-button_4 = Button(
-    image=button_image_4,
+button_image_settings = PhotoImage(
+    file=relative_to_assets("button_settings.png"))
+button_settings = Button(
+    image=button_image_settings,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
+    command=lambda: print("button_settings clicked"),
     relief="flat"
 )
-button_4.place(
+button_settings.place(
     x=13.0,
-    y=193.0,
+    y=193.0 + OFFSET_MENU,
     width=250.0,
     height=70.1025390625
 )
 
-button_image_5 = PhotoImage(
-    file=relative_to_assets("button_5.png"))
-button_5 = Button(
-    image=button_image_5,
+button_image_stats = PhotoImage(
+    file=relative_to_assets("button_stats.png"))
+button_stats = Button(
+    image=button_image_stats,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
+    command=lambda: print("button_stats clicked"),
     relief="flat"
 )
-button_5.place(
+button_stats.place(
     x=14.0,
-    y=278.0,
+    y=278.0 + OFFSET_MENU,
     width=250.0,
     height=70.1025390625
 )
 
-button_image_6 = PhotoImage(
-    file=relative_to_assets("button_6.png"))
-button_6 = Button(
-    image=button_image_6,
+button_image_0 = PhotoImage(
+    file=relative_to_assets("button_0.png"))
+button_0 = Button(
+    image=button_image_0,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_6 clicked"),
+    command=lambda: print("button_0 clicked"),
     relief="flat"
 )
-button_6.place(
+button_0.place(
     x=295.0,
     y=498.0,
     width=72.0,
-    height=70.1025390625
-)
-
-button_image_7 = PhotoImage(
-    file=relative_to_assets("button_7.png"))
-button_7 = Button(
-    image=button_image_7,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_7 clicked"),
-    relief="flat"
-)
-button_7.place(
-    x=564.0,
-    y=590.0,
-    width=71.0,
     height=70.1025390625
 )
 
@@ -311,6 +304,22 @@ button_8 = Button(
     relief="flat"
 )
 button_8.place(
+    x=564.0,
+    y=590.0,
+    width=71.0,
+    height=70.1025390625
+)
+
+button_image_4 = PhotoImage(
+    file=relative_to_assets("button_4.png"))
+button_4 = Button(
+    image=button_image_4,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_4 clicked"),
+    relief="flat"
+)
+button_4.place(
     x=654.0,
     y=498.0,
     width=71.0,
@@ -333,96 +342,96 @@ button_9.place(
     height=70.1025390625
 )
 
-button_image_10 = PhotoImage(
-    file=relative_to_assets("button_10.png"))
-button_10 = Button(
-    image=button_image_10,
+button_image_5 = PhotoImage(
+    file=relative_to_assets("button_5.png"))
+button_5 = Button(
+    image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_10 clicked"),
+    command=lambda: print("button_5 clicked"),
     relief="flat"
 )
-button_10.place(
+button_5.place(
     x=294.0,
     y=590.0,
     width=72.0,
     height=70.1025390625
 )
 
-button_image_11 = PhotoImage(
-    file=relative_to_assets("button_11.png"))
-button_11 = Button(
-    image=button_image_11,
+button_image_6 = PhotoImage(
+    file=relative_to_assets("button_6.png"))
+button_6 = Button(
+    image=button_image_6,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_11 clicked"),
+    command=lambda: print("button_6 clicked"),
     relief="flat"
 )
-button_11.place(
+button_6.place(
     x=384.0,
     y=590.0,
     width=71.0,
     height=70.1025390625
 )
 
-button_image_12 = PhotoImage(
-    file=relative_to_assets("button_12.png"))
-button_12 = Button(
-    image=button_image_12,
+button_image_1 = PhotoImage(
+    file=relative_to_assets("button_1.png"))
+button_1 = Button(
+    image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_12 clicked"),
+    command=lambda: print("button_1 clicked"),
     relief="flat"
 )
-button_12.place(
+button_1.place(
     x=386.0,
     y=498.0,
     width=71.0,
     height=70.1025390625
 )
 
-button_image_13 = PhotoImage(
-    file=relative_to_assets("button_13.png"))
-button_13 = Button(
-    image=button_image_13,
+button_image_2 = PhotoImage(
+    file=relative_to_assets("button_2.png"))
+button_2 = Button(
+    image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_13 clicked"),
+    command=lambda: print("button_2 clicked"),
     relief="flat"
 )
-button_13.place(
+button_2.place(
     x=475.0,
     y=498.0,
     width=71.0,
     height=70.1025390625
 )
 
-button_image_14 = PhotoImage(
-    file=relative_to_assets("button_14.png"))
-button_14 = Button(
-    image=button_image_14,
+button_image_7 = PhotoImage(
+    file=relative_to_assets("button_7.png"))
+button_7 = Button(
+    image=button_image_7,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_14 clicked"),
+    command=lambda: print("button_7 clicked"),
     relief="flat"
 )
-button_14.place(
+button_7.place(
     x=474.0,
     y=590.0,
     width=71.0,
     height=70.1025390625
 )
 
-button_image_15 = PhotoImage(
-    file=relative_to_assets("button_15.png"))
-button_15 = Button(
-    image=button_image_15,
+button_image_3 = PhotoImage(
+    file=relative_to_assets("button_3.png"))
+button_3 = Button(
+    image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_15 clicked"),
+    command=lambda: print("button_3 clicked"),
     relief="flat"
 )
-button_15.place(
+button_3.place(
     x=564.0,
     y=498.0,
     width=71.0,
