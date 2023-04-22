@@ -284,7 +284,7 @@ button_0 = Button(
     image=button_image_0,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_0 clicked"),
+    command=update_current_guess_board(0),
     relief="flat"
 )
 button_0.place(
