@@ -8,6 +8,7 @@ from pathlib import Path
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from guess_functions import *
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -162,6 +163,8 @@ entry_guess_4.place(
     height=68.1025390625
 )
 
+ENTRY_LIST = [entry_guess_1, entry_guess_2, entry_guess_3, entry_guess_4]
+
 canvas.create_text(
     310.0,
     271.0,
@@ -284,7 +287,7 @@ button_0 = Button(
     image=button_image_0,
     borderwidth=0,
     highlightthickness=0,
-    command=update_current_guess_board(0),
+    command=update_current_guess_board(0, ENTRY_LIST),
     relief="flat"
 )
 button_0.place(
