@@ -12,7 +12,7 @@ from guess_functions import *
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0") #Path(r"C:\Users\dorfe\PycharmProjects\Tkinter-Designer\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
 OFFSET_MENU = 30
 
 
@@ -36,7 +36,7 @@ canvas = Canvas(
     relief = "ridge"
 )
 
-canvas.place(x = 0, y = 0)
+canvas.place(x = 0, y = 0) # TODO DF add this to new
 canvas.create_rectangle(0.0, 0.0, 276.0, 685.0, fill="#3A7FF6", outline="") #blue canvas right
 canvas.create_text(13.0, 8.0, anchor="nw", text="Menu:", fill="#FF738E", font=("Inter Regular", 32 * -1))
 
@@ -181,3 +181,4 @@ button_3.place(x=564.0, y=498.0, width=71.0, height=70.1025390625)
 
 window.resizable(False, False)
 window.mainloop()
+

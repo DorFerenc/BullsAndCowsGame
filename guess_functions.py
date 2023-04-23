@@ -30,3 +30,6 @@ def take_the_guess(entry_list, canvas, bulls_hits_list):
                        fill="#0d0c0c", font=('Georgia 15'))
     print(guess)
     return guess
+
+def generate_secret_number():
+    pass
