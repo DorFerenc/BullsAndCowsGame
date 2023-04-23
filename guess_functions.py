@@ -9,8 +9,9 @@ def update_current_guess_board(number, entity_list):
     # MAPPING_POSITION_TO_ENTRY[CURRENT_POSITION].insert(number)
     print(f"button_{number} clicked")
     entity_list[CURRENT_POSITION].insert(0, str(number))
-    if CURRENT_POSITION != NumberOfDigits - 1:
-        CURRENT_POSITION += 1
+    CURRENT_POSITION += 1
+    if CURRENT_POSITION == NumberOfDigits:
+        CURRENT_POSITION = 0
 
 def take_the_guess(entry_list):
     guess = ""
@@ -18,4 +19,5 @@ def take_the_guess(entry_list):
         guess += entry.get()
     for entry in entry_list:
         entry.delete(0, END)
+    print(guess)
     return guess

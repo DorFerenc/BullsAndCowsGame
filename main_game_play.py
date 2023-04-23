@@ -83,85 +83,25 @@ canvas.create_text(
     font=("Inter Regular", 48 * -1)
 )
 
-entry_image_guess_1 = PhotoImage(
-    file=relative_to_assets("entry_2.png"))
-entry_bg_guess_1 = canvas.create_image(
-    330.0,
-    143.05126953125,
-    image=entry_image_guess_1
-)
-entry_guess_1 = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_guess_1.place(
-    x=294.0,
-    y=108.0,
-    width=72.0,
-    height=68.1025390625
-)
+entry_image_guess_1 = PhotoImage(file=relative_to_assets("entry_2.png"))
+entry_bg_guess_1 = canvas.create_image(330.0, 143.05126953125, image=entry_image_guess_1)
+entry_guess_1 = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font=('Georgia 20'))
+entry_guess_1.place(x=294.0, y=108.0, width=72.0, height=68.1025390625)
 
-entry_image_guess_2 = PhotoImage(
-    file=relative_to_assets("entry_3.png"))
-entry_bg_guess_2 = canvas.create_image(
-    419.5,
-    143.05126953125,
-    image=entry_image_guess_2
-)
-entry_guess_2 = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_guess_2.place(
-    x=384.0,
-    y=108.0,
-    width=71.0,
-    height=68.1025390625
-)
+entry_image_guess_2 = PhotoImage(file=relative_to_assets("entry_3.png"))
+entry_bg_guess_2 = canvas.create_image(419.5, 143.05126953125, image=entry_image_guess_2)
+entry_guess_2 = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font=('Georgia 20'))
+entry_guess_2.place(x=384.0, y=108.0, width=71.0, height=68.1025390625)
 
-entry_image_guess_3 = PhotoImage(
-    file=relative_to_assets("entry_4.png"))
-entry_bg_guess_3 = canvas.create_image(
-    508.5,
-    143.05126953125,
-    image=entry_image_guess_3
-)
-entry_guess_3 = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_guess_3.place(
-    x=473.0,
-    y=108.0,
-    width=71.0,
-    height=68.1025390625
-)
+entry_image_guess_3 = PhotoImage(file=relative_to_assets("entry_4.png"))
+entry_bg_guess_3 = canvas.create_image(508.5, 143.05126953125, image=entry_image_guess_3)
+entry_guess_3 = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font=('Georgia 20'))
+entry_guess_3.place(x=473.0, y=108.0, width=71.0, height=68.1025390625)
 
-entry_image_guess_4 = PhotoImage(
-    file=relative_to_assets("entry_5.png"))
-entry_bg_guess_4 = canvas.create_image(
-    601.0,
-    143.05126953125,
-    image=entry_image_guess_4
-)
-entry_guess_4 = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_guess_4.place(
-    x=565.0,
-    y=108.0,
-    width=72.0,
-    height=68.1025390625
-)
+entry_image_guess_4 = PhotoImage(file=relative_to_assets("entry_5.png"))
+entry_bg_guess_4 = canvas.create_image(601.0, 143.05126953125, image=entry_image_guess_4)
+entry_guess_4 = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font=('Georgia 20'))
+entry_guess_4.place(x=565.0, y=108.0, width=72.0, height=68.1025390625)
 
 ENTRY_LIST = [entry_guess_1, entry_guess_2, entry_guess_3, entry_guess_4]
 
