@@ -37,42 +37,12 @@ canvas = Canvas(
 )
 
 canvas.place(x = 0, y = 0)
-canvas.create_rectangle(
-    0.0,
-    0.0,
-    276.0,
-    685.0,
-    fill="#3A7FF6",
-    outline="")
+canvas.create_rectangle(0.0, 0.0, 276.0, 685.0, fill="#3A7FF6", outline="") #blue canvas right
+canvas.create_text(13.0, 8.0, anchor="nw", text="Menu:", fill="#FF738E", font=("Inter Regular", 32 * -1))
 
-canvas.create_text(
-    13.0,
-    8.0,
-    anchor="nw",
-    text="Menu:",
-    fill="#FF738E",
-    font=("Inter Regular", 32 * -1)
-)
+orange_canvas = canvas.create_rectangle(900.0, 0.0, 1273.0, 685.0, fill="#FFA53C", outline="") #orange canvas left
+canvas.create_text(920.0, 8.0, anchor="nw", text="Guesses:", fill="#7e37ad", font=("Inter Regular", 32 * -1))
 
-entry_image_screen2 = PhotoImage(
-    file=relative_to_assets("entry_screen2.png"))
-entry_bg_screen2 = canvas.create_image(
-    1078.0,
-    342.5,
-    image=entry_image_screen2
-)
-entry_screen2 = Text(
-    bd=0,
-    bg="#FFA53C",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_screen2.place(
-    x=883.0,
-    y=0.0,
-    width=390.0,
-    height=683.0
-)
 
 canvas.create_text(
     294.0,
@@ -105,23 +75,15 @@ entry_guess_4.place(x=565.0, y=108.0, width=72.0, height=68.1025390625)
 
 ENTRY_LIST = [entry_guess_1, entry_guess_2, entry_guess_3, entry_guess_4]
 
-canvas.create_text(
-    310.0,
-    271.0,
-    anchor="nw",
-    text="Hits:",
-    fill="#FF738E",
-    font=("Inter Regular", 32 * -1)
-)
+canvas.create_text(310.0, 271.0, anchor="nw", text="Hits:", fill="#FF738E", font=("Inter Regular", 32 * -1))
+entry_hits = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font=('Georgia 13'))
+entry_hits.place(x=405.0, y=273.0, width=30.0, height=30.0)
 
-canvas.create_text(
-    310.0,
-    209.0,
-    anchor="nw",
-    text="Bulls:",
-    fill="#FF738E",
-    font=("Inter Regular", 32 * -1)
-)
+canvas.create_text(310.0, 209.0, anchor="nw", text="Bulls:", fill="#FF738E", font=("Inter Regular", 32 * -1))
+entry_bulls = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font=('Georgia 13'))
+entry_bulls.place(x=405.0, y=211.0, width=30.0, height=30.0)
+
+BULLS_HITS_LIST = [entry_bulls, entry_hits]
 
 canvas.create_text(
     607.0,
@@ -143,7 +105,7 @@ canvas.create_text(
 
 button_image_Guess = PhotoImage(file=relative_to_assets("button_Guess.png"))
 button_Guess = Button(image=button_image_Guess, borderwidth=0, highlightthickness=0,
-                      command=lambda: take_the_guess(ENTRY_LIST), relief="flat")
+                      command=lambda: take_the_guess(ENTRY_LIST, canvas, BULLS_HITS_LIST), relief="flat")
 button_Guess.place(x=295.0, y=343.0, width=250.0, height=70.1025390625)
 
 button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
