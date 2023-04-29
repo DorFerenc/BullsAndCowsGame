@@ -1,10 +1,15 @@
 import bh
 import sys
 
+import stats_screen
 
-class Controller:
-    def __init__(self):
-        self.bh_code = bh
+
+class Controller():
+    def __init__(self, model, view):
+        self.model = model
+        self.view = view
+        # self.bh_code = bh
+        # self.my_stats_screen = stats_screen.Bull_and_cows_stats_screen()
 
     def run_bh(self, num_of_digits, num_of_games):
         """
@@ -23,6 +28,7 @@ class Controller:
               str(num_of_games), " games is: ", \
               sum(l) / len(l))
         sys.stdout.close()
+
 
     def client_request_for_NH(self):
         #send: -

@@ -1,10 +1,12 @@
-from tkinter import *
-from tkinter import ttk
-from pathlib import Path
+import base64
 import tkinter as tk
-from tkinter import Canvas, Entry, PhotoImage, Text, Button
+from io import BytesIO
+from pathlib import Path
+from tkinter import ttk
+
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 from guess_functions import *
-from controller import Controller
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
@@ -18,7 +20,7 @@ def update_progress_bar(self, value):
     self.canvas.update_idletasks()
 
 
-class Bull_and_cows_stats_screen:
+class Bull_and_cows_stats_screen(ttk.Frame):
 
     def update_num_of_digits_value(self, event):
         self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
@@ -28,13 +30,22 @@ class Bull_and_cows_stats_screen:
 
     def run_game(self):
       #  print(f"here {self.my_controller}, and {self.scale_num_of_games.get()}")
-        self.my_controller.run_bh(self.my_controller, self.scale_num_of_digits.get(), self.scale_num_of_games.get())
+        self.my_view_controller.run_bh(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
 
-    def __init__(self, screen):
+    def set_controller(self, controller):
+        """
+        Set the controller
+        :param controller:
+        :return:
+        """
+        self.my_view_controller = controller
+
+    def __init__(self, parent):
+        super().__init__(parent)
         # define some constants
         self.OFFSET_MENU = 30
-        self.stats_screen = screen
-        self.my_controller = Controller
+        self.stats_screen = parent
+        # self.my_controller = Controller
 
         # configure the root window
         self.stats_screen.geometry("1273x685")
@@ -114,6 +125,38 @@ class Bull_and_cows_stats_screen:
                               command=lambda: print("button_stats clicked"), relief="flat")
         self.button_stats.place(x=14.0, y=278.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
+    def create_graphs(self, fig):
+        # stats_screen = tk.Tk()
+        # stats_screen.title("Scrollbar Widget Example")
+
+        # # apply the grid layout
+        # root.grid_columnconfigure(0, weight=1)
+        # root.grid_rowconfigure(0, weight=1)
+
+        # create the text widget
+        text = tk.Text(self.canvas, height=40, width=60)
+        text.grid(row=0, column=0, sticky=tk.EW)
+        # text.place(x=100, y=100)
+
+        # create a scrollbar widget and set its command to the text widget
+        scrollbar = ttk.Scrollbar(self.canvas, orient='vertical', command=text.yview)
+        scrollbar.grid(row=0, column=1, sticky=tk.NS)
+
+        #  communicate back to the scrollbar
+        text['yscrollcommand'] = scrollbar.set
+
+        # Create a canvas to embed the plot
+        canvas = FigureCanvasTkAgg(fig, master=self.canvas)
+        canvas.draw()
+
+        # get the plot as a base64 encoded string
+        buf = BytesIO()
+        canvas.print_figure(buf, format='png')
+        data = base64.b64encode(buf.getbuffer()).decode('ascii')
+
+        # insert the plot into the text widget
+        photo = tk.PhotoImage(data=data)
+        text.image_create(tk.END, image=photo)
 
     def __relative_to_assets(self, path: str) -> Path:
         return self.ASSETS_PATH / Path(path)
