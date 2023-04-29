@@ -1,12 +1,10 @@
-import tk as tk
-
-import controller
-import stats_screen
-from bh import BH
-from controller import Controller
-from stats_screen import Bull_and_cows_stats_screen
-from tkinter import *
 import tkinter as tk
+
+from controller import Controller
+from model_graphs import Graph_Model
+from stats_screen import Bull_and_cows_stats_screen
+
+
 #
 # class Main:
 #     def __init__(self):
@@ -32,16 +30,11 @@ class App(tk.Tk):
         self.title('Tkinter MVC Demo')
 
         # create a model
-        model = None
+        model = Graph_Model
 
         # create a view and place it on the root window
         view1_screen_stats = Bull_and_cows_stats_screen(self)
         # view.grid(row=0, column=0, padx=10, pady=10)
-        # self.screen = Tk()
-        # view1_screen_stats.title("Bulls & Hits")
-        # view1_screen_stats.geometry("1273x685")
-        # view1_screen_stats.configure(bg="#F0F0F3")
-        # view1_screen_stats.resizable(False, False)
 
         # create a controller
         controller = Controller(model, view1_screen_stats)
@@ -53,3 +46,9 @@ class App(tk.Tk):
 if __name__ == '__main__':
     app = App()
     app.mainloop()
+
+# self.screen = Tk()
+# view1_screen_stats.title("Bulls & Hits")
+# view1_screen_stats.geometry("1273x685")
+# view1_screen_stats.configure(bg="#F0F0F3")
+# view1_screen_stats.resizable(False, False)

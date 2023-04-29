@@ -1,3 +1,5 @@
+import os
+
 import bh
 import sys
 
@@ -28,6 +30,13 @@ class Controller():
               str(num_of_games), " games is: ", \
               sum(l) / len(l))
         sys.stdout.close()
+        # while True:
+        #     f_stat = os.stat("bhOutput.txt")
+        #     if not bool(f_stat.st_mode & 0o100000):  # check if file is closed
+        #         break
+
+    def show_graphs(self):
+        self.view.create_graphs(self.model.get_fig)
 
 
     def client_request_for_NH(self):

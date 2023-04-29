@@ -32,6 +32,9 @@ class Bull_and_cows_stats_screen(ttk.Frame):
       #  print(f"here {self.my_controller}, and {self.scale_num_of_games.get()}")
         self.my_view_controller.run_bh(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
 
+    def view_asks_for_graphs(self):
+        self.my_view_controller.show_graphs()
+
     def set_controller(self, controller):
         """
         Set the controller
@@ -105,6 +108,11 @@ class Bull_and_cows_stats_screen(ttk.Frame):
                                    command=self.run_game, relief="flat")
         self.button_Guess.place(x=470, y=175, width=250.0, height=70.1025390625)
 
+        self.button_image_Guess2 = PhotoImage(file=relative_to_assets("button_Guess.png"))
+        self.button_Guess2 = Button(image=self.button_image_Guess2, borderwidth=0, highlightthickness=0,
+                                   command=self.view_asks_for_graphs, relief="flat")
+        self.button_Guess2.place(x=570, y=210, width=250.0, height=70.1025390625)
+
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
         self. button_new_game = Button(image=self.button_image_new_game, borderwidth=0, highlightthickness=0,
                                  command=lambda: print("button_new_game clicked"), relief="flat")
@@ -146,7 +154,7 @@ class Bull_and_cows_stats_screen(ttk.Frame):
         text['yscrollcommand'] = scrollbar.set
 
         # Create a canvas to embed the plot
-        canvas = FigureCanvasTkAgg(fig, master=self.canvas)
+        canvas = FigureCanvasTkAgg(fig, master=self.stats_screen)
         canvas.draw()
 
         # get the plot as a base64 encoded string
