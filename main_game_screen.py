@@ -185,6 +185,7 @@ class Bull_and_cows_main_screen:
     def __relative_to_assets(self, path: str) -> Path:
         return self.ASSETS_PATH / Path(path)
 
+
 if __name__ == '__main__':
     window_main_screen = Tk()
     window_main_screen.title("Bulls & Hits")
