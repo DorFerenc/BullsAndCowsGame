@@ -1,22 +1,10 @@
 import bh
-import main_game_screen
 import sys
 
 
 class Controller:
     def __init__(self):
-        self.bh = bh
-        self.client = main_game_screen
-
-    # def __client_asks_num_of_digits(self):
-    #     #send: -
-    #     #recv: num of digits
-    #     return self.bh.NumberOfDigits
-    #
-    # def __client_asks_num_of_games(self):
-    #     #send: -
-    #     #recv: num of games
-    #     return self.bh.NumberOfGames
+        self.bh_code = bh
 
     def run_bh(self, num_of_digits, num_of_games):
         """
@@ -29,8 +17,8 @@ class Controller:
         l = []
         for i in range(num_of_games):
             print("\ngame number ", str(i + 1))
-            self.bh.BH(numberOfDigits=num_of_digits)
-            l.append(bh.getCounter())
+            current_round = bh.BH(0, numberOfDigits=num_of_digits)
+            l.append(current_round.getCounter())
         print("average number of guesses for ", \
               str(num_of_games), " games is: ", \
               sum(l) / len(l))

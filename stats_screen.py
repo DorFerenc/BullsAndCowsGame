@@ -4,6 +4,7 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import Canvas, Entry, PhotoImage, Text, Button
 from guess_functions import *
+from controller import Controller
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
@@ -18,27 +19,31 @@ def update_progress_bar(self, value):
 
 
 class Bull_and_cows_stats_screen:
+
     def update_num_of_digits_value(self, event):
         self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
 
     def update_num_of_games_value(self, event):
         self.number_of_games_label.config(text=f"Number of games {self.scale_num_of_games.get()}")
 
-    def run_game(self, my_controller):
-        my_controller.run_bh(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
+    def run_game(self):
+      #  print(f"here {self.my_controller}, and {self.scale_num_of_games.get()}")
+        self.my_controller.run_bh(self.my_controller, self.scale_num_of_digits.get(), self.scale_num_of_games.get())
 
-    def __init__(self, stats_screen, my_controller):
+    def __init__(self, screen):
         # define some constants
         self.OFFSET_MENU = 30
+        self.stats_screen = screen
+        self.my_controller = Controller
 
         # configure the root window
-        stats_screen.geometry("1273x685")
-        stats_screen.configure(bg="#F0F0F3")
-        stats_screen.title("Bulls and Hits - Statistics")
+        self.stats_screen.geometry("1273x685")
+        self.stats_screen.configure(bg="#F0F0F3")
+        self.stats_screen.title("Bulls and Hits - Statistics")
 
         # create the canvas
         self.canvas = Canvas(
-            stats_screen,
+            self.stats_screen,
             bg="#F0F0F3",
             height=685,
             width=1273,
@@ -86,7 +91,7 @@ class Bull_and_cows_stats_screen:
 
         self.button_image_Guess = PhotoImage(file=relative_to_assets("button_Guess.png"))
         self.button_Guess = Button(image=self.button_image_Guess, borderwidth=0, highlightthickness=0,
-                                   command=lambda: self.run_game(my_controller), relief="flat")
+                                   command=self.run_game, relief="flat")
         self.button_Guess.place(x=470, y=175, width=250.0, height=70.1025390625)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
@@ -108,7 +113,6 @@ class Bull_and_cows_stats_screen:
         self.button_stats = Button(image=self.button_image_stats, borderwidth=0, highlightthickness=0,
                               command=lambda: print("button_stats clicked"), relief="flat")
         self.button_stats.place(x=14.0, y=278.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
-
 
 
     def __relative_to_assets(self, path: str) -> Path:
