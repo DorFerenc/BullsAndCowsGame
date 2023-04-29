@@ -108,19 +108,19 @@ class BH:
     def getCounter(self):
         return self.__counter
 
-def main():
-    sys.stdout = open("bhOutput.txt", 'w')
-    l = []
-    for i in range(NumberOfGames):
-       print("\ngame number ", str(i+1))
-       bh = BH(number=Number, numberOfDigits=NumberOfDigits)
-       l.append(bh.getCounter())
-    print("average number of guesses for ", \
-          str(NumberOfGames), " games is: ", \
-          sum(l)/len(l))
-    sys.stdout.close()
-
-main()
+# def main():
+#     sys.stdout = open("bhOutput.txt", 'w')
+#     l = []
+#     for i in range(NumberOfGames):
+#        print("\ngame number ", str(i+1))
+#        bh = BH(number=Number, numberOfDigits=NumberOfDigits)
+#        l.append(bh.getCounter())
+#     print("average number of guesses for ", \
+#           str(NumberOfGames), " games is: ", \
+#           sum(l)/len(l))
+#     sys.stdout.close()
+#
+# main()
 
 
 

@@ -1,10 +1,12 @@
 import bh
 import main_game_screen
+import sys
+
 
 class Controller:
     def __init__(self):
         self.bh = bh
-        self.front = main_game_screen
+        self.client = main_game_screen
 
     # def __client_asks_num_of_digits(self):
     #     #send: -
@@ -16,16 +18,23 @@ class Controller:
     #     #recv: num of games
     #     return self.bh.NumberOfGames
 
-    def __bh_asks_num_of_digits(self):
-        #send: -
-        #recv: num of digits
-        self.bh.NumberOfDigits = self.front.getDigits()
-
-    def __bh_asks_num_of_games(self):
-        #send: -
-        #recv: num of games
-        self.bh.NumberOfGames = self.front.getGames()
-
+    def run_bh(self, num_of_digits, num_of_games):
+        """
+        :param num_of_digits:
+        :param num_of_games:
+        :return: -
+        this function initiate bh
+        """
+        sys.stdout = open("bhOutput.txt", 'w')
+        l = []
+        for i in range(num_of_games):
+            print("\ngame number ", str(i + 1))
+            self.bh.BH(numberOfDigits=num_of_digits)
+            l.append(bh.getCounter())
+        print("average number of guesses for ", \
+              str(num_of_games), " games is: ", \
+              sum(l) / len(l))
+        sys.stdout.close()
 
     def client_request_for_NH(self):
         #send: -
