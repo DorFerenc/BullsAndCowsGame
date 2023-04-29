@@ -1,8 +1,14 @@
 
 def client_request_for_NH():
     #send: -
-    #recv: num of bulls, num of hits
+    #recv: num of hits
     pass
+
+def client_request_for_NB():
+    #send: -
+    #recv: num of bulls
+    pass
+
 
 def client_asks_if_its_a_win():
     #send: guess
