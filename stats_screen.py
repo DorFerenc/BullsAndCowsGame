@@ -24,7 +24,10 @@ class Bull_and_cows_stats_screen:
     def update_num_of_games_value(self, event):
         self.number_of_games_label.config(text=f"Number of games {self.scale_num_of_games.get()}")
 
-    def __init__(self, stats_screen):
+    def run_game(self, my_controller):
+        my_controller.run_bh(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
+
+    def __init__(self, stats_screen, my_controller):
         # define some constants
         self.OFFSET_MENU = 30
 
@@ -83,7 +86,7 @@ class Bull_and_cows_stats_screen:
 
         self.button_image_Guess = PhotoImage(file=relative_to_assets("button_Guess.png"))
         self.button_Guess = Button(image=self.button_image_Guess, borderwidth=0, highlightthickness=0,
-                              command=lambda: take_the_guess(self.ENTRY_LIST, self.canvas, self.BULLS_HITS_LIST), relief="flat")
+                                   command=lambda: self.run_game(my_controller), relief="flat")
         self.button_Guess.place(x=470, y=175, width=250.0, height=70.1025390625)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
@@ -111,12 +114,12 @@ class Bull_and_cows_stats_screen:
     def __relative_to_assets(self, path: str) -> Path:
         return self.ASSETS_PATH / Path(path)
 
-if __name__ == '__main__':
-    stats_screen = Tk()
-    stats_screen.title("Bulls & Hits")
-    stats_screen.geometry("1273x685")
-    stats_screen.configure(bg="#F0F0F3")
-    # game = Codebreaker(window_main_screen)
-    stats_screen.resizable(False, False)
-    Bull_and_cows_stats_screen(stats_screen)
-    stats_screen.mainloop()
+# if __name__ == '__main__':
+#     stats_screen = Tk()
+#     stats_screen.title("Bulls & Hits")
+#     stats_screen.geometry("1273x685")
+#     stats_screen.configure(bg="#F0F0F3")
+#     # game = Codebreaker(window_main_screen)
+#     stats_screen.resizable(False, False)
+#     Bull_and_cows_stats_screen(stats_screen)
+#     stats_screen.mainloop()
