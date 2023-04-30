@@ -10,7 +10,7 @@ class Controller():
     def __init__(self, model, view):
         self.model = model
         self.view = view
-        self.table_size = len(self.model.getCounter(self.view))
+        self.table_size = len(bh.BH.getCounter(self.view))
         self.guess = None
         # self.bh_code = bh
         # self.my_stats_screen = stats_screen.Bull_and_cows_stats_screen()
