@@ -21,6 +21,7 @@ class Controller():
         this function initiate bh
         """
         self.view.create_graphs(None)
+        self.view.show_text("")
         sys.stdout = open("bhOutput.txt", 'w')
         l = []
         for i in range(num_of_games):
@@ -38,8 +39,9 @@ class Controller():
 
     def show_graphs(self):
         figy = self.model.get_fig()
+        texty = self.model.get_text()
         self.view.create_graphs(figy)
-
+        self.view.show_text(texty)
 
     def client_request_for_NH(self):
         #send: -

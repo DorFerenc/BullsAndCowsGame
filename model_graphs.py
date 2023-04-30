@@ -14,6 +14,12 @@ class Graph_Model:
         self.table_sizes = []
         self.guess_numbers = []
 
+    def get_text(self):
+        with open("bhOutput.txt", "r") as file:
+            # read the entire file contents as a string
+            contents = file.read()
+        return contents
+
     def get_fig(self):
         # open and read the text file
         with open("bhOutput.txt", "r") as file:
