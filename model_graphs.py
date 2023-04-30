@@ -1,6 +1,7 @@
 import re
 
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
 class Graph_Model:
@@ -46,6 +47,8 @@ class Graph_Model:
 
         # create a Figure object and two subplots
         fig = plt.Figure(figsize=(6, 6), dpi=100)
+        fig.subplots_adjust(hspace=0.5)
+        fig.subplots_adjust(left=0.16, right=0.95)
         ax1 = fig.add_subplot(211)
         ax2 = fig.add_subplot(212)
 
@@ -55,6 +58,8 @@ class Graph_Model:
         ax1.set_ylabel("Number of Tries")
         ax1.set_title("Number of Tries vs Game Number")
 
+        # for number in self.table_sizes:
+        #     print(number)
         # create the second plot
         ax2.scatter(self.guess_numbers, self.table_sizes, alpha=0.5)
         ax2.set_xlabel("Guess Number")

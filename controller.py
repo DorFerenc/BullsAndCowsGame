@@ -20,6 +20,7 @@ class Controller():
         :return: -
         this function initiate bh
         """
+        self.view.create_graphs(None)
         sys.stdout = open("bhOutput.txt", 'w')
         l = []
         for i in range(num_of_games):
@@ -36,7 +37,8 @@ class Controller():
         #         break
 
     def show_graphs(self):
-        self.view.create_graphs(self.model.get_fig)
+        figy = self.model.get_fig()
+        self.view.create_graphs(figy)
 
 
     def client_request_for_NH(self):

@@ -1,10 +1,19 @@
 import base64
 import tkinter as tk
 from io import BytesIO
-from pathlib import Path
 from tkinter import ttk
-
+import matplotlib.pyplot as plt
+from PIL import ImageTk
+from matplotlib.backends._backend_tk import NavigationToolbar2Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import re
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import tkinter as tk
+from tkinter import ttk
+from pathlib import Path
+import tkinter as tk
+from tkinter import ttk
 
 from guess_functions import *
 
@@ -96,22 +105,26 @@ class Bull_and_cows_stats_screen(ttk.Frame):
 
         # number of digits scale and label
         self.value_number_of_digits = IntVar()
-        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=4, to=12, orient=HORIZONTAL, length=200)
+        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=4, to=8, orient=HORIZONTAL, length=200)
         self.scale_num_of_digits.bind("<ButtonRelease-1>", self.update_num_of_digits_value)
         self.scale_num_of_digits.place(x=650, y=100)
-        self.number_of_digits_label = ttk.Label(self.canvas, text=f"Number of digits {self.scale_num_of_digits.get()}", foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
+        self.number_of_digits_label = ttk.Label(self.canvas, text=f"Number of games {self.scale_num_of_games.get()}", foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
         self.number_of_digits_label.place(x=650, y=80)
 
 
-        self.button_image_Guess = PhotoImage(file=relative_to_assets("button_Guess.png"))
-        self.button_Guess = Button(image=self.button_image_Guess, borderwidth=0, highlightthickness=0,
-                                   command=self.run_game, relief="flat")
-        self.button_Guess.place(x=470, y=175, width=250.0, height=70.1025390625)
+        # self.button_image_Guess = PhotoImage(file=relative_to_assets("button_Guess.png"))
+        # self.button_Guess = Button(image=self.button_image_Guess, borderwidth=0, highlightthickness=0,
+        #                            command=self.run_game, relief="flat")
+        # self.button_Guess.place(x=470, y=175, width=250.0, height=70.1025390625)
+        self.run_game_button = Button(text='Run Game!', command=self.run_game)
+        self.run_game_button.place(x=360, y=148)
 
-        self.button_image_Guess2 = PhotoImage(file=relative_to_assets("button_Guess.png"))
-        self.button_Guess2 = Button(image=self.button_image_Guess2, borderwidth=0, highlightthickness=0,
-                                   command=self.view_asks_for_graphs, relief="flat")
-        self.button_Guess2.place(x=570, y=210, width=250.0, height=70.1025390625)
+        # self.button_image_Guess2 = PhotoImage(file=relative_to_assets("button_Guess.png"))
+        # self.button_Guess2 = Button(image=self.button_image_Guess2, borderwidth=0, highlightthickness=0,
+        #                            command=self.view_asks_for_graphs, relief="flat")
+        # self.button_Guess2.place(x=570, y=220, width=250.0, height=70.1025390625)
+        self.show_graphs_button = Button(text='Show Graphs!', command=self.view_asks_for_graphs)
+        self.show_graphs_button.place(x=690, y=148)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
         self. button_new_game = Button(image=self.button_image_new_game, borderwidth=0, highlightthickness=0,
@@ -133,7 +146,27 @@ class Bull_and_cows_stats_screen(ttk.Frame):
                               command=lambda: print("button_stats clicked"), relief="flat")
         self.button_stats.place(x=14.0, y=278.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
+        self.create_graphs(None) # open an empty graph
+
     def create_graphs(self, fig):
+        # create the inner canvas
+        inner_canvas = tk.Canvas(self.canvas)
+        inner_canvas.place(x=276, y=200, width=620, height=480)
+
+        # # create a vertical scrollbar for the inner canvas
+        # scrollbar = tk.Scrollbar(self.canvas, orient=tk.VERTICAL, command=inner_canvas.yview)
+        # scrollbar.place(x=876, y=100, height=500)
+        # inner_canvas.configure(yscrollcommand=scrollbar.set)
+
+        # create FigureCanvasTkAgg object
+        figure_canvas = FigureCanvasTkAgg(fig, inner_canvas)
+
+        # # create the toolbar
+        NavigationToolbar2Tk(figure_canvas, inner_canvas)
+
+        figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+    def create_graphs2(self, fig):
         # stats_screen = tk.Tk()
         # stats_screen.title("Scrollbar Widget Example")
 
@@ -165,6 +198,7 @@ class Bull_and_cows_stats_screen(ttk.Frame):
         # insert the plot into the text widget
         photo = tk.PhotoImage(data=data)
         text.image_create(tk.END, image=photo)
+
 
     def __relative_to_assets(self, path: str) -> Path:
         return self.ASSETS_PATH / Path(path)

@@ -30,7 +30,7 @@ class App(tk.Tk):
         self.title('Tkinter MVC Demo')
 
         # create a model
-        model = Graph_Model
+        model = Graph_Model()
 
         # create a view and place it on the root window
         view1_screen_stats = Bull_and_cows_stats_screen(self)
