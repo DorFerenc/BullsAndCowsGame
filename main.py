@@ -13,14 +13,14 @@ class App(tk.Tk):
         self.title('Tkinter MVC Demo')
 
         # create a model
-        model = BH_back
+        model2 = BH_back
 
         # create a view and place it on the root window
         view2_screen_stats = Bull_and_cows_main_screen(self)
         # view.grid(row=0, column=0, padx=10, pady=10)
 
         # create a controller
-        controller = Controller(model, view2_screen_stats)
+        controller = Controller(model2, view2_screen_stats)
 
         # set the controller to view
         view2_screen_stats.set_controller(controller)

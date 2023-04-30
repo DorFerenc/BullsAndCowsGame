@@ -222,6 +222,14 @@ class Bull_and_cows_main_screen:
                            text="guess number  " + guess_num + "  is:  " + guess +" table size: " + current_t_size +" nb: "+ nb +" nh: " + nh,
                            fill="#0d0c0c", font=('Georgia 12'))
 
+    def set_controller(self, controller):
+        """
+        Set the controller
+        :param controller:
+        :return:
+        """
+        self.my_view_controller = controller
+
 
 if __name__ == '__main__':
     window_main_screen = Tk()

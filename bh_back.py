@@ -16,6 +16,3 @@ class BH_back:
 
     def get_guess(self, guess):
         self.guess_numbers = guess
-
-    def get_table_size(self):
-        self.table_sizes = len(BH.getCounter(BH))

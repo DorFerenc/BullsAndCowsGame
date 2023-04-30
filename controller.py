@@ -1,6 +1,6 @@
 import os
-
 import bh
+from bh import BH
 import sys
 
 import stats_screen
@@ -10,7 +10,7 @@ class Controller():
     def __init__(self, model, view):
         self.model = model
         self.view = view
-        self.table_size = len(bh.BH.getCounter(self.view))
+        self.table_size = None
         self.guess = None
         # self.bh_code = bh
         # self.my_stats_screen = stats_screen.Bull_and_cows_stats_screen()
@@ -42,6 +42,14 @@ class Controller():
         :return:
         """
         self.model.get_guess(self.model, self.view.take_the_guess())
+
+    def set_table_size(self):
+        """
+        #send: -
+        #recv: str
+        :return:
+        """
+        self.table_size = len(BH.getCounter(BH))
 
     def client_request_for_NH(self):
         #send: -
