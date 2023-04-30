@@ -35,6 +35,7 @@ class Controller():
 
 
 
+
     def bh_asks_the_guess(self):
         """
         #send: -
@@ -50,6 +51,13 @@ class Controller():
         :return:
         """
         self.table_size = len(BH.getCounter(BH))
+
+    def show_graphs(self):
+        figy = self.model.get_fig()
+        texty = self.model.get_text()
+        self.view.create_graphs(figy)
+        self.view.show_text(texty)
+
 
     def client_request_for_NH(self):
         #send: -

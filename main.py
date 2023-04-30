@@ -14,6 +14,7 @@ class App(tk.Tk):
 
         # create a model
         model2 = BH_back
+        model = Graph_Model()
 
         # create a view and place it on the root window
         view2_screen_stats = Bull_and_cows_main_screen(self)
