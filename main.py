@@ -2,26 +2,9 @@ import tkinter as tk
 
 from controller import Controller
 from model_graphs import Graph_Model
-from stats_screen import Bull_and_cows_stats_screen
-
-
-#
-# class Main:
-#     def __init__(self):
-#         self.controller = controller
-#         self.stats_screen = stats_screen
-#         self.screen = Tk()
-#         self.screen.title("Bulls & Hits")
-#         self.screen.geometry("1273x685")
-#         self.screen.configure(bg="#F0F0F3")
-#         self.screen.resizable(False, False)
-#         self.bulls_and_cows_stats_screen = Bull_and_cows_stats_screen(self.screen)
-#
-#     def run_stats(self):
-#         self.stats_screen.mainloop()
-#
-# m = Main()
-# m.run_stats()
+from main_game_screen import Bull_and_cows_main_screen
+from bh_back import BH_back
+from bh import BH
 
 class App(tk.Tk):
     def __init__(self):
@@ -30,17 +13,18 @@ class App(tk.Tk):
         self.title('Tkinter MVC Demo')
 
         # create a model
+        model2 = BH_back
         model = Graph_Model()
 
         # create a view and place it on the root window
-        view1_screen_stats = Bull_and_cows_stats_screen(self)
+        view2_screen_stats = Bull_and_cows_main_screen(self)
         # view.grid(row=0, column=0, padx=10, pady=10)
 
         # create a controller
-        controller = Controller(model, view1_screen_stats)
+        controller = Controller(model2, view2_screen_stats)
 
         # set the controller to view
-        view1_screen_stats.set_controller(controller)
+        view2_screen_stats.set_controller(controller)
 
 
 if __name__ == '__main__':

@@ -3,6 +3,11 @@ import tkinter as tk
 from tkinter import Canvas, Entry, PhotoImage, Text, Button
 from guess_functions import *
 
+NumberOfDigits = 4
+
+CURRENT_POSITION = 0
+OFFSET = 30.0
+
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
 
@@ -182,8 +187,48 @@ class Bull_and_cows_main_screen:
                           command=lambda: update_current_guess_board(3, self.ENTRY_LIST), relief="flat")
         self.button_3.place(x=564.0, y=498.0, width=71.0, height=70.1025390625)
 
-    def __relative_to_assets(self, path: str) -> Path:
+    def relative_to_assets(self, path: str) -> Path:
         return self.ASSETS_PATH / Path(path)
+
+    def take_the_guess(self):
+        guess = ""
+        entry_list = [self.entry_guess_1, self.entry_guess_2, self.entry_guess_3, self.entry_guess_4]
+        for entry in entry_list:
+            guess += entry.get()
+        for entry in entry_list:
+            entry.delete(0, END)
+        return guess
+
+    def update_current_guess_board(number):
+        global CURRENT_POSITION
+        entry_list = [self.entry_guess_1, self.entry_guess_2, self.entry_guess_3, self.entry_guess_4]
+        # MAPPING_POSITION_TO_ENTRY[CURRENT_POSITION].insert(number)
+        print(f"button_{number} clicked")
+        entry_list[CURRENT_POSITION].insert(0, str(number))
+        CURRENT_POSITION += 1
+        if CURRENT_POSITION == NumberOfDigits:
+            CURRENT_POSITION = 0
+
+    def show_game(self, game_num, guess, table_size):
+        global OFFSET
+        self.canvas.create_text(920.0, OFFSET, anchor="nw", text="game number " + game_num + " number :" + guess + " table size: " + table_size,
+                                fill="#0d0c0c", font=('Georgia 15'))
+
+    def show_guess(self, guess_num, guess, current_t_size, nb, nh):
+        global OFFSET
+        "guess number  1  is:  7526  table size:  4536  nb:  0  nh:  3"
+        OFFSET = OFFSET + 30.0
+        self.canvas.create_text(920.0, OFFSET, anchor="nw",
+                           text="guess number  " + guess_num + "  is:  " + guess +" table size: " + current_t_size +" nb: "+ nb +" nh: " + nh,
+                           fill="#0d0c0c", font=('Georgia 12'))
+
+    def set_controller(self, controller):
+        """
+        Set the controller
+        :param controller:
+        :return:
+        """
+        self.my_view_controller = controller
 
 
 if __name__ == '__main__':

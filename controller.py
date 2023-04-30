@@ -1,6 +1,6 @@
 import os
-
 import bh
+from bh import BH
 import sys
 
 import stats_screen
@@ -10,6 +10,8 @@ class Controller():
     def __init__(self, model, view):
         self.model = model
         self.view = view
+        self.table_size = None
+        self.guess = None
         # self.bh_code = bh
         # self.my_stats_screen = stats_screen.Bull_and_cows_stats_screen()
 
@@ -20,28 +22,42 @@ class Controller():
         :return: -
         this function initiate bh
         """
-        self.view.create_graphs(None)
-        self.view.show_text("")
-        sys.stdout = open("bhOutput.txt", 'w')
-        l = []
+        self.guess = self.view.take_the_guess(self.view)
+        self.l = []
         for i in range(num_of_games):
-            print("\ngame number ", str(i + 1))
+            game_num = str(i+1)
+            self.view.update_current_guess_board(self.view)
             current_round = bh.BH(0, numberOfDigits=num_of_digits)
-            l.append(current_round.getCounter())
-        print("average number of guesses for ", \
-              str(num_of_games), " games is: ", \
-              sum(l) / len(l))
-        sys.stdout.close()
-        # while True:
-        #     f_stat = os.stat("bhOutput.txt")
-        #     if not bool(f_stat.st_mode & 0o100000):  # check if file is closed
-        #         break
+            self.l.append(current_round.getCounter())
+            current_round_size = current_round.getCounter()
+            avg = str(sum(self.l) / len(self.l))
+            self.view.show_game(self.view, game_num, self.guess, current_round_size)
+
+
+
+
+    def bh_asks_the_guess(self):
+        """
+        #send: -
+        #recv: str
+        :return:
+        """
+        self.model.get_guess(self.model, self.view.take_the_guess())
+
+    def set_table_size(self):
+        """
+        #send: -
+        #recv: str
+        :return:
+        """
+        self.table_size = len(BH.getCounter(BH))
 
     def show_graphs(self):
         figy = self.model.get_fig()
         texty = self.model.get_text()
         self.view.create_graphs(figy)
         self.view.show_text(texty)
+
 
     def client_request_for_NH(self):
         #send: -
@@ -69,7 +85,3 @@ class Controller():
         #recv: int
         pass
 
-    def bh_asks_the_guess(self):
-        #send: -
-        #recv: int or str
-        pass
