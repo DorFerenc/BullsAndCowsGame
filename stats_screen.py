@@ -17,6 +17,7 @@ from tkinter import ttk
 
 from guess_functions import *
 
+
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
 
@@ -29,44 +30,24 @@ def update_progress_bar(self, value):
     self.canvas.update_idletasks()
 
 
-class Bull_and_cows_stats_screen(ttk.Frame):
-
-    def update_num_of_digits_value(self, event):
-        self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
-
-    def update_num_of_games_value(self, event):
-        self.number_of_games_label.config(text=f"Number of games {self.scale_num_of_games.get()}")
-
-    def run_game(self):
-      #  print(f"here {self.my_controller}, and {self.scale_num_of_games.get()}")
-        self.my_view_controller.run_bh(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
-
-    def view_asks_for_graphs(self):
-        self.my_view_controller.show_graphs()
-
-    def set_controller(self, controller):
-        """
-        Set the controller
-        :param controller:
-        :return:
-        """
-        self.my_view_controller = controller
+class Bull_and_cows_stats_screen(tk.Frame):
 
     def __init__(self, parent):
-        super().__init__(parent)
+        tk.Frame.__init__(self, parent)
         # define some constants
         self.OFFSET_MENU = 30
-        self.stats_screen = parent
+        self.stats_screen_frame = tk.Frame(self)
+        self.stats_screen_frame.pack()
         # self.my_controller = Controller
 
         # configure the root window
-        self.stats_screen.geometry("1573x685")
-        self.stats_screen.configure(bg="#F0F0F3")
-        self.stats_screen.title("Bulls and Hits - Statistics")
+        # self.stats_screen.geometry("1573x685")
+        # self.stats_screen.configure(bg="#F0F0F3")
+        # self.stats_screen.title("Bulls and Hits - Statistics")
 
         # create the canvas
         self.canvas = Canvas(
-            self.stats_screen,
+            self,
             bg="#F0F0F3",
             height=685,
             width=1273,
@@ -145,37 +126,58 @@ class Bull_and_cows_stats_screen(ttk.Frame):
         # self.button_Guess = Button(image=self.button_image_Guess, borderwidth=0, highlightthickness=0,
         #                            command=self.run_game, relief="flat")
         # self.button_Guess.place(x=470, y=175, width=250.0, height=70.1025390625)
-        self.run_game_button = Button(text='Run Game!', command=self.run_game)
+        self.run_game_button = Button(self.canvas, text='Run Game!', command=self.run_game)
         self.run_game_button.place(x=360, y=148)
 
         # self.button_image_Guess2 = PhotoImage(file=relative_to_assets("button_Guess.png"))
         # self.button_Guess2 = Button(image=self.button_image_Guess2, borderwidth=0, highlightthickness=0,
         #                            command=self.view_asks_for_graphs, relief="flat")
         # self.button_Guess2.place(x=570, y=220, width=250.0, height=70.1025390625)
-        self.show_graphs_button = Button(text='Show Graphs!', command=self.view_asks_for_graphs)
+        self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
         self.show_graphs_button.place(x=690, y=148)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
-        self. button_new_game = Button(image=self.button_image_new_game, borderwidth=0, highlightthickness=0,
-                                 command=lambda: print("button_new_game clicked"), relief="flat")
+        self. button_new_game = Button(self.canvas, image=self.button_image_new_game, borderwidth=0, highlightthickness=0,
+                                 command=lambda: self.my_controller.show_frame(1), relief="flat")
         self.button_new_game.place(x=13.0, y=23.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
-        self.button_image_prev_game = PhotoImage(file=relative_to_assets("button_prev_game.png"))
-        self.button_prev_game = Button(image=self.button_image_prev_game, borderwidth=0, highlightthickness=0,
-                                  command=lambda: print("button_prev_game clicked"), relief="flat")
-        self.button_prev_game.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
-
-        self.button_image_settings = PhotoImage(file=relative_to_assets("button_settings.png"))
-        self.button_settings = Button(image=self.button_image_settings, borderwidth=0, highlightthickness=0,
-                                 command=lambda: print("button_settings clicked"), relief="flat")
-        self.button_settings.place(x=13.0, y=193.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+        # self.button_image_prev_game = PhotoImage(file=relative_to_assets("button_prev_game.png"))
+        # self.button_prev_game = Button(image=self.button_image_prev_game, borderwidth=0, highlightthickness=0,
+        #                           command=lambda: print("button_prev_game clicked"), relief="flat")
+        # self.button_prev_game.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+        #
+        # self.button_image_settings = PhotoImage(file=relative_to_assets("button_settings.png"))
+        # self.button_settings = Button(image=self.button_image_settings, borderwidth=0, highlightthickness=0,
+        #                          command=lambda: print("button_settings clicked"), relief="flat")
+        # self.button_settings.place(x=13.0, y=193.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
         self.button_image_stats = PhotoImage(file=relative_to_assets("button_stats.png"))
-        self.button_stats = Button(image=self.button_image_stats, borderwidth=0, highlightthickness=0,
-                              command=lambda: print("button_stats clicked"), relief="flat")
-        self.button_stats.place(x=14.0, y=278.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+        self.button_stats = Button(self.canvas, image=self.button_image_stats, borderwidth=0, highlightthickness=0,
+                              command=lambda: self.my_controller.show_frame(2), relief="flat")
+        self.button_stats.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+        # self.button_stats.place(x=14.0, y=278.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
         self.create_graphs(None) # open an empty graph
+
+    def update_num_of_digits_value(self, event):
+        self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
+
+    def update_num_of_games_value(self, event):
+        self.number_of_games_label.config(text=f"Number of games {self.scale_num_of_games.get()}")
+
+    def run_game(self):
+        self.my_controller.run_stats(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
+
+    def view_asks_for_graphs(self):
+        self.my_controller.show_graphs()
+
+    def set_controller(self, controller):
+        """
+        Set the controller
+        :param controller:
+        :return:
+        """
+        self.my_controller = controller
 
     def show_text(self, text):
         if text == "":
