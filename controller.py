@@ -11,7 +11,7 @@ class Controller():
         self.model_play_game = model_play_game
         self.model_graph = model_graph
         self.container = container
-
+        self.filename = "bhOutput.txt"
         self.frames = {}  # initializing frames to an empty array
 
         # iterating through a tuple consisting of the different page layouts
@@ -106,8 +106,8 @@ class Controller():
         self.table_size = len(BH.getCounter(BH))
 
     def show_graphs(self):
-        figy = self.model_graph.get_fig()
-        texty = self.model_graph.get_text()
+        figy = self.model_graph.get_fig(self.filename)
+        texty = self.model_graph.get_text(self.filename)
         self.view1_screen_stats.create_graphs(figy)
         self.view1_screen_stats.show_text(texty)
 

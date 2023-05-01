@@ -13,15 +13,59 @@ class Graph_Model:
         self.table_sizes = []
         self.guess_numbers = []
 
-    def get_text(self):
-        with open("bhOutput.txt", "r") as file:
+    # def update_file(self, filename):
+    #     with open(filename, 'r') as f:
+    #         lines = f.readlines()
+    #
+    #     new_lines = []
+    #     for line in lines:
+    #         if line.startswith("guess number"):
+    #             parts = line.split()
+    #             nb = parts[-2]
+    #             nh = parts[-1]
+    #             table_size = parts[-3]
+    #             new_line = f"{parts[0]} {parts[1]} {parts[2]} {parts[3]} {parts[4]} {parts[5]} {table_size:>8s} nb: {nb:>3s} nh: {nh:>3s}\n"
+    #             new_lines.append(new_line)
+    #         else:
+    #             new_lines.append(line)
+    #
+    #     with open(filename, 'w') as f:
+    #         f.writelines(new_lines)
+
+    def update_file(self, filename):
+        """
+        Updates the formatting of guess results in the specified file.
+        :param filename: the name of the file to update
+        :type filename: str
+        """
+        # open the file in read mode and read the lines
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+
+        # iterate through the lines and update the formatting
+        for i in range(len(lines)):
+            if 'guess number' in lines[i]:
+                parts = lines[i].split()
+                parts[2] = parts[2].ljust(2)
+                parts[5] = parts[5].ljust(5)
+                parts[7] = parts[7].ljust(9)
+                parts[9] = parts[9].ljust(4)
+                lines[i] = ' '.join(parts) + '\n'
+
+        # open the file in write mode and write the updated lines
+        with open(filename, 'w') as file:
+            file.writelines(lines)
+
+    def get_text(self, filename):
+        self.update_file(filename)
+        with open(filename, "r") as file:
             # read the entire file contents as a string
             contents = file.read()
         return contents
 
-    def get_fig(self):
+    def get_fig(self, filename):
         # open and read the text file
-        with open("bhOutput.txt", "r") as file:
+        with open(filename, "r") as file:
             # read the entire file contents as a string
             contents = file.read()
             # split the string into a list of game data sections
