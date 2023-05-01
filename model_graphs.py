@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 
 class Graph_Model:
     def __init__(self):
+        """
+        Initializes empty lists for game number and number of tries,
+        and table sizes and guess numbers.
+        """
         # initialize empty lists for game number and number of tries
         self.game_numbers = []
         self.num_tries = []
@@ -38,6 +42,14 @@ class Graph_Model:
             file.writelines(lines)
 
     def get_text(self, filename):
+        """
+        Reads the contents of a file after updating the formatting of guess results.
+
+        :param filename: the name of the file to read
+        :type filename: str
+        :return: the contents of the file after updating the formatting
+        :rtype: str
+        """
         self.update_file(filename)
         with open(filename, "r") as file:
             # read the entire file contents as a string
@@ -45,6 +57,16 @@ class Graph_Model:
         return contents
 
     def get_fig(self, filename):
+        """
+        Generates two subplots showing the number of tries vs game number,
+        and the table size vs guess number,
+        using data extracted from the specified file.
+
+        :param filename: the name of the file containing the game data
+        :type filename: str
+        :return: a matplotlib Figure object containing the two subplots
+        :rtype: matplotlib.figure.Figure
+        """
         # open and read the text file
         with open(filename, "r") as file:
             # read the entire file contents as a string

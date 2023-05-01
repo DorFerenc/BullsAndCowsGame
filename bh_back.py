@@ -1,9 +1,11 @@
 import random
 
+
 class BH_back:
     def __init__(self):
-
         # initialize empty lists for num of bulls and num of hits
+        self.guess = None
+        self.guess_numbers = None
         self.number_of_bulls = 0
         self.number_of_hits = 0
 
@@ -12,16 +14,33 @@ class BH_back:
         self.tries = 8
         self.current_try = 0
 
-        # self.guess = int(input("Enter your guess: "))
-
     def initiat_game(self, tries):
+        """
+        Initialize the game with the given number of tries.
+
+        :param tries: the number of tries to be given to the player
+        :type tries: int
+        :return: None
+        :rtype: None
+        """
         self.tries = tries
         self.secret_num = self.generateNum()
         # print(self.secret_num)
 
-    # return tuple in this template:
-    # ("MSG", -1(error)/0(in game)/1(win)/2(lose) , bulls, cows)
     def check_guess(self, guess):
+        """
+        Check the player's guess and return a message, status code,
+        number of bulls, and number of cows.
+
+        :param guess: the player's guess
+        :type guess: int
+        :return: a message indicating the result of the guess, a status code, the number of bulls, and the number of cows
+        :rtype: tuple[str, int, int, int]
+            first string is a msg to display
+            int -1(error) / 0(in game) / 1(win) / 2(lose)
+            int bulls
+            int cows (hits)
+        """
         self.guess = guess
         if not self.noDuplicates(guess):
             return "Number should not have repeated digits. Try again.", -1, 0, 0
@@ -36,32 +55,75 @@ class BH_back:
         return "", 0, bull_cow[0], bull_cow[1]
 
     def get_guess(self, guess):
+        """
+         Set the guess numbers for the current game.
+
+         :param guess: the player's guess
+         :type guess: int
+         :return: None
+         :rtype: None
+         """
         self.guess_numbers = guess
 
     # Returns list of digits of a number
     def getDigits(self, num):
+        """
+        Get the digits of a number and return them as a list.
+
+        :param num: the number to get the digits of
+        :type num: int
+        :return: a list of digits of the given number
+        :rtype: List[int]
+        """
         return [int(i) for i in str(num)]
 
-    # Returns True if number has no duplicate digits otherwise False
     def noDuplicates(self, num):
+        """
+        Checks if a number has any duplicate digits.
+
+        :param num: The number to check for duplicate digits.
+        :type num: int
+        :return: Returns True if the number has no duplicate digits, False otherwise.
+        :rtype: bool
+        """
         num_li = self.getDigits(num)
         if len(num_li) == len(set(num_li)):
             return True
         else:
             return False
 
-    # Generates a 4 digit number
-    # with no repeated digits
     def generateNum(self):
+        """
+         Generates a random 4-digit number with no repeated digits.
+
+         :param : None
+         :type : None
+         :return: A random 4-digit number with no repeated digits.
+         :rtype: int
+         """
         while True:
             num = random.randint(1000, 9999)
             if self.noDuplicates(num):
                 return num
 
-    # Returns common digits with exact
-    # matches (bulls) and the common
-    # digits in wrong position (cows)
     def numOfBullsCows(self, num, guess):
+        """
+        Calculates the number of bulls and cows for the given guess.
+
+        Bulls are the digits in the guess that match exactly with the digits in the secret number
+        in the same position.
+
+        Cows are the digits in the guess that match with the digits in the secret number, but are not
+        in the same position.
+
+        :param num: The secret number.
+        :type num: int
+        :param guess: The guess made by the player.
+        :type guess: int
+        :return: A tuple containing the number of bulls and cows respectively.
+        :rtype: tuple
+        """
+
         bull_cow = [0, 0]
         num_li = self.getDigits(num)
         guess_li = self.getDigits(guess)

@@ -6,6 +6,7 @@ from model_graphs import Graph_Model
 
 
 class App(tk.Tk):
+    """The main application window for the Bulls and Hits game."""
     def __init__(self):
         super().__init__()
 
