@@ -2,7 +2,7 @@ import base64
 import tkinter as tk
 from io import BytesIO
 from pathlib import Path
-from tkinter import ttk
+from tkinter import ttk, IntVar, Button, PhotoImage, Scale, HORIZONTAL
 
 from matplotlib.backends._backend_tk import NavigationToolbar2Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -35,7 +35,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
         # self.stats_screen.title("Bulls and Hits - Statistics")
 
         # create the canvas
-        self.canvas = Canvas(
+        self.canvas = tk.Canvas(
             self,
             bg="#F0F0F3",
             height=685,
