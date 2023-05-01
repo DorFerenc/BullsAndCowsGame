@@ -22,6 +22,7 @@ class Bull_and_cows_main_screen(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         # define some constants
+        self.current_guess = None
         self.my_controller = None
         self.OFFSET_MENU = 30
         self.main_game_frame = tk.Frame(self)
@@ -232,7 +233,10 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.clear_only_entrys()
         self.guess_counter += 1
 
-        self.my_controller.main_sends_guess(int(self.current_guess))
+        if self.current_guess == "????":
+            self.show_what_returned_from_guess(("Please enter a guess. Try again", -1, 0, 0))
+        else:
+            self.my_controller.main_sends_guess(int(self.current_guess))
 
     # return tuple in this template:
     # ("MSG", -1(error)/0(in game)/1(win)/2(lose) , bulls, cows)
