@@ -26,7 +26,7 @@ class BH_back:
         if not self.noDuplicates(guess):
             return "Number should not have repeated digits. Try again.", -1, 0, 0
         if guess < 1000 or guess > 9999:
-            return "Enter 4 digit number only. Try again.", -1, 0, 0
+            return "Number can't start with ZERO. Try again.", -1, 0, 0
         bull_cow = self.numOfBullsCows(self.secret_num, guess)
         if bull_cow[0] == 4:
             return "You guessed right!", 1, bull_cow[0], bull_cow[1]
