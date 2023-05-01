@@ -8,6 +8,7 @@ NumberOfDigits = 4
 
 CURRENT_POSITION = 0
 OFFSET = 30.0
+GUESS_OFFSET = 30.0
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
@@ -30,13 +31,16 @@ class Bull_and_cows_main_screen(tk.Frame):
         # self.window_main_screen.geometry("1273x685")
         # self.window_main_screen.configure(bg="#F0F0F3")
         # self.window_main_screen.title("Bulls and Hits")
-
+        self.NumberOfDigits = 4
+        self.CURRENT_POSITION = 0
+        self.GUESS_OFFSET = 30.0
+        self.guess_counter = 0
         # create the canvas
         self.canvas = Canvas(
             self,
             bg="#F0F0F3",
             height=685,
-            width=1273,
+            width=1573,
             bd=0,
             highlightthickness=0,
             relief="ridge"
@@ -51,6 +55,19 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.orange_canvas = self.canvas.create_rectangle(900.0, 0.0, 1573.0, 685.0, fill="#FFA53C", outline="")
         self.canvas.create_text(920.0, 8.0, anchor="nw", text="Guesses:", fill="#7e37ad",
                                 font=("Inter Regular", 32 * -1))
+
+        # create the text area and scrollbar
+        self.text_frame = tk.Frame(self.canvas, bg="#FFA53C", bd=0, highlightthickness=0)
+        self.text_frame.place(x=910, y=50, width=650, height=600)
+
+        self.text = tk.Text(self.text_frame, bg="#FFA53C", bd=0, highlightthickness=0, wrap="word", width=50)
+        self.text.pack(side="left", fill="both", expand=True)
+
+        self.scrollbar = tk.Scrollbar(self.text_frame, orient="vertical", command=self.text.yview, width=20)
+        self.scrollbar.pack(side="right", fill="y")
+
+        self.text.config(yscrollcommand=self.scrollbar.set, state='disabled')
+        self.text['yscrollcommand'] = self.scrollbar.set
 
         # create the title text
         self.canvas.create_text(
@@ -89,15 +106,16 @@ class Bull_and_cows_main_screen(tk.Frame):
         # Text labels: Bulls, Hits
         self.canvas.create_text(310.0, 271.0, anchor="nw", text="Hits:", fill="#FF738E",
                                 font=("Inter Regular", 32 * -1))
-        self.entry_hits = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 13')
+        self.entry_hits = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 13')
         self.entry_hits.place(x=405.0, y=273.0, width=30.0, height=30.0)
 
         self.canvas.create_text(310.0, 209.0, anchor="nw", text="Bulls:", fill="#FF738E",
                                 font=("Inter Regular", 32 * -1))
-        self.entry_bulls = Entry(bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 13')
+        self.entry_bulls = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 13')
         self.entry_bulls.place(x=405.0, y=211.0, width=30.0, height=30.0)
 
         self.BULLS_HITS_LIST = [self.entry_bulls, self.entry_hits]  # List of the Text labels: Bulls, Hits
+        self.clear_all()
 
         self.canvas.create_text(
             607.0,
@@ -119,7 +137,7 @@ class Bull_and_cows_main_screen(tk.Frame):
 
         self.button_image_Guess = PhotoImage(file=relative_to_assets("button_Guess.png"))
         self.button_Guess = Button(self.canvas, image=self.button_image_Guess, borderwidth=0, highlightthickness=0,
-                              command=lambda: take_the_guess(self.ENTRY_LIST, self.canvas, self.BULLS_HITS_LIST), relief="flat")
+                                   command=lambda: self.take_the_guess(), relief="flat")
         self.button_Guess.place(x=295.0, y=343.0, width=250.0, height=70.1025390625)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
@@ -146,52 +164,52 @@ class Bull_and_cows_main_screen(tk.Frame):
 
         self.button_image_0 = PhotoImage(file=relative_to_assets("button_0.png"))
         self.button_0 = Button(self.canvas, image=self.button_image_0, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(0, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(0), relief="flat")
         self.button_0.place(x=295.0, y=498.0, width=72.0, height=70.102539062)
 
         self.button_image_8 = PhotoImage(file=relative_to_assets("button_8.png"))
         self.button_8 = Button(self.canvas, image=self.button_image_8, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(8, self.ENTRY_LIST), relief="flat")
+                               command=lambda: self.update_current_guess_board(8), relief="flat")
         self.button_8.place(x=564.0, y=590.0, width=71.0, height=70.1025390625)
 
         self.button_image_4 = PhotoImage(file=relative_to_assets("button_4.png"))
         self.button_4 = Button(self.canvas, image=self.button_image_4, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(4, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(4), relief="flat")
         self.button_4.place(x=654.0, y=498.0, width=71.0, height=70.1025390625)
 
         self.button_image_9 = PhotoImage(file=relative_to_assets("button_9.png"))
         self.button_9 = Button(self.canvas, image=self.button_image_9, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(9, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(9), relief="flat")
         self.button_9.place(x=654.0, y=590.0, width=71.0, height=70.1025390625)
 
         self.button_image_5 = PhotoImage(file=relative_to_assets("button_5.png"))
         self.button_5 = Button(self.canvas, image=self.button_image_5, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(5, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(5), relief="flat")
         self.button_5.place(x=294.0, y=590.0, width=72.0, height=70.1025390625)
 
         self.button_image_6 = PhotoImage(file=relative_to_assets("button_6.png"))
         self.button_6 = Button(self.canvas, image=self.button_image_6, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(6, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(6), relief="flat")
         self.button_6.place(x=384.0, y=590.0, width=71.0, height=70.1025390625)
 
         self.button_image_1 = PhotoImage(file=relative_to_assets("button_1.png"))
         self.button_1 = Button(self.canvas, image=self.button_image_1, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(1, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(1), relief="flat")
         self.button_1.place(x=386.0, y=498.0, width=71.0, height=70.1025390625)
 
         self.button_image_2 = PhotoImage(file=relative_to_assets("button_2.png"))
         self.button_2 = Button(self.canvas, image=self.button_image_2, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(2, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(2), relief="flat")
         self.button_2.place(x=475.0, y=498.0, width=71.0, height=70.1025390625)
 
         self.button_image_7 = PhotoImage(file=relative_to_assets("button_7.png"))
         self.button_7 = Button(self.canvas, image=self.button_image_7, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(7, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(7), relief="flat")
         self.button_7.place(x=474.0, y=590.0, width=71.0, height=70.1025390625)
 
         self.button_image_3 = PhotoImage(file=relative_to_assets("button_3.png"))
         self.button_3 = Button(self.canvas, image=self.button_image_3, borderwidth=0, highlightthickness=0,
-                          command=lambda: update_current_guess_board(3, self.ENTRY_LIST), relief="flat")
+                          command=lambda: self.update_current_guess_board(3), relief="flat")
         self.button_3.place(x=564.0, y=498.0, width=71.0, height=70.1025390625)
 
     def relative_to_assets(self, path: str) -> Path:
@@ -199,35 +217,77 @@ class Bull_and_cows_main_screen(tk.Frame):
 
     def take_the_guess(self):
         guess = ""
-        entry_list = [self.entry_guess_1, self.entry_guess_2, self.entry_guess_3, self.entry_guess_4]
-        for entry in entry_list:
+        for entry in self.ENTRY_LIST:
             guess += entry.get()
-        for entry in entry_list:
-            entry.delete(0, END)
-        return guess
+        self.clear_only_entrys()
+        self.guess_counter += 1
+        self.show_guess_text(f"\n\n {self.guess_counter}) Guess: {guess} Bulls: 2 Hits: 2")
 
-    def update_current_guess_board(number):
-        global CURRENT_POSITION
-        entry_list = [self.entry_guess_1, self.entry_guess_2, self.entry_guess_3, self.entry_guess_4]
-        # MAPPING_POSITION_TO_ENTRY[CURRENT_POSITION].insert(number)
-        print(f"button_{number} clicked")
-        entry_list[CURRENT_POSITION].insert(0, str(number))
-        CURRENT_POSITION += 1
-        if CURRENT_POSITION == NumberOfDigits:
-            CURRENT_POSITION = 0
+    def clear_only_entrys(self):
+        self.clear_guess_text()
+        for entry in self.BULLS_HITS_LIST:
+            entry.config(state='normal')
+            entry.delete(0, tk.END)
+            entry.insert(0, "?")
+            entry.config(state='disabled')
+        self.canvas.delete("text")
 
-    def show_game(self, game_num, guess, table_size):
-        global OFFSET
-        self.canvas.create_text(920.0, OFFSET, anchor="nw", text="game number " + game_num + " number :" + guess + " table size: " + table_size,
-                                fill="#0d0c0c", font=('Georgia 15'))
+    def clear_all(self):
+        self.clear_guess_text()
+        for entry in self.BULLS_HITS_LIST:
+            entry.config(state='normal')
+            entry.delete(0, tk.END)
+            entry.insert(0, "?")
+            entry.config(state='disabled')
+        self.canvas.delete("text")
+        self.guess_counter = 0
+        self.show_guess_text("")
 
-    def show_guess(self, guess_num, guess, current_t_size, nb, nh):
-        global OFFSET
-        "guess number  1  is:  7526  table size:  4536  nb:  0  nh:  3"
-        OFFSET = OFFSET + 30.0
-        self.canvas.create_text(920.0, OFFSET, anchor="nw",
-                           text="guess number  " + guess_num + "  is:  " + guess +" table size: " + current_t_size +" nb: "+ nb +" nh: " + nh,
-                           fill="#0d0c0c", font=('Georgia 12'))
+    def clear_guess_text(self):
+        self.CURRENT_POSITION = 0
+        for entry in self.ENTRY_LIST:
+            entry.config(state='normal')
+            entry.delete(0, tk.END)
+            entry.insert(0, "?")
+            entry.config(state='disabled')
+
+    def show_guess_text(self, text):
+        if text == "":
+            self.text.config(state='normal')
+            self.text.delete("1.0", "end")
+            self.text.config(state='disabled')
+        self.text.config(state='normal', font='Inter 15')
+        self.text.insert("1.0", text)
+        self.text.config(state='disabled')
+
+    def show_text(self, num):
+        if self.ENTRY_LIST[self.CURRENT_POSITION] != "":
+            self.ENTRY_LIST[self.CURRENT_POSITION].config(state='normal')
+            self.ENTRY_LIST[self.CURRENT_POSITION].delete(0, tk.END)
+            self.ENTRY_LIST[self.CURRENT_POSITION].config(state='disabled')
+
+        self.ENTRY_LIST[self.CURRENT_POSITION].config(state='normal')
+        self.ENTRY_LIST[self.CURRENT_POSITION].insert(0, num)
+        self.ENTRY_LIST[self.CURRENT_POSITION].config(state='disabled')
+
+    def update_current_guess_board(self, number):
+        if self.CURRENT_POSITION >= NumberOfDigits:
+            self.CURRENT_POSITION = 0
+        self.show_text(number)
+        self.CURRENT_POSITION += 1
+
+    # def show_game(self, game_num, guess, table_size):
+    #     global OFFSET
+    #     self.canvas.create_text(920.0, OFFSET, anchor="nw", text="game number " + game_num + " number :" + guess + " table size: " + table_size,
+    #                             fill="#0d0c0c", font=('Georgia 15'))
+    #
+    # def show_guess(self, guess_num, guess, current_t_size, nb, nh):
+    #     global OFFSET
+    #     "guess number  1  is:  7526  table size:  4536  nb:  0  nh:  3"
+    #     OFFSET = OFFSET + 30.0
+    #     self.canvas.create_text(920.0, OFFSET, anchor="nw",
+    #                        text="guess number  " + guess_num + "  is:  " + guess +" table size: " + current_t_size +" nb: "+ nb +" nh: " + nh,
+    #                        fill="#0d0c0c", font=('Georgia 12'))
 
     def set_controller(self, controller):
         """
@@ -237,13 +297,3 @@ class Bull_and_cows_main_screen(tk.Frame):
         """
         self.my_controller = controller
 
-
-# if __name__ == '__main__':
-#     window_main_screen = Tk()
-#     window_main_screen.title("Bulls & Hits")
-#     window_main_screen.geometry("1273x685")
-#     window_main_screen.configure(bg="#F0F0F3")
-#     # game = Codebreaker(window_main_screen)
-#     window_main_screen.resizable(False, False)
-#     Bull_and_cows_main_screen(window_main_screen)
-#     window_main_screen.mainloop()

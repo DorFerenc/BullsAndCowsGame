@@ -50,7 +50,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
             self,
             bg="#F0F0F3",
             height=685,
-            width=1273,
+            width=1573,
             bd=0,
             highlightthickness=0,
             relief="ridge"
@@ -70,7 +70,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.text_frame = tk.Frame(self.canvas, bg="#FFA53C", bd=0, highlightthickness=0)
         self.text_frame.place(x=910, y=50, width=650, height=600)
 
-        self.text = tk.Text(self.text_frame, bg="#F0F0F3", bd=0, highlightthickness=0, wrap="word", width=60)
+        self.text = tk.Text(self.text_frame, bg="#FFA53C", bd=0, highlightthickness=0, wrap="word", width=60) # "#F0F0F3"
         self.text.pack(side="left", fill="both", expand=True)
 
         self.scrollbar = tk.Scrollbar(self.text_frame, orient="vertical", command=self.text.yview, width=20)

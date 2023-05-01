@@ -38,10 +38,10 @@ class App(tk.Tk):
         # create model's
         model_play_game = BH_back()
         model_graph = Graph_Model()
-        model_bh_orig = BH()
+        # model_bh_orig = BH()
 
         # create a controller
-        Controller(model_play_game, model_graph, model_bh_orig, container)
+        Controller(model_play_game, model_graph, container)
 
 
         # # to display the current frame passed as
