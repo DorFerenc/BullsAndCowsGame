@@ -17,7 +17,7 @@ class BH_back:
     def initiat_game(self, tries):
         self.tries = tries
         self.secret_num = self.generateNum()
-        print(self.secret_num)
+        # print(self.secret_num)
 
     # return tuple in this template:
     # ("MSG", -1(error)/0(in game)/1(win)/2(lose) , bulls, cows)
