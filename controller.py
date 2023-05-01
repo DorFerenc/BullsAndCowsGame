@@ -1,9 +1,7 @@
-import os
-import bh
-from bh import BH
 import sys
 
-import stats_screen
+import bh
+from bh import BH
 from main_game_screen import Bull_and_cows_main_screen
 from stats_screen import Bull_and_cows_stats_screen
 

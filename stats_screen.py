@@ -1,22 +1,11 @@
 import base64
 import tkinter as tk
 from io import BytesIO
+from pathlib import Path
 from tkinter import ttk
-import matplotlib.pyplot as plt
-from PIL import ImageTk
+
 from matplotlib.backends._backend_tk import NavigationToolbar2Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import re
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import tkinter as tk
-from tkinter import ttk
-from pathlib import Path
-import tkinter as tk
-from tkinter import ttk
-
-from guess_functions import *
-
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")

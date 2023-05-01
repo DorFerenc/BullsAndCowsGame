@@ -1,8 +1,6 @@
-from pathlib import Path
 import tkinter as tk
-from tkinter import Canvas, Entry, PhotoImage, Text, Button, ttk
-from guess_functions import *
-
+from pathlib import Path
+from tkinter import Canvas, Entry, PhotoImage, Button
 
 NumberOfDigits = 4
 

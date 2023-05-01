@@ -1,11 +1,8 @@
 import tkinter as tk
 
+from bh_back import BH_back
 from controller import Controller
 from model_graphs import Graph_Model
-from main_game_screen import Bull_and_cows_main_screen
-from bh_back import BH_back
-from bh import BH
-from stats_screen import Bull_and_cows_stats_screen
 
 
 class App(tk.Tk):
