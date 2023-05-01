@@ -311,17 +311,4 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.show_text(number)
         self.CURRENT_POSITION += 1
 
-    # def show_game(self, game_num, guess, table_size):
-    #     global OFFSET
-    #     self.canvas.create_text(920.0, OFFSET, anchor="nw", text="game number " + game_num + " number :" + guess + " table size: " + table_size,
-    #                             fill="#0d0c0c", font=('Georgia 15'))
-    #
-    # def show_guess(self, guess_num, guess, current_t_size, nb, nh):
-    #     global OFFSET
-    #     "guess number  1  is:  7526  table size:  4536  nb:  0  nh:  3"
-    #     OFFSET = OFFSET + 30.0
-    #     self.canvas.create_text(920.0, OFFSET, anchor="nw",
-    #                        text="guess number  " + guess_num + "  is:  " + guess +" table size: " + current_t_size +" nb: "+ nb +" nh: " + nh,
-    #                        fill="#0d0c0c", font=('Georgia 12'))
-
 

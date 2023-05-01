@@ -13,25 +13,6 @@ class Graph_Model:
         self.table_sizes = []
         self.guess_numbers = []
 
-    # def update_file(self, filename):
-    #     with open(filename, 'r') as f:
-    #         lines = f.readlines()
-    #
-    #     new_lines = []
-    #     for line in lines:
-    #         if line.startswith("guess number"):
-    #             parts = line.split()
-    #             nb = parts[-2]
-    #             nh = parts[-1]
-    #             table_size = parts[-3]
-    #             new_line = f"{parts[0]} {parts[1]} {parts[2]} {parts[3]} {parts[4]} {parts[5]} {table_size:>8s} nb: {nb:>3s} nh: {nh:>3s}\n"
-    #             new_lines.append(new_line)
-    #         else:
-    #             new_lines.append(line)
-    #
-    #     with open(filename, 'w') as f:
-    #         f.writelines(new_lines)
-
     def update_file(self, filename):
         """
         Updates the formatting of guess results in the specified file.
@@ -85,7 +66,6 @@ class Graph_Model:
 
                 guess_numbers_list = game_data.split("guess")
                 for guess in guess_numbers_list:
-                    # table_size = (re.search(r'table size:\s+(\d+)', game_data)) # .group(1))
                     guess_number = (re.search(r'number\s+(\d+)\s+is:', guess))  # .group(1))
                     table_size = (re.search(r'number\s+\d+\s+is:\s+\d+\s+table size:\s+(\d+)', guess))  # .group(1))
 
@@ -107,8 +87,6 @@ class Graph_Model:
         ax1.set_ylabel("Number of Tries")
         ax1.set_title("Number of Tries vs Game Number")
 
-        # for number in self.table_sizes:
-        #     print(number)
         # create the second plot
         ax2.scatter(self.guess_numbers, self.table_sizes, alpha=0.5)
         ax2.set_xlabel("Guess Number")
@@ -116,39 +94,3 @@ class Graph_Model:
         ax2.set_title("Table Size vs Guess Number")
 
         return fig
-#
-#
-# root = tk.Tk()
-# root.title("Scrollbar Widget Example")
-#
-# # apply the grid layout
-# root.grid_columnconfigure(0, weight=1)
-# root.grid_rowconfigure(0, weight=1)
-#
-# # create the text widget
-# text = tk.Text(root, height=40, width=60)
-# text.grid(row=0, column=0, sticky=tk.EW)
-# # text.place(x=100, y=100)
-#
-# # create a scrollbar widget and set its command to the text widget
-# scrollbar = ttk.Scrollbar(root, orient='vertical', command=text.yview)
-# scrollbar.grid(row=0, column=1, sticky=tk.NS)
-#
-# #  communicate back to the scrollbar
-# text['yscrollcommand'] = scrollbar.set
-#
-#
-# # Create a canvas to embed the plot
-# canvas = FigureCanvasTkAgg(fig, master=root)
-# canvas.draw()
-#
-# # get the plot as a base64 encoded string
-# buf = BytesIO()
-# canvas.print_figure(buf, format='png')
-# data = base64.b64encode(buf.getbuffer()).decode('ascii')
-#
-# # insert the plot into the text widget
-# photo = tk.PhotoImage(data=data)
-# text.image_create(tk.END, image=photo)
-
-# root.mainloop()
