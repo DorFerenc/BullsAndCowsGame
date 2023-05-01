@@ -14,7 +14,7 @@ class Controller():
         self.model_graph = model_graph
         self.container = container
 
-        self.frames = {} # initializing frames to an empty array
+        self.frames = {}  # initializing frames to an empty array
 
         # iterating through a tuple consisting of the different page layouts
         for F in (Bull_and_cows_main_screen, Bull_and_cows_stats_screen):
@@ -45,6 +45,13 @@ class Controller():
             self.view2_main_screen.clear_all()
         frame = self.frames[cont]
         frame.tkraise()
+
+    def main_view_asks_to_start_game(self, tries):
+        self.model_play_game.initiat_game(tries)
+
+    def main_sends_guess(self, guess):
+        res = self.model_play_game.check_guess(guess)
+        self.view2_main_screen.show_what_returned_from_guess(res)
 
     # def run_bh(self, num_of_digits, num_of_games):
     #     """

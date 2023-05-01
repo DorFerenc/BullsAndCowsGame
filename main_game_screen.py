@@ -13,6 +13,8 @@ GUESS_OFFSET = 30.0
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
 
+TRIES = 8
+
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -22,6 +24,7 @@ class Bull_and_cows_main_screen(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         # define some constants
+        self.my_controller = None
         self.OFFSET_MENU = 30
         self.main_game_frame = tk.Frame(self)
         self.main_game_frame.pack()
@@ -115,7 +118,6 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.entry_bulls.place(x=405.0, y=211.0, width=30.0, height=30.0)
 
         self.BULLS_HITS_LIST = [self.entry_bulls, self.entry_hits]  # List of the Text labels: Bulls, Hits
-        self.clear_all()
 
         self.canvas.create_text(
             607.0,
@@ -212,16 +214,48 @@ class Bull_and_cows_main_screen(tk.Frame):
                           command=lambda: self.update_current_guess_board(3), relief="flat")
         self.button_3.place(x=564.0, y=498.0, width=71.0, height=70.1025390625)
 
+        self.clear_all()
+    
+    def set_controller(self, controller):
+        """
+        Set the controller
+        :param controller:
+        :return:
+        """
+        self.my_controller = controller
+
     def relative_to_assets(self, path: str) -> Path:
         return self.ASSETS_PATH / Path(path)
 
     def take_the_guess(self):
-        guess = ""
+        self.current_guess = ""
         for entry in self.ENTRY_LIST:
-            guess += entry.get()
+            self.current_guess += entry.get()
         self.clear_only_entrys()
         self.guess_counter += 1
-        self.show_guess_text(f"\n\n {self.guess_counter}) Guess: {guess} Bulls: 2 Hits: 2")
+
+        self.my_controller.main_sends_guess(int(self.current_guess))
+
+    # return tuple in this template:
+    # ("MSG", -1(error)/0(in game)/1(win)/2(lose) , bulls, cows)
+    def show_what_returned_from_guess(self, tup):
+        if tup[1] == -1:
+            self.guess_counter -= 1
+
+        self.show_guess_text(f"\n\n {self.guess_counter}) Guess: {self.current_guess} Bulls: {tup[2]} Hits: {tup[3]} \n\t{tup[0]}")
+
+        self.entry_bulls.config(state='normal')
+        self.entry_bulls.delete(0, tk.END)
+        self.entry_bulls.insert(0, f"{tup[2]}")
+        self.entry_bulls.config(state='disabled')
+        self.entry_hits.config(state='normal')
+        self.entry_hits.delete(0, tk.END)
+        self.entry_hits.insert(0, f"{tup[3]}")
+        self.entry_hits.config(state='disabled')
+
+        if 1 <= tup[1] <= 2:
+            self.button_Guess.config(state="disabled")
+
 
     def clear_only_entrys(self):
         self.clear_guess_text()
@@ -233,6 +267,9 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.canvas.delete("text")
 
     def clear_all(self):
+        self.button_Guess.config(state="normal")
+        if self.my_controller != None:
+            self.my_controller.main_view_asks_to_start_game(TRIES)
         self.clear_guess_text()
         for entry in self.BULLS_HITS_LIST:
             entry.config(state='normal')
@@ -289,11 +326,4 @@ class Bull_and_cows_main_screen(tk.Frame):
     #                        text="guess number  " + guess_num + "  is:  " + guess +" table size: " + current_t_size +" nb: "+ nb +" nh: " + nh,
     #                        fill="#0d0c0c", font=('Georgia 12'))
 
-    def set_controller(self, controller):
-        """
-        Set the controller
-        :param controller:
-        :return:
-        """
-        self.my_controller = controller
 
