@@ -210,7 +210,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
         # create FigureCanvasTkAgg object
         figure_canvas = FigureCanvasTkAgg(fig, inner_canvas)
 
-        # # create the toolbar
+        # create the toolbar
         NavigationToolbar2Tk(figure_canvas, inner_canvas)
 
         figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)

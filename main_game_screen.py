@@ -15,6 +15,14 @@ TRIES = 8
 
 
 def relative_to_assets(path: str) -> Path:
+    """
+    Return the absolute path for a file relative to the assets folder.
+
+    :param path: The relative path of the file to get the absolute path for.
+    :type path: str
+    :return: The absolute path for the file.
+    :rtype: Path
+    """
     return ASSETS_PATH / Path(path)
 
 class Bull_and_cows_main_screen(tk.Frame):
@@ -27,12 +35,7 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.OFFSET_MENU = 30
         self.main_game_frame = tk.Frame(self)
         self.main_game_frame.pack()
-        # self.window_main_screen = parent
 
-        # # configure the root window
-        # self.window_main_screen.geometry("1273x685")
-        # self.window_main_screen.configure(bg="#F0F0F3")
-        # self.window_main_screen.title("Bulls and Hits")
         self.NumberOfDigits = 4
         self.CURRENT_POSITION = 0
         self.GUESS_OFFSET = 30.0
@@ -81,7 +84,7 @@ class Bull_and_cows_main_screen(tk.Frame):
             font=("Inter Regular", 48 * -1)
         )
 
-        # create the entry widgets for guesses TextBoxes TODO DF add disabled function for the guesses
+        # create the entry widgets for guesses TextBoxes
         entry_image_guess_1 = PhotoImage(file=relative_to_assets("entry_2.png"))
         self.entry_bg_guess_1 = self.canvas.create_image(330.0, 143.05126953125, image=entry_image_guess_1)
         self.entry_guess_1 = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 20')
@@ -217,16 +220,20 @@ class Bull_and_cows_main_screen(tk.Frame):
     
     def set_controller(self, controller):
         """
-        Set the controller
-        :param controller:
-        :return:
+        Set the controller.
+        :param controller: The controller to set.
+        :type controller: Any
+        :return: None
         """
         self.my_controller = controller
 
-    def relative_to_assets(self, path: str) -> Path:
-        return self.ASSETS_PATH / Path(path)
-
     def take_the_guess(self):
+        """
+        Take the current guess entered by the user,
+        clear the input fields and pass the guess to the main controller.
+
+        :return: None
+        """
         self.current_guess = ""
         for entry in self.ENTRY_LIST:
             self.current_guess += entry.get()
@@ -241,6 +248,18 @@ class Bull_and_cows_main_screen(tk.Frame):
     # return tuple in this template:
     # ("MSG", -1(error)/0(in game)/1(win)/2(lose) , bulls, cows)
     def show_what_returned_from_guess(self, tup):
+        """
+        updates this screen with the result of a guess,
+        including the number of bulls and cows, and any messages.
+
+        :param tup: A tuple containing the 1. message,
+        2. game state (-1 for error, 0 for in game, 1 for win, 2 for lose),
+        3. number of bulls and
+        4. number of cows.
+        :type tup: tuple
+        :return: None
+        :rtype: None
+        """
         if tup[1] == -1:
             self.guess_counter -= 1
 
@@ -260,6 +279,13 @@ class Bull_and_cows_main_screen(tk.Frame):
 
 
     def clear_only_entrys(self):
+        """
+        clears the input fields for bulls and cows, but leaves the guess text.
+        :param: None
+        :type: None
+        :return: None
+        :rtype: None
+        """
         self.clear_guess_text()
         for entry in self.BULLS_HITS_LIST:
             entry.config(state='normal')
@@ -269,6 +295,13 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.canvas.delete("text")
 
     def clear_all(self):
+        """
+        clears all input fields and guess text,
+        resets the guess counter,
+        and enables the guess button.
+
+        :return: None
+        """
         self.button_Guess.config(state="normal")
         if self.my_controller != None:
             self.my_controller.main_view_asks_to_start_game(TRIES)
@@ -283,6 +316,16 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.show_guess_text("")
 
     def clear_guess_text(self):
+        """
+        This function clears the guess text entry fields
+        by resetting their values to "?" and disabling them.
+        Also reset the current position to 0.
+
+        :param: None
+        :type: None
+        :return: None
+        :rtype: None
+        """
         self.CURRENT_POSITION = 0
         for entry in self.ENTRY_LIST:
             entry.config(state='normal')
@@ -291,6 +334,15 @@ class Bull_and_cows_main_screen(tk.Frame):
             entry.config(state='disabled')
 
     def show_guess_text(self, text):
+        """
+        This function displays the given text on the game screen.
+        If the given text is an empty string, it clears the existing text.
+
+        :param text: The text to show on this screen
+        :type text: str
+        :return: None
+        :rtype: None
+        """
         if text == "":
             self.text.config(state='normal')
             self.text.delete("1.0", "end")
@@ -300,6 +352,16 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.text.config(state='disabled')
 
     def show_text(self, num):
+        """
+        This function updates the current entry field with the given number.
+         (Show a single digit in the guess text entry field.)
+
+         :param num: The digit to show in the entry field
+         :type num: str
+         :return: None
+         :rtype: None
+         """
+
         if self.ENTRY_LIST[self.CURRENT_POSITION] != "":
             self.ENTRY_LIST[self.CURRENT_POSITION].config(state='normal')
             self.ENTRY_LIST[self.CURRENT_POSITION].delete(0, tk.END)
@@ -310,6 +372,15 @@ class Bull_and_cows_main_screen(tk.Frame):
         self.ENTRY_LIST[self.CURRENT_POSITION].config(state='disabled')
 
     def update_current_guess_board(self, number):
+        """
+         This function updates the current guess board with the given number.
+         If the board is full, it starts from the beginning again.
+
+        :param number: The number to add to the guess text
+        :type number: str
+        :return: None
+        :rtype: None
+        """
         if self.CURRENT_POSITION >= NumberOfDigits:
             self.CURRENT_POSITION = 0
         self.show_text(number)
