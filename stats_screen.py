@@ -1,6 +1,4 @@
-import base64
 import tkinter as tk
-from io import BytesIO
 from pathlib import Path
 from tkinter import ttk, IntVar, Button, PhotoImage, Scale, HORIZONTAL
 
@@ -12,12 +10,28 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
 
 
 def relative_to_assets(path: str) -> Path:
+    """
+     Returns the path relative to the assets folder.
+
+     :param path: The path to be converted to a path relative to the assets folder.
+     :type path: str
+     :return: A path object representing the path relative to the assets folder.
+     :rtype: Path
+     """
     return ASSETS_PATH / Path(path)
 
 
-def update_progress_bar(self, value):
-    self.progress_bar["value"] = value
-    self.canvas.update_idletasks()
+# def update_progress_bar(self, value):
+#     """
+#     Updates the progress bar value and refreshes the canvas.
+#
+#     :param value: The value to set the progress bar to.
+#     :type value: int
+#     :return: None
+#     :rtype: None
+#     """
+#     self.progress_bar["value"] = value
+#     self.canvas.update_idletasks()
 
 
 class Bull_and_cows_stats_screen(tk.Frame):
@@ -76,7 +90,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         # number of games scale and label
         self.value_number_of_games = IntVar()
-        self.scale_num_of_games = Scale(self.canvas, variable=self.value_number_of_games, from_=10, to=35,
+        self.scale_num_of_games = Scale(self.canvas, variable=self.value_number_of_games, from_=10, to=60,
                                         orient=HORIZONTAL, length=200)
         self.scale_num_of_games.bind("<ButtonRelease-1>", self.update_num_of_games_value)
         self.scale_num_of_games.place(x=300, y=100)
@@ -86,7 +100,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         # number of digits scale and label
         self.value_number_of_digits = IntVar()
-        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=4, to=8,
+        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=3, to=7,
                                          orient=HORIZONTAL, length=200)
         self.scale_num_of_digits.bind("<ButtonRelease-1>", self.update_num_of_digits_value)
         self.scale_num_of_digits.place(x=650, y=100)
@@ -114,26 +128,64 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.create_graphs(None)  # open an empty graph
 
     def update_num_of_digits_value(self, event):
+        """
+        Update the text of the number_of_digits_label based on the value of scale_num_of_digits.
+
+        :param event: The event that triggered the function.
+        :type event: Event
+        :return: None
+        :rtype: None
+        """
         self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
 
     def update_num_of_games_value(self, event):
+        """
+        Update the text of the number_of_games_label based on the value of scale_num_of_games.
+
+        :param event: The event that triggered the function.
+        :type event: Event
+        :return: None
+        :rtype: None
+        """
         self.number_of_games_label.config(text=f"Number of games {self.scale_num_of_games.get()}")
 
     def run_game(self):
+        """
+        Runs the game statistics for the selected number of digits and games.
+        Calls the controller to produce the game data.
+
+        :return: None
+        :rtype: None
+        """
         self.my_controller.run_stats(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
 
     def view_asks_for_graphs(self):
+        """
+        Calls the controller to get the graphs figure for the game statistics.
+
+        :return: None
+        :rtype: None
+        """
         self.my_controller.show_graphs()
 
     def set_controller(self, controller):
         """
         Set the controller
         :param controller:
-        :return:
+        :return: None
         """
         self.my_controller = controller
 
     def show_text(self, text):
+        """
+        Displays the given text on the screen.
+        If the text is empty, clears the text area.
+
+        :param text: The text to display on the screen.
+        :type text: str
+        :return: None
+        :rtype: None
+        """
         if text == "":
             self.text.config(state='normal')
             self.text.delete("1.0", "end")
@@ -143,6 +195,14 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.text.config(state='disabled')
 
     def create_graphs(self, fig):
+        """
+         Creates a graph on the screen using the given Figure object.
+
+         :param fig: The Figure object representing the graph to create.
+         :type fig: matplotlib.figure.Figure
+         :return: None
+         :rtype: None
+         """
         # create the inner canvas
         inner_canvas = tk.Canvas(self.canvas)
         inner_canvas.place(x=276, y=200, width=620, height=480)
@@ -154,6 +214,3 @@ class Bull_and_cows_stats_screen(tk.Frame):
         NavigationToolbar2Tk(figure_canvas, inner_canvas)
 
         figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-
-    def __relative_to_assets(self, path: str) -> Path:
-        return self.ASSETS_PATH / Path(path)
