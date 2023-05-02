@@ -8,6 +8,7 @@ and getting the results as graphs and raw data.
 ## Requirements
 * Python 3.6 or higher
 * tkinter library 
+* Matplotlib library
 
 ## How to run the game
 * To run the game, execute the following command in the terminal: **python main.py**
@@ -40,3 +41,7 @@ Stats → computer generates data mode
 * 'assets': a folder with images for the GUI
 * 'bhOutput.txt': a file holding the data
 * README.md: This file.
+
+## Installations 
+* To install tkinter using pip, open the terminal and type the following command: '**pip install tkinter**'
+* To install matplotlib using pip, open the terminal and type the following command: '**pip install matplotlib**'
