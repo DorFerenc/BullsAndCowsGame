@@ -26,8 +26,14 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 class Bull_and_cows_main_screen(tk.Frame):
-
+    """A class that implements the main screen of the "Bulls and Hits" local game."""
     def __init__(self, parent):
+        """
+        Initializes the "Bulls and Hits" game.
+
+        :param parent: The parent widget.
+        :type parent: Tkinter widget
+        """
         tk.Frame.__init__(self, parent)
         # define some constants
         self.current_guess = None

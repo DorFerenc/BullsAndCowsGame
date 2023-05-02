@@ -35,8 +35,14 @@ def relative_to_assets(path: str) -> Path:
 
 
 class Bull_and_cows_stats_screen(tk.Frame):
-
+    """A class representing a statistics screen for the Bull and Cows game."""
     def __init__(self, parent):
+        """
+        Initializes the statistics screen frame.
+
+        :param parent: The parent widget for this frame.
+        :type parent: tk.Widget
+        """
         tk.Frame.__init__(self, parent)
         # define some constants
         self.OFFSET_MENU = 30

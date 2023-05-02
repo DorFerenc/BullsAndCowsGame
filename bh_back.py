@@ -2,7 +2,16 @@ import random
 
 
 class BH_back:
+    """A class representing the backend of a Bulls and Cows local game play"""
     def __init__(self):
+        """
+        Initializes an instance of the Bulls and Cows game backend.
+
+        :param: None
+        :type: None
+        :return: None
+        :rtype: None
+        """
         # initialize empty lists for num of bulls and num of hits
         self.guess = None
         self.guess_numbers = None
