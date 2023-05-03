@@ -312,11 +312,11 @@ class Bull_and_cows_main_screen(tk.Frame):
         :rtype: None
         """
         self.clear_guess_text()
-        # for entry in self.BULLS_HITS_LIST:
-        #     entry.config(state='normal')
-        #     entry.delete(0, tk.END)
-        #     entry.insert(0, "?")
-        #     entry.config(state='disabled')
+        for entry in self.BULLS_HITS_LIST:
+            entry.config(state='normal')
+            entry.delete(0, tk.END)
+            entry.insert(0, "?")
+            entry.config(state='disabled')
 
         for btn in self.BTN_LIST:
             btn.config(text="?")
@@ -334,11 +334,11 @@ class Bull_and_cows_main_screen(tk.Frame):
         if self.my_controller != None:
             self.my_controller.main_view_asks_to_start_game(TRIES)
         self.clear_guess_text()
-        # for entry in self.BULLS_HITS_LIST:
-        #     entry.config(state='normal')
-        #     entry.delete(0, tk.END)
-        #     entry.insert(0, "?")
-        #     entry.config(state='disabled')
+        for entry in self.BULLS_HITS_LIST:
+            entry.config(state='normal')
+            entry.delete(0, tk.END)
+            entry.insert(0, "?")
+            entry.config(state='disabled')
         self.canvas.delete("text")
         self.guess_counter = 0
         self.show_guess_text("")
