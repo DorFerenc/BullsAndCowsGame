@@ -89,7 +89,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
             294.0,
             23.0,
             anchor="nw",
-            text="Bulls and Hits - Statistics",
+            text="Simulation and Statistics",
             fill="#745FF2",
             font=("Inter Regular", 48 * -1)
         )
