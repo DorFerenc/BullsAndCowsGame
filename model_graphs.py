@@ -101,7 +101,7 @@ class Graph_Model:
                     table_size = (re.search(r'number\s+\d+\s+is:\s+\d+\s+table size:\s+(\d+)', guess))  # .group(1))
 
                     # check if both regex searches were successful
-                    if table_size and guess_number and (int(guess_number.group(1))) != 1:
+                    if table_size and guess_number: # and (int(guess_number.group(1))) != 1:
                         self.table_sizes.append(int(table_size.group(1)))
                         self.guess_numbers.append(int(guess_number.group(1)))
 

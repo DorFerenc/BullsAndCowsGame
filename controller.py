@@ -1,4 +1,7 @@
 import sys
+import markdown
+from bs4 import BeautifulSoup
+
 
 from tqdm import tqdm
 
@@ -58,6 +61,7 @@ class Controller:
         self.view2_try_me_screen.create_graphs(None)
         self.view2_try_me_screen.show_text("")
         self.view1_main_game_screen.clear_all()
+
 
         cont = Bull_and_cows_main_screen
         if view_num == 2:
@@ -131,7 +135,7 @@ class Controller:
         :rtype: None
         """
         self.view3_stats_screen.create_graphs(None)
-        self.view3_stats_screen.show_text("")
+        # self.view3_stats_screen.show_text("")
         res = {}
         adder = (100.0 / (num_of_games * 6))
         pb_counter = 0

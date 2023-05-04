@@ -4,7 +4,8 @@ from tkinter import ttk, IntVar, Button, PhotoImage, Scale, HORIZONTAL
 
 from matplotlib.backends._backend_tk import NavigationToolbar2Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from tqdm.gui import tqdm_gui
+from tkhtmlview import HTMLLabel
+
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
@@ -55,22 +56,32 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         # create the orange canvas on the right
         self.orange_canvas = self.canvas.create_rectangle(900.0, 0.0, 1573.0, 685.0, fill="#FFA53C", outline="")
-        self.canvas.create_text(920.0, 8.0, anchor="nw", text="Results:", fill="#7e37ad",
+        self.canvas.create_text(920.0, 8.0, anchor="nw", text="", fill="#7e37ad",
                                 font=("Inter Regular", 32 * -1))
+
+        self.game_img = PhotoImage(file=relative_to_assets("Picture1.png"))
+        # self.button_new_game = Button(self.canvas, image=self.game_img, borderwidth=0,
+        #                               highlightthickness=0,
+        #                               command=lambda: self.my_controller.show_frame(1), relief="flat")
+        # self.button_new_game.place(x=13.0, y=23.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
         # create the text area and scrollbar
         self.text_frame = tk.Frame(self.canvas, bg="#FFA53C", bd=0, highlightthickness=0)
         self.text_frame.place(x=910, y=50, width=650, height=600)
 
-        self.text = tk.Text(self.text_frame, bg="#FFA53C", bd=0, highlightthickness=0, wrap="word",
-                            width=60)  # "#F0F0F3"
-        self.text.pack(side="left", fill="both", expand=True)
+        # Create a label with the image
+        self.game_img_label = tk.Label(self.text_frame, image=self.game_img, bg="#FFA53C", bd=0, highlightthickness=0)
+        self.game_img_label.pack()
 
-        self.scrollbar = tk.Scrollbar(self.text_frame, orient="vertical", command=self.text.yview, width=20)
-        self.scrollbar.pack(side="right", fill="y")
-
-        self.text.config(yscrollcommand=self.scrollbar.set, state='disabled')
-        self.text['yscrollcommand'] = self.scrollbar.set
+        # self.text = tk.Text(self.text_frame, bg="#FFA53C", bd=0, highlightthickness=0, wrap="word",
+        #                     width=60)  # "#F0F0F3"
+        # self.text.pack(side="left", fill="both", expand=True)
+        #
+        # self.scrollbar = tk.Scrollbar(self.text_frame, orient="vertical", command=self.text.yview, width=20)
+        # self.scrollbar.pack(side="right", fill="y")
+        #
+        # self.text.config(yscrollcommand=self.scrollbar.set, state='disabled')
+        # self.text['yscrollcommand'] = self.scrollbar.set
 
         # create the title text
         self.canvas.create_text(
@@ -210,6 +221,9 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.text.config(state='normal')
         self.text.insert("1.0", text)
         self.text.config(state='disabled')
+
+        # self.my_label = HTMLLabel(self.canvas, html=text)
+        # self.my_label.pack()
 
     def create_graphs(self, fig):
         """

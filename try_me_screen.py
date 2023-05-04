@@ -106,7 +106,7 @@ class Bull_and_cows_try_me_screen(tk.Frame):
 
         # number of digits scale and label
         self.value_number_of_digits = IntVar()
-        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=3, to=7,
+        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=1, to=6,
                                          orient=HORIZONTAL, length=200)
         self.scale_num_of_digits.bind("<ButtonRelease-1>", self.update_num_of_digits_value)
         self.scale_num_of_digits.place(x=650, y=100)

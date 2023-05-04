@@ -9,13 +9,14 @@ and getting the results as graphs and raw data.
 * Python 3.6 or higher
 * tkinter library 
 * Matplotlib library
+* tqmd
 
 ## How to run the game
 * To run the game, execute the following command in the terminal: **python main.py**
 * You can also right-click on the **main.py** file and and click on **Run 'main'**
 
 ## How to play the game
-New game → single local player mode:
+New game → single local Human VS Computer mode:
 1. Screen will load on New Game
 2. Enter your guess entry fields using the number keys on the screen
 3. Click the "Guess" button to check your guess.
@@ -23,12 +24,17 @@ New game → single local player mode:
 5. Keep guessing until you either guess the secret number or run out of guesses.
 6. If you guess the secret number within the allowed number of guesses, you win the game! Otherwise, you lose.
 
-Stats → computer generates data mode
-1. Switch screen to Stats
+Try Me → computer Vs Computer mode
+1. Switch screen to Try Me
 2. Give your desired specifications to the computer (both number of games and number of digits) 
-3. Click the "Run Game!" button generate the data.
-4. Click the "Show Graphs!" button to see the graphs and the data.
-5. Keep changing your specifications until you acquire your desired knowledge.
+3. Click the "Run Game!" button to generate and see the graphs and data.
+4. Keep changing your specifications until you acquire your desired knowledge.
+
+Stats → Simulation and Statistics mode
+1. Switch screen to Stats
+2. Give your desired specifications to the computer (number of games to run) 
+3. Click the "Run Statistics!" button to generate and see the graphs.
+4. Keep changing your specifications until you acquire your desired knowledge.
 
 ## File structure
 * 'main.py': The main file that runs the game.
@@ -45,3 +51,9 @@ Stats → computer generates data mode
 ## Installations 
 * To install tkinter using pip, open the terminal and type the following command: '**pip install tkinter**'
 * To install matplotlib using pip, open the terminal and type the following command: '**pip install matplotlib**'
+* * To install tqmd using pip, open the terminal and type the following command: '**pip install tqdm**'
+
+
+# Thanks!
+* Yarden Mizrahi
+* Dor Ferenc
