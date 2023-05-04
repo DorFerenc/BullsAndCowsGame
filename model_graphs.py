@@ -125,3 +125,40 @@ class Graph_Model:
         ax2.set_title("Table Size vs Guess Number")
 
         return fig
+
+    def get_avg_fig(self, res, num_of_games):
+        """
+        Generates a subplot showing the number of digits vs average number of guess's
+        and the table size vs guess number,
+        using data extracted from the specified file.
+
+        :param res: number of digits in the current game
+        :type res: dictionary of number_of_digits : average number_of_guess
+        :param num_of_games: the number of games to run
+        :type num_of_games: int
+        :return: a matplotlib Figure object containing the subplot
+        :rtype: matplotlib.figure.Figure
+        """
+
+        # Sort the dictionary by key (number of digits)
+        sorted_res = sorted(res.items())
+
+        # Extract the x and y values for the subplot (digits vs average number of guesses)
+        x_values = [item[0] for item in sorted_res]
+        y_values = [item[1] for item in sorted_res]
+
+        # Calculate the ratio between the average number of guesses and the number of digits
+        ratio_values = [y_values[i] / x_values[i] for i in range(len(x_values))]
+
+        # Create the bar plot and line plot
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.bar(x_values, y_values)
+        ax.set_xlabel('Number of digits')
+        ax.set_ylabel('Average number of guesses')
+        ax.set_title(f'Average guesses per {num_of_games} games')
+        ax2 = ax.twinx()
+        ax2.plot(x_values, ratio_values, 'r--')
+        ax2.set_ylabel('Ratio of average guesses to number of digits')
+
+        # Return the figure object
+        return fig

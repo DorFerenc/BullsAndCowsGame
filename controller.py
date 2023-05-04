@@ -92,7 +92,7 @@ class Controller:
     def run_stats(self, num_of_digits, num_of_games):
         """
         Runs the game for the specified number of digits and games,
-        and outputs the results to a file.
+        and outputs the results to a file - "bhOutput.txt".
 
         :param num_of_digits: the number of digits to use in the game
         :type num_of_digits: int
@@ -103,17 +103,48 @@ class Controller:
         """
         self.view2_try_me_screen.create_graphs(None)
         self.view2_try_me_screen.show_text("")
-        sys.stdout = open("bhOutput.txt", 'w')
-        l = []
-        for i in range(num_of_games):
-            print("\ngame number ", str(i + 1))
-            current_round = bh.BH(0, numberOfDigits=num_of_digits)
-            l.append(current_round.getCounter())
-        print(f"""average number of guesses 
-        for  : {str(num_of_games)} games, 
-        with : {num_of_digits} digits,
-        is   : {sum(l) / len(l)}""")
-        sys.stdout.close()
+        # sys.stdout = open("bhOutput.txt", 'w')
+        with open("bhOutput.txt", 'w') as sys.stdout:
+            l = []
+            for i in range(num_of_games):
+                print("\ngame number ", str(i + 1))
+                current_round = bh.BH(0, numberOfDigits=num_of_digits)
+                l.append(current_round.getCounter())
+            print(f"""average number of guesses 
+            for  : {str(num_of_games)} games, 
+            with : {num_of_digits} digits,
+            is   : {sum(l) / len(l)}""")
+        # sys.stdout.close()
+        self.show_graphs(num_of_digits)
+
+    def run_stats2(self, num_of_games):
+        """
+        Runs the game for the 1 to 6 digits
+        and specified number of games,
+        and outputs the results to a file "bhOutputAvg.txt".
+
+        :param num_of_games: the number of games to run
+        :type num_of_games: int
+        :return: None
+        :rtype: None
+        """
+        self.view3_stats_screen.create_graphs(None)
+        self.view3_stats_screen.show_text("")
+        res = {}
+        with open("bhOutput.txt", 'w') as sys.stdout:
+            for num_of_digits in range(1, 6):
+                l = []
+                for i in range(num_of_games):
+                    print("\ngame number ", str(i + 1))
+                    current_round = bh.BH(0, numberOfDigits=num_of_digits)
+                    l.append(current_round.getCounter())
+                print(f"""average number of guesses
+                for  : {str(num_of_games)} games,
+                with : {num_of_digits} digits,
+                is   : {sum(l) / len(l)}""")
+                res[num_of_digits] = (sum(l) / len(l))
+
+        self.show_graph2(res, num_of_games)
 
     def bh_asks_the_guess(self):
         """
@@ -146,3 +177,19 @@ class Controller:
         texty = self.model_graph.get_text(self.filename, num_digits)
         self.view2_try_me_screen.create_graphs(figy)
         self.view2_try_me_screen.show_text(texty)
+
+    def show_graph2(self, res, num_of_games):
+        """
+        Shows the graphs on the stats screen.
+
+        :param res: number of digits in the current game
+        :type res: dictionary of number_of_digits : average number_of_guess
+        :param num_of_games: the number of games to run
+        :type num_of_games: int
+        :return: None
+        :rtype: None
+        """
+        figy = self.model_graph.get_avg_fig(res, num_of_games)
+        # texty = self.model_graph.get_text(self.filename, num_digits)
+        self.view3_stats_screen.create_graphs(figy)
+        # self.view2_try_me_screen.show_text(texty)

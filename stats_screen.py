@@ -96,29 +96,29 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         # number of games scale and label
         self.value_number_of_games = IntVar()
-        self.scale_num_of_games = Scale(self.canvas, variable=self.value_number_of_games, from_=10, to=60,
-                                        orient=HORIZONTAL, length=200)
+        self.scale_num_of_games = Scale(self.canvas, variable=self.value_number_of_games, from_=50, to=500,
+                                        orient=HORIZONTAL, length=350)
         self.scale_num_of_games.bind("<ButtonRelease-1>", self.update_num_of_games_value)
         self.scale_num_of_games.place(x=300, y=100)
         self.number_of_games_label = ttk.Label(self.canvas, text=f"Number of games {self.scale_num_of_games.get()}",
                                                foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
-        self.number_of_games_label.place(x=300, y=80)
+        self.number_of_games_label.place(x=400, y=80)
 
         # number of digits scale and label
-        self.value_number_of_digits = IntVar()
-        self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=3, to=7,
-                                         orient=HORIZONTAL, length=200)
-        self.scale_num_of_digits.bind("<ButtonRelease-1>", self.update_num_of_digits_value)
-        self.scale_num_of_digits.place(x=650, y=100)
-        self.number_of_digits_label = ttk.Label(self.canvas, text=f"Number of digits {self.scale_num_of_digits.get()}",
-                                                foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
-        self.number_of_digits_label.place(x=650, y=80)
+        # self.value_number_of_digits = IntVar()
+        # self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=3, to=7,
+        #                                  orient=HORIZONTAL, length=200)
+        # self.scale_num_of_digits.bind("<ButtonRelease-1>", self.update_num_of_digits_value)
+        # self.scale_num_of_digits.place(x=650, y=100)
+        # self.number_of_digits_label = ttk.Label(self.canvas, text=f"Number of digits {self.scale_num_of_digits.get()}",
+        #                                         foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
+        # self.number_of_digits_label.place(x=650, y=80)
 
-        self.run_game_button = Button(self.canvas, text='Run Game!', command=self.run_game)
-        self.run_game_button.place(x=360, y=148)
+        self.run_game_button = Button(self.canvas, text='Run Statistics!', command=self.run_game)
+        self.run_game_button.place(x=700, y=115)
 
-        self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
-        self.show_graphs_button.place(x=690, y=148)
+        # self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
+        # self.show_graphs_button.place(x=690, y=148)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
         self.button_new_game = Button(self.canvas, image=self.button_image_new_game, borderwidth=0,
@@ -139,16 +139,16 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         self.create_graphs(None)  # open an empty graph
 
-    def update_num_of_digits_value(self, event):
-        """
-        Update the text of the number_of_digits_label based on the value of scale_num_of_digits.
-
-        :param event: The event that triggered the function.
-        :type event: Event
-        :return: None
-        :rtype: None
-        """
-        self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
+    # def update_num_of_digits_value(self, event):
+    #     """
+    #     Update the text of the number_of_digits_label based on the value of scale_num_of_digits.
+    #
+    #     :param event: The event that triggered the function.
+    #     :type event: Event
+    #     :return: None
+    #     :rtype: None
+    #     """
+    #     self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
 
     def update_num_of_games_value(self, event):
         """
@@ -169,16 +169,16 @@ class Bull_and_cows_stats_screen(tk.Frame):
         :return: None
         :rtype: None
         """
-        self.my_controller.run_stats(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
+        self.my_controller.run_stats2(self.scale_num_of_games.get())
 
-    def view_asks_for_graphs(self):
-        """
-        Calls the controller to get the graphs figure for the game statistics.
-
-        :return: None
-        :rtype: None
-        """
-        self.my_controller.show_graphs(self.scale_num_of_digits.get())
+    # def view_asks_for_graphs(self):
+    #     """
+    #     Calls the controller to get the graphs figure for the game statistics.
+    #
+    #     :return: None
+    #     :rtype: None
+    #     """
+    #     self.my_controller.show_graphs(self.scale_num_of_digits.get())
 
     def set_controller(self, controller):
         """

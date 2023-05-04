@@ -89,7 +89,7 @@ class Bull_and_cows_try_me_screen(tk.Frame):
             294.0,
             23.0,
             anchor="nw",
-            text="Get to know the Simulation",
+            text="Computer VS Computer",
             fill="#745FF2",
             font=("Inter Regular", 48 * -1)
         )
@@ -115,10 +115,10 @@ class Bull_and_cows_try_me_screen(tk.Frame):
         self.number_of_digits_label.place(x=650, y=80)
 
         self.run_game_button = Button(self.canvas, text='Run Game!', command=self.run_game)
-        self.run_game_button.place(x=360, y=148)
+        self.run_game_button.place(x=540, y=148)
 
-        self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
-        self.show_graphs_button.place(x=690, y=148)
+        # self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
+        # self.show_graphs_button.place(x=690, y=148)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
         self.button_new_game = Button(self.canvas, image=self.button_image_new_game, borderwidth=0,
@@ -171,14 +171,14 @@ class Bull_and_cows_try_me_screen(tk.Frame):
         """
         self.my_controller.run_stats(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
 
-    def view_asks_for_graphs(self):
-        """
-        Calls the controller to get the graphs figure for the game statistics.
-
-        :return: None
-        :rtype: None
-        """
-        self.my_controller.show_graphs(self.scale_num_of_digits.get())
+    # def view_asks_for_graphs(self):
+    #     """
+    #     Calls the controller to get the graphs figure for the game statistics.
+    #
+    #     :return: None
+    #     :rtype: None
+    #     """
+    #     self.my_controller.show_graphs(self.scale_num_of_digits.get())
 
     def set_controller(self, controller):
         """
