@@ -3,6 +3,7 @@ import random
 
 class BH_back:
     """A class representing the backend of a Bulls and Cows local game play"""
+
     def __init__(self):
         """
         Initializes an instance of the Bulls and Cows game backend.
@@ -14,7 +15,6 @@ class BH_back:
         """
         # initialize empty lists for num of bulls and num of hits
         self.guess = None
-        self.guess_numbers = None
         self.number_of_bulls = 0
         self.number_of_hits = 0
 
@@ -23,7 +23,7 @@ class BH_back:
         self.tries = 8
         self.current_try = 0
 
-    def initiat_game(self, tries):
+    def initiate_game(self, tries):
         """
         Initialize the game with the given number of tries.
 
@@ -51,10 +51,8 @@ class BH_back:
             int cows (hits)
         """
         self.guess = guess
-        if not self.noDuplicates(guess):
+        if not self.no_duplicates(guess):
             return "Number should not have repeated digits. Try again.", -1, 0, 0
-        if guess < 1000 or guess > 9999:
-            return "Number can't start with ZERO. Try again.", -1, 0, 0
         bull_cow = self.numOfBullsCows(self.secret_num, guess)
         if bull_cow[0] == 4:
             return "You guessed right!", 1, bull_cow[0], bull_cow[1]
@@ -63,43 +61,18 @@ class BH_back:
             return f"You ran out of tries. Number was {self.secret_num}", 2, bull_cow[0], bull_cow[1]
         return "", 0, bull_cow[0], bull_cow[1]
 
-    def get_guess(self, guess):
-        """
-         Set the guess numbers for the current game.
-
-         :param guess: the player's guess
-         :type guess: int
-         :return: None
-         :rtype: None
-         """
-        self.guess_numbers = guess
-
-    # Returns list of digits of a number
-    def getDigits(self, num):
-        """
-        Get the digits of a number and return them as a list.
-
-        :param num: the number to get the digits of
-        :type num: int
-        :return: a list of digits of the given number
-        :rtype: List[int]
-        """
-        return [int(i) for i in str(num)]
-
-    def noDuplicates(self, num):
+    def no_duplicates(self, num):
         """
         Checks if a number has any duplicate digits.
 
         :param num: The number to check for duplicate digits.
-        :type num: int
+        :type num: str
         :return: Returns True if the number has no duplicate digits, False otherwise.
         :rtype: bool
         """
-        num_li = self.getDigits(num)
-        if len(num_li) == len(set(num_li)):
+        if len(num) == len(set(num)):
             return True
-        else:
-            return False
+        return False
 
     def generateNum(self):
         """
@@ -108,11 +81,11 @@ class BH_back:
          :param : None
          :type : None
          :return: A random 4-digit number with no repeated digits.
-         :rtype: int
+         :rtype: str
          """
         while True:
-            num = random.randint(1000, 9999)
-            if self.noDuplicates(num):
+            num = ''.join([str(random.randint(0, 9)) for _ in range(4)])
+            if self.no_duplicates(num):
                 return num
 
     def numOfBullsCows(self, num, guess):
@@ -126,28 +99,19 @@ class BH_back:
         in the same position.
 
         :param num: The secret number.
-        :type num: int
+        :type num: str
         :param guess: The guess made by the player.
-        :type guess: int
+        :type guess: str
         :return: A tuple containing the number of bulls and cows respectively.
         :rtype: tuple
         """
 
         bull_cow = [0, 0]
-        num_li = self.getDigits(num)
-        guess_li = self.getDigits(guess)
 
-        for i, j in zip(num_li, guess_li):
-
-            # common digit present
-            if j in num_li:
-
-                # common digit exact match
-                if j == i:
+        for i, j in zip(num, guess):
+            if j in num:  # common digit present
+                if j == i:  # common digit exact position match
                     bull_cow[0] += 1
-
-                # common digit match but in wrong position
-                else:
+                else:  # common digit match but in wrong position
                     bull_cow[1] += 1
-
         return bull_cow

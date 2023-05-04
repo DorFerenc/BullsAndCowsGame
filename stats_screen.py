@@ -172,7 +172,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
         :return: None
         :rtype: None
         """
-        self.my_controller.show_graphs()
+        self.my_controller.show_graphs(self.scale_num_of_digits.get())
 
     def set_controller(self, controller):
         """

@@ -17,11 +17,13 @@ class Graph_Model:
         self.table_sizes = []
         self.guess_numbers = []
 
-    def update_file(self, filename):
+    def update_file(self, filename, num_digits):
         """
         Updates the formatting of guess results in the specified file.
         :param filename: the name of the file to update
         :type filename: str
+        :param num_digits: number of digits in the current game
+        :type num_digits: Int
         """
         # open the file in read mode and read the lines
         with open(filename, 'r') as file:
@@ -29,6 +31,11 @@ class Graph_Model:
 
         # iterate through the lines and update the formatting
         for i in range(len(lines)):
+            if 'game number' in lines[i]:
+                parts = lines[i].split()
+                parts[2] = parts[2] + ","
+                parts.append(f"number of digits {num_digits}")
+                lines[i] = ' '.join(parts) + '\n'
             if 'guess number' in lines[i]:
                 parts = lines[i].split()
                 parts[2] = parts[2].ljust(2)
@@ -41,16 +48,18 @@ class Graph_Model:
         with open(filename, 'w') as file:
             file.writelines(lines)
 
-    def get_text(self, filename):
+    def get_text(self, filename, num_digits):
         """
         Reads the contents of a file after updating the formatting of guess results.
 
         :param filename: the name of the file to read
         :type filename: str
+        :param num_digits: number of digits in the current game
+        :type num_digits: Int
         :return: the contents of the file after updating the formatting
         :rtype: str
         """
-        self.update_file(filename)
+        self.update_file(filename, num_digits)
         with open(filename, "r") as file:
             # read the entire file contents as a string
             contents = file.read()
@@ -92,7 +101,7 @@ class Graph_Model:
                     table_size = (re.search(r'number\s+\d+\s+is:\s+\d+\s+table size:\s+(\d+)', guess))  # .group(1))
 
                     # check if both regex searches were successful
-                    if table_size and guess_number:
+                    if table_size and guess_number and (int(guess_number.group(1))) != 1:
                         self.table_sizes.append(int(table_size.group(1)))
                         self.guess_numbers.append(int(guess_number.group(1)))
 

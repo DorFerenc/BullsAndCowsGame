@@ -89,38 +89,13 @@ class Bull_and_cows_main_screen(tk.Frame):
             fill="#745FF2",
             font=("Inter Regular", 48 * -1)
         )
-        #
-        # # create the entry widgets for guesses TextBoxes
-        # entry_image_guess_1 = PhotoImage(file=relative_to_assets("entry_2.png"))
-        # self.entry_bg_guess_1 = self.canvas.create_image(330.0, 143.05126953125, image=entry_image_guess_1)
-        # self.entry_guess_1 = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 20')
-        # self.entry_guess_1.place(x=294.0, y=108.0, width=72.0, height=68.1025390625)
-        #
-        # self.entry_image_guess_2 = PhotoImage(file=relative_to_assets("entry_3.png"))
-        # self.entry_bg_guess_2 = self.canvas.create_image(419.5, 143.05126953125, image=self.entry_image_guess_2)
-        # self.entry_guess_2 = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 20')
-        # self.entry_guess_2.place(x=384.0, y=108.0, width=71.0, height=68.1025390625)
-        # # self.entry_guess_2.bind("<1>", self.change_current_position(2))
-        #
-        # self.entry_image_guess_3 = PhotoImage(file=relative_to_assets("entry_4.png"))
-        # self.entry_bg_guess_3 = self.canvas.create_image(508.5, 143.05126953125, image=self.entry_image_guess_3)
-        # self.entry_guess_3 = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 20')
-        # self.entry_guess_3.place(x=473.0, y=108.0, width=71.0, height=68.1025390625)
-        #
-        # self.entry_image_guess_4 = PhotoImage(file=relative_to_assets("entry_5.png"))
-        # self.entry_bg_guess_4 = self.canvas.create_image(601.0, 143.05126953125, image=self.entry_image_guess_4)
-        # self.entry_guess_4 = Entry(self.canvas, bd=0, bg="#FFFFFF", fg="#000716", highlightthickness=0, font='Georgia 20')
-        # self.entry_guess_4.place(x=565.0, y=108.0, width=72.0, height=68.1025390625)
-
-        # # List of the guesses TextBoxes
-        # self.ENTRY_LIST = [self.entry_guess_1, self.entry_guess_2, self.entry_guess_3, self.entry_guess_4]
 
         # create the button widgets for guesses
         self.btn_guess_1 = Button(self.canvas, text="?", command=lambda: self.change_current_position(0), bg="white", bd=0, font='Georgia 20')
         self.btn_guess_1.place(x=294.0, y=108.0, width=72.0, height=68.1025390625)
 
         self.btn_guess_2 = Button(self.canvas, text="?", command=lambda: self.change_current_position(1), bg="white", bd=0, font='Georgia 20')
-        self.btn_guess_2.place(x=384.0, y=108.0, width=71.0, height=68.1025390625)#, relx=1.0, anchor='ne') #width=71.0, height=68.1025390625,
+        self.btn_guess_2.place(x=384.0, y=108.0, width=71.0, height=68.1025390625) #, relx=1.0, anchor='ne') #width=71.0, height=68.1025390625,
 
         self.btn_guess_3 = Button(self.canvas, text="?", command=lambda: self.change_current_position(2), bg="white", bd=0, font='Georgia 20')
         self.btn_guess_3.place(x=473.0, y=108.0, width=71.0, height=68.1025390625)
@@ -258,8 +233,6 @@ class Bull_and_cows_main_screen(tk.Frame):
         :return: None
         """
         self.current_guess = ""
-        # for entry in self.ENTRY_LIST:
-        #     self.current_guess += entry.get()
         for btn in self.BTN_LIST:
             self.current_guess += str(btn.cget("text"))
         self.clear_only_entrys()
@@ -268,7 +241,7 @@ class Bull_and_cows_main_screen(tk.Frame):
         if self.current_guess.find("?") != -1 or self.current_guess == "????":
             self.show_what_returned_from_guess(("Please enter a full 4 digit guess. Try again", -1, 0, 0))
         else:
-            self.my_controller.main_sends_guess(int(self.current_guess))
+            self.my_controller.main_sends_guess(self.current_guess)
 
     # return tuple in this template:
     # ("MSG", -1(error)/0(in game)/1(win)/2(lose) , bulls, cows)
@@ -355,11 +328,6 @@ class Bull_and_cows_main_screen(tk.Frame):
         :rtype: None
         """
         self.CURRENT_POSITION = 0
-        # for entry in self.ENTRY_LIST:
-        #     entry.config(state='normal')
-        #     entry.delete(0, tk.END)
-        #     entry.insert(0, "?")
-        #     entry.config(state='disabled')
         for btn in self.BTN_LIST:
             btn.config(text="?")
 
@@ -391,16 +359,6 @@ class Bull_and_cows_main_screen(tk.Frame):
          :return: None
          :rtype: None
          """
-
-        # if self.ENTRY_LIST[self.CURRENT_POSITION] != "":
-        #     self.ENTRY_LIST[self.CURRENT_POSITION].config(state='normal')
-        #     self.ENTRY_LIST[self.CURRENT_POSITION].delete(0, tk.END)
-        #     self.ENTRY_LIST[self.CURRENT_POSITION].config(state='disabled')
-        #
-        # self.ENTRY_LIST[self.CURRENT_POSITION].config(state='normal')
-        # self.ENTRY_LIST[self.CURRENT_POSITION].insert(0, num)
-        # self.ENTRY_LIST[self.CURRENT_POSITION].config(state='disabled')
-
         self.BTN_LIST[self.CURRENT_POSITION].config(text=num)
 
     def update_current_guess_board(self, number):

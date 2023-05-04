@@ -70,7 +70,7 @@ class Controller():
         :return: None
         :rtype: None
         """
-        self.model_play_game.initiat_game(tries)
+        self.model_play_game.initiate_game(tries)
 
     def main_sends_guess(self, guess):
         """
@@ -84,7 +84,6 @@ class Controller():
         """
         res = self.model_play_game.check_guess(guess)
         self.view2_main_screen.show_what_returned_from_guess(res)
-
 
     def run_stats(self, num_of_digits, num_of_games):
         """
@@ -106,9 +105,10 @@ class Controller():
             print("\ngame number ", str(i + 1))
             current_round = bh.BH(0, numberOfDigits=num_of_digits)
             l.append(current_round.getCounter())
-        print("average number of guesses for ", \
-              str(num_of_games), " games is: ", \
-              sum(l) / len(l))
+        print(f"""average number of guesses 
+        for  : {str(num_of_games)} games, 
+        with : {num_of_digits} digits,
+        is   : {sum(l) / len(l)}""")
         sys.stdout.close()
 
     def bh_asks_the_guess(self):
@@ -129,14 +129,16 @@ class Controller():
         """
         self.table_size = len(BH.getCounter(BH))
 
-    def show_graphs(self):
+    def show_graphs(self, num_digits):
         """
         Shows the graphs on the stats screen.
 
+        :param num_digits: number of digits in the current game
+        :type num_digits: Int
         :return: None
         :rtype: None
         """
         figy = self.model_graph.get_fig(self.filename)
-        texty = self.model_graph.get_text(self.filename)
+        texty = self.model_graph.get_text(self.filename, num_digits)
         self.view1_screen_stats.create_graphs(figy)
         self.view1_screen_stats.show_text(texty)
