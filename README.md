@@ -51,7 +51,7 @@ Stats → Simulation and Statistics mode
 ## Installations 
 * To install tkinter using pip, open the terminal and type the following command: '**pip install tkinter**'
 * To install matplotlib using pip, open the terminal and type the following command: '**pip install matplotlib**'
-* * To install tqmd using pip, open the terminal and type the following command: '**pip install tqdm**'
+* To install tqmd using pip, open the terminal and type the following command: '**pip install tqdm**'
 
 
 # Thanks!
