@@ -130,14 +130,13 @@ class Controller:
         :rtype: None
         """
         self.view3_stats_screen.create_graphs(None)
-        # self.view3_stats_screen.show_text("")
         res = {}
         adder = (100.0 / (num_of_games * 6))
         pb_counter = 0
         with open("bhOutput.txt", 'w') as sys.stdout:
             for num_of_digits in (range(1, 7)):
                 l = []
-                for i in tqdm(range(num_of_games), desc=f'Running num_of_digits={num_of_digits}', leave=False, colour='green', ncols=100): # tqdm(range(num_of_games), colour='green'):
+                for i in tqdm(range(num_of_games), desc=f'Running num_of_digits {num_of_digits} / 6', leave=False, colour='green', ncols=100): # tqdm(range(num_of_games), colour='green'):
                     print("\ngame number ", str(i + 1))
                     current_round = bh.BH(0, numberOfDigits=num_of_digits)
                     l.append(current_round.getCounter())
