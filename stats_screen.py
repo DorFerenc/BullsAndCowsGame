@@ -4,7 +4,6 @@ from tkinter import ttk, IntVar, Button, PhotoImage, Scale, HORIZONTAL
 
 from matplotlib.backends._backend_tk import NavigationToolbar2Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from tkhtmlview import HTMLLabel
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -60,10 +59,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
                                 font=("Inter Regular", 32 * -1))
 
         self.game_img = PhotoImage(file=relative_to_assets("Picture1.png"))
-        # self.button_new_game = Button(self.canvas, image=self.game_img, borderwidth=0,
-        #                               highlightthickness=0,
-        #                               command=lambda: self.my_controller.show_frame(1), relief="flat")
-        # self.button_new_game.place(x=13.0, y=23.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
         # create the text area and scrollbar
         self.text_frame = tk.Frame(self.canvas, bg="#FFA53C", bd=0, highlightthickness=0)
@@ -72,16 +67,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
         # Create a label with the image
         self.game_img_label = tk.Label(self.text_frame, image=self.game_img, bg="#FFA53C", bd=0, highlightthickness=0)
         self.game_img_label.pack()
-
-        # self.text = tk.Text(self.text_frame, bg="#FFA53C", bd=0, highlightthickness=0, wrap="word",
-        #                     width=60)  # "#F0F0F3"
-        # self.text.pack(side="left", fill="both", expand=True)
-        #
-        # self.scrollbar = tk.Scrollbar(self.text_frame, orient="vertical", command=self.text.yview, width=20)
-        # self.scrollbar.pack(side="right", fill="y")
-        #
-        # self.text.config(yscrollcommand=self.scrollbar.set, state='disabled')
-        # self.text['yscrollcommand'] = self.scrollbar.set
 
         # create the title text
         self.canvas.create_text(
@@ -103,16 +88,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
                                                foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
         self.number_of_games_label.place(x=400, y=80)
 
-        # number of digits scale and label
-        # self.value_number_of_digits = IntVar()
-        # self.scale_num_of_digits = Scale(self.canvas, variable=self.value_number_of_digits, from_=3, to=7,
-        #                                  orient=HORIZONTAL, length=200)
-        # self.scale_num_of_digits.bind("<ButtonRelease-1>", self.update_num_of_digits_value)
-        # self.scale_num_of_digits.place(x=650, y=100)
-        # self.number_of_digits_label = ttk.Label(self.canvas, text=f"Number of digits {self.scale_num_of_digits.get()}",
-        #                                         foreground="#7C0AA4", font=("Inter Regular", 15 * -1))
-        # self.number_of_digits_label.place(x=650, y=80)
-
         self.run_game_button = Button(self.canvas, text='Run Statistics!', command=self.run_game)
         self.run_game_button.place(x=700, y=115)
 
@@ -120,21 +95,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.progress_bar = ttk.Progressbar(self.canvas, orient=HORIZONTAL, length=500)
         self.progress_bar.config(mode='determinate', maximum=100.0, value=0)
         self.progress_bar.place(x=300, y=160)
-        # self.progress_bar.pack(pady=20)
-        # self.progress_bar.config(mode='indeterminate')
-        # self.progress_bar.start()
-        # self.progress_bar.stop()
-        # self.progress_label = tk.Label(self.canvas, text="Progress:")
-        # self.progress_label.pack()
-        # self.progress_label.place(x=300, y=150)
-        #
-        # # Create the tqdm progress bar
-        # self.pbar = tqdm_gui(total=100)
-
-
-
-        # self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
-        # self.show_graphs_button.place(x=690, y=148)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
         self.button_new_game = Button(self.canvas, image=self.button_image_new_game, borderwidth=0,
@@ -154,17 +114,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.button_stats.place(x=13.0, y=193.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
         self.create_graphs(None)  # open an empty graph
-
-    # def update_num_of_digits_value(self, event):
-    #     """
-    #     Update the text of the number_of_digits_label based on the value of scale_num_of_digits.
-    #
-    #     :param event: The event that triggered the function.
-    #     :type event: Event
-    #     :return: None
-    #     :rtype: None
-    #     """
-    #     self.number_of_digits_label.config(text=f"Number of digits {self.scale_num_of_digits.get()}")
 
     def update_num_of_games_value(self, event):
         """
@@ -186,15 +135,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
         :rtype: None
         """
         self.my_controller.run_stats2(self.scale_num_of_games.get())
-
-    # def view_asks_for_graphs(self):
-    #     """
-    #     Calls the controller to get the graphs figure for the game statistics.
-    #
-    #     :return: None
-    #     :rtype: None
-    #     """
-    #     self.my_controller.show_graphs(self.scale_num_of_digits.get())
 
     def set_controller(self, controller):
         """
@@ -221,9 +161,6 @@ class Bull_and_cows_stats_screen(tk.Frame):
         self.text.config(state='normal')
         self.text.insert("1.0", text)
         self.text.config(state='disabled')
-
-        # self.my_label = HTMLLabel(self.canvas, html=text)
-        # self.my_label.pack()
 
     def create_graphs(self, fig):
         """

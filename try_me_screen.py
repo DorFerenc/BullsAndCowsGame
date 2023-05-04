@@ -21,19 +21,6 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-# def update_progress_bar(self, value):
-#     """
-#     Updates the progress bar value and refreshes the canvas.
-#
-#     :param value: The value to set the progress bar to.
-#     :type value: int
-#     :return: None
-#     :rtype: None
-#     """
-#     self.progress_bar["value"] = value
-#     self.canvas.update_idletasks()
-
-
 class Bull_and_cows_try_me_screen(tk.Frame):
     """A class representing a statistics screen for the Bull and Cows game."""
     def __init__(self, parent):
@@ -117,8 +104,6 @@ class Bull_and_cows_try_me_screen(tk.Frame):
         self.run_game_button = Button(self.canvas, text='Run Game!', command=self.run_game)
         self.run_game_button.place(x=540, y=148)
 
-        # self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
-        # self.show_graphs_button.place(x=690, y=148)
 
         self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
         self.button_new_game = Button(self.canvas, image=self.button_image_new_game, borderwidth=0,
@@ -170,15 +155,6 @@ class Bull_and_cows_try_me_screen(tk.Frame):
         :rtype: None
         """
         self.my_controller.run_stats(self.scale_num_of_digits.get(), self.scale_num_of_games.get())
-
-    # def view_asks_for_graphs(self):
-    #     """
-    #     Calls the controller to get the graphs figure for the game statistics.
-    #
-    #     :return: None
-    #     :rtype: None
-    #     """
-    #     self.my_controller.show_graphs(self.scale_num_of_digits.get())
 
     def set_controller(self, controller):
         """

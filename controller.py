@@ -1,7 +1,4 @@
 import sys
-import markdown
-from bs4 import BeautifulSoup
-
 
 from tqdm import tqdm
 
@@ -109,7 +106,6 @@ class Controller:
         """
         self.view2_try_me_screen.create_graphs(None)
         self.view2_try_me_screen.show_text("")
-        # sys.stdout = open("bhOutput.txt", 'w')
         with open("bhOutput.txt", 'w') as sys.stdout:
             l = []
             for i in (tqdm((range(num_of_games)), desc='Running Computer VS Computer', leave=False, colour='green', ncols=100)):
@@ -120,7 +116,6 @@ class Controller:
             for  : {str(num_of_games)} games, 
             with : {num_of_digits} digits,
             is   : {sum(l) / len(l)}""")
-        # sys.stdout.close()
         self.show_graphs(num_of_digits)
 
     def run_stats2(self, num_of_games):
@@ -200,6 +195,4 @@ class Controller:
         :rtype: None
         """
         figy = self.model_graph.get_avg_fig(res, num_of_games)
-        # texty = self.model_graph.get_text(self.filename, num_digits)
         self.view3_stats_screen.create_graphs(figy)
-        # self.view2_try_me_screen.show_text(texty)
