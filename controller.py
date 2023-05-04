@@ -51,13 +51,16 @@ class Controller():
         :return: None
         :rtype: None
         """
+        # clear all
+        self.view1_screen_stats.create_graphs(None)
+        self.view1_screen_stats.show_text("")
+        self.view2_main_screen.clear_all()
+
         cont = Bull_and_cows_main_screen
         if view_num == 2:
             cont = Bull_and_cows_stats_screen
-            self.view1_screen_stats.create_graphs(None)
-            self.view1_screen_stats.show_text("")
-        else:
-            self.view2_main_screen.clear_all()
+        # elif view_num == 3:
+        #     cont = Bull_and_cows_stats_screen # view 3
         frame = self.frames[cont]
         frame.tkraise()
 

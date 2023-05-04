@@ -157,11 +157,17 @@ class Bull_and_cows_main_screen(tk.Frame):
         #                          command=lambda: print("button_settings clicked"), relief="flat")
         # self.button_settings.place(x=13.0, y=193.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
+        self.button_image_try_me = PhotoImage(file=relative_to_assets("try_me.png"))
+        self.button_try_me = Button(image=self.button_image_try_me, borderwidth=0, highlightthickness=0,
+                          command=lambda: self.my_controller.show_frame(2), relief="flat")
+        self.button_try_me.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+        # self.button_try_me.place(x=13.0, y=193.0, width=250.0, height=70.1025390625)
+
         self.button_image_stats = PhotoImage(file=relative_to_assets("button_stats.png"))
         self.button_stats = Button(self.canvas, image=self.button_image_stats, borderwidth=0, highlightthickness=0,
-                              command=lambda: self.my_controller.show_frame(2), relief="flat")
-        self.button_stats.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
-        # self.button_stats.place(x=14.0, y=278.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+                              command=lambda: self.my_controller.show_frame(3), relief="flat")
+        # self.button_stats.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
+        self.button_stats.place(x=13.0, y=193.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
 
         self.button_image_0 = PhotoImage(file=relative_to_assets("button_0.png"))
