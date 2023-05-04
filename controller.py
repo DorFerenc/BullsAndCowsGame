@@ -1,5 +1,7 @@
 import sys
 
+from tqdm import tqdm
+
 import bh
 from bh import BH
 from main_game_screen import Bull_and_cows_main_screen
@@ -106,7 +108,7 @@ class Controller:
         # sys.stdout = open("bhOutput.txt", 'w')
         with open("bhOutput.txt", 'w') as sys.stdout:
             l = []
-            for i in range(num_of_games):
+            for i in (tqdm((range(num_of_games)), desc='Running Computer VS Computer', leave=False, colour='green', ncols=100)):
                 print("\ngame number ", str(i + 1))
                 current_round = bh.BH(0, numberOfDigits=num_of_digits)
                 l.append(current_round.getCounter())
@@ -131,13 +133,17 @@ class Controller:
         self.view3_stats_screen.create_graphs(None)
         self.view3_stats_screen.show_text("")
         res = {}
+        adder = (100.0 / (num_of_games * 6))
+        pb_counter = 0
         with open("bhOutput.txt", 'w') as sys.stdout:
-            for num_of_digits in range(1, 6):
+            for num_of_digits in (range(1, 7)):
                 l = []
-                for i in range(num_of_games):
+                for i in tqdm(range(num_of_games), desc=f'Running num_of_digits={num_of_digits}', leave=False, colour='green', ncols=100): # tqdm(range(num_of_games), colour='green'):
                     print("\ngame number ", str(i + 1))
                     current_round = bh.BH(0, numberOfDigits=num_of_digits)
                     l.append(current_round.getCounter())
+                    self.view3_stats_screen.update_progress_bar(pb_counter)
+                    pb_counter += adder
                 print(f"""average number of guesses
                 for  : {str(num_of_games)} games,
                 with : {num_of_digits} digits,

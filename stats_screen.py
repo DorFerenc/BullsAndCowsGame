@@ -4,6 +4,7 @@ from tkinter import ttk, IntVar, Button, PhotoImage, Scale, HORIZONTAL
 
 from matplotlib.backends._backend_tk import NavigationToolbar2Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from tqdm.gui import tqdm_gui
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"assets\\frame0")
@@ -19,19 +20,6 @@ def relative_to_assets(path: str) -> Path:
      :rtype: Path
      """
     return ASSETS_PATH / Path(path)
-
-
-# def update_progress_bar(self, value):
-#     """
-#     Updates the progress bar value and refreshes the canvas.
-#
-#     :param value: The value to set the progress bar to.
-#     :type value: int
-#     :return: None
-#     :rtype: None
-#     """
-#     self.progress_bar["value"] = value
-#     self.canvas.update_idletasks()
 
 
 class Bull_and_cows_stats_screen(tk.Frame):
@@ -96,7 +84,7 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         # number of games scale and label
         self.value_number_of_games = IntVar()
-        self.scale_num_of_games = Scale(self.canvas, variable=self.value_number_of_games, from_=50, to=500,
+        self.scale_num_of_games = Scale(self.canvas, variable=self.value_number_of_games, from_=10, to=500,
                                         orient=HORIZONTAL, length=350)
         self.scale_num_of_games.bind("<ButtonRelease-1>", self.update_num_of_games_value)
         self.scale_num_of_games.place(x=300, y=100)
@@ -116,6 +104,23 @@ class Bull_and_cows_stats_screen(tk.Frame):
 
         self.run_game_button = Button(self.canvas, text='Run Statistics!', command=self.run_game)
         self.run_game_button.place(x=700, y=115)
+
+        # Create  the progress bar
+        self.progress_bar = ttk.Progressbar(self.canvas, orient=HORIZONTAL, length=500)
+        self.progress_bar.config(mode='determinate', maximum=100.0, value=0)
+        self.progress_bar.place(x=300, y=160)
+        # self.progress_bar.pack(pady=20)
+        # self.progress_bar.config(mode='indeterminate')
+        # self.progress_bar.start()
+        # self.progress_bar.stop()
+        # self.progress_label = tk.Label(self.canvas, text="Progress:")
+        # self.progress_label.pack()
+        # self.progress_label.place(x=300, y=150)
+        #
+        # # Create the tqdm progress bar
+        # self.pbar = tqdm_gui(total=100)
+
+
 
         # self.show_graphs_button = Button(self.canvas, text='Show Graphs!', command=self.view_asks_for_graphs)
         # self.show_graphs_button.place(x=690, y=148)
@@ -226,3 +231,16 @@ class Bull_and_cows_stats_screen(tk.Frame):
         NavigationToolbar2Tk(figure_canvas, inner_canvas)
 
         figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+    def update_progress_bar(self, value):
+        """
+        Updates the progress bar value and refreshes the canvas.
+
+        :param value: The value to set the progress bar to.
+        :type value: int
+        :return: None
+        :rtype: None
+        """
+        self.progress_bar["value"] = value
+        self.progress_bar.update()
+        # self.canvas.update_idletasks()
