@@ -3,10 +3,11 @@ import sys
 import bh
 from bh import BH
 from main_game_screen import Bull_and_cows_main_screen
+from try_me_screen import Bull_and_cows_try_me_screen
 from stats_screen import Bull_and_cows_stats_screen
 
 
-class Controller():
+class Controller:
     def __init__(self, model_play_game, model_graph, container):
         """
         Initializes an instance of the Controller class.
@@ -27,15 +28,15 @@ class Controller():
         self.frames = {}  # initializing frames to an empty array
 
         # iterating through a tuple consisting of the different page layouts
-        for F in (Bull_and_cows_main_screen, Bull_and_cows_stats_screen):
+        for F in (Bull_and_cows_main_screen, Bull_and_cows_try_me_screen, Bull_and_cows_stats_screen):
             self.frame = F(self.container)
             self.frame.set_controller(self)
             self.frames[F] = self.frame
             self.frame.grid(row=0, column=0, sticky="nsew")
 
-        self.view2_main_screen = self.frames[Bull_and_cows_main_screen]
-        self.view1_screen_stats = self.frames[Bull_and_cows_stats_screen]
-
+        self.view1_main_game_screen = self.frames[Bull_and_cows_main_screen]
+        self.view2_try_me_screen = self.frames[Bull_and_cows_try_me_screen]
+        self.view3_stats_screen = self.frames[Bull_and_cows_stats_screen]
         self.show_frame(Bull_and_cows_main_screen)
 
         self.table_size = None
@@ -52,15 +53,15 @@ class Controller():
         :rtype: None
         """
         # clear all
-        self.view1_screen_stats.create_graphs(None)
-        self.view1_screen_stats.show_text("")
-        self.view2_main_screen.clear_all()
+        self.view2_try_me_screen.create_graphs(None)
+        self.view2_try_me_screen.show_text("")
+        self.view1_main_game_screen.clear_all()
 
         cont = Bull_and_cows_main_screen
         if view_num == 2:
-            cont = Bull_and_cows_stats_screen
-        # elif view_num == 3:
-        #     cont = Bull_and_cows_stats_screen # view 3
+            cont = Bull_and_cows_try_me_screen
+        elif view_num == 3:
+            cont = Bull_and_cows_stats_screen # view 3
         frame = self.frames[cont]
         frame.tkraise()
 
@@ -86,7 +87,7 @@ class Controller():
         :rtype: None
         """
         res = self.model_play_game.check_guess(guess)
-        self.view2_main_screen.show_what_returned_from_guess(res)
+        self.view1_main_game_screen.show_what_returned_from_guess(res)
 
     def run_stats(self, num_of_digits, num_of_games):
         """
@@ -100,8 +101,8 @@ class Controller():
         :return: None
         :rtype: None
         """
-        self.view1_screen_stats.create_graphs(None)
-        self.view1_screen_stats.show_text("")
+        self.view2_try_me_screen.create_graphs(None)
+        self.view2_try_me_screen.show_text("")
         sys.stdout = open("bhOutput.txt", 'w')
         l = []
         for i in range(num_of_games):
@@ -121,7 +122,7 @@ class Controller():
         :return: None
         :rtype: None
         """
-        self.model_play_game.get_guess(self.model_play_game, self.view2_main_screen.take_the_guess())
+        self.model_play_game.get_guess(self.model_play_game, self.view1_main_game_screen.take_the_guess())
 
     def set_table_size(self):
         """
@@ -143,5 +144,5 @@ class Controller():
         """
         figy = self.model_graph.get_fig(self.filename)
         texty = self.model_graph.get_text(self.filename, num_digits)
-        self.view1_screen_stats.create_graphs(figy)
-        self.view1_screen_stats.show_text(texty)
+        self.view2_try_me_screen.create_graphs(figy)
+        self.view2_try_me_screen.show_text(texty)
