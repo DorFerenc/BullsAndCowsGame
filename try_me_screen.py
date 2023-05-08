@@ -76,7 +76,7 @@ class Bull_and_cows_try_me_screen(tk.Frame):
             294.0,
             23.0,
             anchor="nw",
-            text="Computer VS Computer",
+            text="Computer Game",
             fill="#745FF2",
             font=("Inter Regular", 48 * -1)
         )
@@ -104,20 +104,20 @@ class Bull_and_cows_try_me_screen(tk.Frame):
         self.run_game_button = Button(self.canvas, text='Run Game!', command=self.run_game)
         self.run_game_button.place(x=540, y=148)
 
-
-        self.button_image_new_game = PhotoImage(file=relative_to_assets("button_new_game.png"))
+        # Side menu buttons
+        self.button_image_new_game = PhotoImage(file=relative_to_assets("Human_Game.png"))
         self.button_new_game = Button(self.canvas, image=self.button_image_new_game, borderwidth=0,
                                       highlightthickness=0,
                                       command=lambda: self.my_controller.show_frame(1), relief="flat")
         self.button_new_game.place(x=13.0, y=23.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
 
-        self.button_image_try_me = PhotoImage(file=relative_to_assets("try_me.png"))
+        self.button_image_try_me = PhotoImage(file=relative_to_assets("Computer_Game.png"))
         self.button_try_me = Button(image=self.button_image_try_me, borderwidth=0, highlightthickness=0,
                           command=lambda: self.my_controller.show_frame(2), relief="flat")
         self.button_try_me.place(x=13.0, y=108.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)
         # self.button_try_me.place(x=13.0, y=193.0, width=250.0, height=70.1025390625)
 
-        self.button_image_stats = PhotoImage(file=relative_to_assets("button_stats.png"))
+        self.button_image_stats = PhotoImage(file=relative_to_assets("Statistics.png"))
         self.button_stats = Button(self.canvas, image=self.button_image_stats, borderwidth=0, highlightthickness=0,
                               command=lambda: self.my_controller.show_frame(3), relief="flat")
         self.button_stats.place(x=13.0, y=193.0 + self.OFFSET_MENU, width=250.0, height=70.1025390625)

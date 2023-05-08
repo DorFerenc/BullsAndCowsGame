@@ -132,8 +132,8 @@ class Graph_Model:
         and the table size vs guess number,
         using data extracted from the specified file.
 
-        :param res: number of digits in the current game
-        :type res: dictionary of number_of_digits : average number_of_guess
+        :param res: dictionary of {number_of_digits : average number_of_guess}
+        :type res: dictionary
         :param num_of_games: the number of games to run
         :type num_of_games: int
         :return: a matplotlib Figure object containing the subplot
@@ -148,7 +148,7 @@ class Graph_Model:
         y_values = [item[1] for item in sorted_res]
 
         # Calculate the ratio between the average number of guesses and the number of digits
-        ratio_values = [y_values[i] / x_values[i] for i in range(len(x_values))]
+        ratio_values = [y / x for x, y in zip(x_values, y_values)]
 
         # Create the bar plot and line plot
         fig, ax = plt.subplots(figsize=(8, 6))
@@ -156,9 +156,15 @@ class Graph_Model:
         ax.set_xlabel('Number of digits')
         ax.set_ylabel('Average number of guesses')
         ax.set_title(f'Average guesses per {num_of_games} games')
-        ax2 = ax.twinx()
-        ax2.plot(x_values, ratio_values, 'r--')
-        ax2.set_ylabel('Ratio of average guesses to number of digits')
 
-        # Return the figure object
+        # Plot the ratio values as a red line on the same y-axis
+        ax.plot(x_values, ratio_values, color='red', linestyle='dotted', marker='o')
+        ax.text(1.02, 0.5, 'Ratio of average number of guesses to number of digits',
+                transform=ax.transAxes, rotation=90, va='center')
+
+        # Add text annotations for the ratio values
+        for x, y in zip(x_values, ratio_values):
+            ax.annotate(f'{y:.2f}', (x, y), xytext=(5, 5),
+                        textcoords='offset points', color='red')
+
         return fig

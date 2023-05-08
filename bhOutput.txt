@@ -1,668 +1,406 @@
 
-game number 1, number of digits 3
-number:  581  table size:  648
-guess number 1  is: 352 table size: 648       nb: 0    nh: 1
-guess number 2  is: 438 table size: 228       nb: 0    nh: 1
-guess number 3  is: 581 table size: 68        nb: 3    nh: 0
-number of tries:  3
-=========================================================================== 
-
-
-game number 2, number of digits 3
-number:  951  table size:  648
-guess number 1  is: 394 table size: 648       nb: 0    nh: 1
-guess number 2  is: 703 table size: 228       nb: 0    nh: 0
-guess number 3  is: 968 table size: 80        nb: 1    nh: 0
-guess number 4  is: 418 table size: 15        nb: 0    nh: 1
-guess number 5  is: 921 table size: 2         nb: 2    nh: 0
-guess number 6  is: 951 table size: 1         nb: 3    nh: 0
+game number 1, number of digits 5
+number:  45790  table size:  27216
+guess number 1  is: 29371 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 43786 table size: 6864      nb: 2    nh: 0
+guess number 3  is: 43520 table size: 134       nb: 2    nh: 1
+guess number 4  is: 42180 table size: 19        nb: 2    nh: 0
+guess number 5  is: 53980 table size: 3         nb: 1    nh: 2
+guess number 6  is: 45790 table size: 1         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 3, number of digits 3
-number:  509  table size:  648
-guess number 1  is: 576 table size: 648       nb: 1    nh: 0
-guess number 2  is: 528 table size: 114       nb: 1    nh: 0
-guess number 3  is: 549 table size: 28        nb: 2    nh: 0
-guess number 4  is: 519 table size: 6         nb: 2    nh: 0
-guess number 5  is: 539 table size: 2         nb: 2    nh: 0
-guess number 6  is: 509 table size: 1         nb: 3    nh: 0
-number of tries:  6
-=========================================================================== 
-
-
-game number 4, number of digits 3
-number:  143  table size:  648
-guess number 1  is: 301 table size: 648       nb: 0    nh: 2
-guess number 2  is: 180 table size: 42        nb: 1    nh: 0
-guess number 3  is: 430 table size: 18        nb: 0    nh: 2
-guess number 4  is: 143 table size: 1         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 5, number of digits 3
-number:  806  table size:  648
-guess number 1  is: 976 table size: 648       nb: 1    nh: 0
-guess number 2  is: 923 table size: 114       nb: 0    nh: 0
-guess number 3  is: 870 table size: 32        nb: 1    nh: 1
-guess number 4  is: 806 table size: 4         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 6, number of digits 3
-number:  854  table size:  648
-guess number 1  is: 674 table size: 648       nb: 1    nh: 0
-guess number 2  is: 618 table size: 114       nb: 0    nh: 1
-guess number 3  is: 271 table size: 28        nb: 0    nh: 0
-guess number 4  is: 854 table size: 7         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 7, number of digits 3
-number:  816  table size:  648
-guess number 1  is: 503 table size: 648       nb: 0    nh: 0
-guess number 2  is: 471 table size: 210       nb: 0    nh: 1
-guess number 3  is: 216 table size: 72        nb: 2    nh: 0
-guess number 4  is: 246 table size: 5         nb: 1    nh: 0
-guess number 5  is: 816 table size: 4         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 8, number of digits 3
-number:  395  table size:  648
-guess number 1  is: 347 table size: 648       nb: 1    nh: 0
-guess number 2  is: 967 table size: 114       nb: 0    nh: 1
-guess number 3  is: 356 table size: 28        nb: 1    nh: 1
-guess number 4  is: 395 table size: 2         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 9, number of digits 3
-number:  825  table size:  648
-guess number 1  is: 684 table size: 648       nb: 0    nh: 1
-guess number 2  is: 803 table size: 228       nb: 1    nh: 0
-guess number 3  is: 872 table size: 45        nb: 1    nh: 1
-guess number 4  is: 817 table size: 6         nb: 1    nh: 0
-guess number 5  is: 825 table size: 2         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 10, number of digits 3
-number:  457  table size:  648
-guess number 1  is: 460 table size: 648       nb: 1    nh: 0
-guess number 2  is: 280 table size: 126       nb: 0    nh: 0
-guess number 3  is: 963 table size: 40        nb: 0    nh: 0
-guess number 4  is: 451 table size: 6         nb: 2    nh: 0
-guess number 5  is: 457 table size: 2         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 11, number of digits 3
-number:  206  table size:  648
-guess number 1  is: 301 table size: 648       nb: 1    nh: 0
-guess number 2  is: 821 table size: 126       nb: 0    nh: 1
-guess number 3  is: 408 table size: 30        nb: 1    nh: 0
-guess number 4  is: 702 table size: 12        nb: 1    nh: 1
-guess number 5  is: 209 table size: 3         nb: 2    nh: 0
-guess number 6  is: 205 table size: 2         nb: 2    nh: 0
-guess number 7  is: 206 table size: 1         nb: 3    nh: 0
+game number 2, number of digits 5
+number:  81350  table size:  27216
+guess number 1  is: 34506 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 45097 table size: 5440      nb: 0    nh: 2
+guess number 3  is: 63980 table size: 1134      nb: 1    nh: 2
+guess number 4  is: 60842 table size: 196       nb: 0    nh: 2
+guess number 5  is: 17630 table size: 34        nb: 1    nh: 2
+guess number 6  is: 58310 table size: 7         nb: 2    nh: 3
+guess number 7  is: 81350 table size: 1         nb: 5    nh: 0
 number of tries:  7
 =========================================================================== 
 
 
-game number 12, number of digits 3
-number:  906  table size:  648
-guess number 1  is: 790 table size: 648       nb: 0    nh: 2
-guess number 2  is: 379 table size: 42        nb: 0    nh: 1
-guess number 3  is: 902 table size: 12        nb: 2    nh: 0
-guess number 4  is: 906 table size: 5         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 13, number of digits 3
-number:  865  table size:  648
-guess number 1  is: 986 table size: 648       nb: 0    nh: 2
-guess number 2  is: 897 table size: 60        nb: 1    nh: 0
-guess number 3  is: 865 table size: 12        nb: 3    nh: 0
-number of tries:  3
-=========================================================================== 
-
-
-game number 14, number of digits 3
-number:  603  table size:  648
-guess number 1  is: 739 table size: 648       nb: 0    nh: 1
-guess number 2  is: 968 table size: 228       nb: 0    nh: 1
-guess number 3  is: 847 table size: 68        nb: 0    nh: 0
-guess number 4  is: 290 table size: 17        nb: 0    nh: 1
-guess number 5  is: 603 table size: 4         nb: 3    nh: 0
+game number 3, number of digits 5
+number:  54123  table size:  27216
+guess number 1  is: 75381 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 36874 table size: 5888      nb: 0    nh: 2
+guess number 3  is: 18720 table size: 1224      nb: 1    nh: 1
+guess number 4  is: 13056 table size: 159       nb: 0    nh: 3
+guess number 5  is: 54123 table size: 23        nb: 5    nh: 0
 number of tries:  5
 =========================================================================== 
 
 
-game number 15, number of digits 3
-number:  602  table size:  648
-guess number 1  is: 394 table size: 648       nb: 0    nh: 0
-guess number 2  is: 250 table size: 180       nb: 0    nh: 2
-guess number 3  is: 501 table size: 24        nb: 1    nh: 0
-guess number 4  is: 526 table size: 9         nb: 0    nh: 2
-guess number 5  is: 602 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 16, number of digits 3
-number:  564  table size:  648
-guess number 1  is: 347 table size: 648       nb: 0    nh: 1
-guess number 2  is: 903 table size: 228       nb: 0    nh: 0
-guess number 3  is: 276 table size: 80        nb: 0    nh: 1
-guess number 4  is: 482 table size: 24        nb: 0    nh: 1
-guess number 5  is: 718 table size: 6         nb: 0    nh: 0
-guess number 6  is: 564 table size: 2         nb: 3    nh: 0
+game number 4, number of digits 5
+number:  37684  table size:  27216
+guess number 1  is: 12735 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 63594 table size: 6864      nb: 1    nh: 2
+guess number 3  is: 83916 table size: 1075      nb: 0    nh: 3
+guess number 4  is: 61458 table size: 218       nb: 0    nh: 3
+guess number 5  is: 38624 table size: 44        nb: 3    nh: 1
+guess number 6  is: 37684 table size: 1         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 17, number of digits 3
-number:  825  table size:  648
-guess number 1  is: 680 table size: 648       nb: 0    nh: 1
-guess number 2  is: 158 table size: 210       nb: 0    nh: 2
-guess number 3  is: 825 table size: 18        nb: 3    nh: 0
-number of tries:  3
-=========================================================================== 
-
-
-game number 18, number of digits 3
-number:  820  table size:  648
-guess number 1  is: 749 table size: 648       nb: 0    nh: 0
-guess number 2  is: 816 table size: 180       nb: 1    nh: 0
-guess number 3  is: 853 table size: 30        nb: 1    nh: 0
-guess number 4  is: 256 table size: 4         nb: 0    nh: 1
-guess number 5  is: 802 table size: 2         nb: 1    nh: 2
-guess number 6  is: 820 table size: 1         nb: 3    nh: 0
-number of tries:  6
-=========================================================================== 
-
-
-game number 19, number of digits 3
-number:  562  table size:  648
-guess number 1  is: 203 table size: 648       nb: 0    nh: 1
-guess number 2  is: 428 table size: 210       nb: 0    nh: 1
-guess number 3  is: 835 table size: 60        nb: 0    nh: 1
-guess number 4  is: 152 table size: 21        nb: 1    nh: 1
-guess number 5  is: 592 table size: 3         nb: 2    nh: 0
-guess number 6  is: 572 table size: 2         nb: 2    nh: 0
-guess number 7  is: 562 table size: 1         nb: 3    nh: 0
+game number 5, number of digits 5
+number:  81250  table size:  27216
+guess number 1  is: 69381 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 48537 table size: 6864      nb: 0    nh: 2
+guess number 3  is: 50923 table size: 1512      nb: 0    nh: 3
+guess number 4  is: 23760 table size: 309       nb: 1    nh: 1
+guess number 5  is: 95064 table size: 43        nb: 0    nh: 2
+guess number 6  is: 27195 table size: 8         nb: 0    nh: 3
+guess number 7  is: 81250 table size: 2         nb: 5    nh: 0
 number of tries:  7
 =========================================================================== 
 
 
-game number 20, number of digits 3
-number:  849  table size:  648
-guess number 1  is: 428 table size: 648       nb: 0    nh: 2
-guess number 2  is: 542 table size: 60        nb: 1    nh: 0
-guess number 3  is: 812 table size: 17        nb: 1    nh: 0
-guess number 4  is: 840 table size: 5         nb: 2    nh: 0
-guess number 5  is: 846 table size: 4         nb: 2    nh: 0
-guess number 6  is: 849 table size: 3         nb: 3    nh: 0
+game number 6, number of digits 5
+number:  24876  table size:  27216
+guess number 1  is: 26389 table size: 27216     nb: 1    nh: 2
+guess number 2  is: 20895 table size: 3864      nb: 2    nh: 0
+guess number 3  is: 23615 table size: 99        nb: 1    nh: 1
+guess number 4  is: 27496 table size: 12        nb: 2    nh: 2
+guess number 5  is: 27864 table size: 3         nb: 2    nh: 3
+guess number 6  is: 24876 table size: 1         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 21, number of digits 3
-number:  475  table size:  648
-guess number 1  is: 240 table size: 648       nb: 0    nh: 1
-guess number 2  is: 714 table size: 210       nb: 0    nh: 2
-guess number 3  is: 487 table size: 18        nb: 1    nh: 1
-guess number 4  is: 476 table size: 4         nb: 2    nh: 0
-guess number 5  is: 475 table size: 3         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 22, number of digits 3
-number:  710  table size:  648
-guess number 1  is: 831 table size: 648       nb: 0    nh: 1
-guess number 2  is: 164 table size: 228       nb: 0    nh: 1
-guess number 3  is: 689 table size: 68        nb: 0    nh: 0
-guess number 4  is: 510 table size: 20        nb: 2    nh: 0
-guess number 5  is: 517 table size: 4         nb: 1    nh: 1
-guess number 6  is: 710 table size: 1         nb: 3    nh: 0
-number of tries:  6
-=========================================================================== 
-
-
-game number 23, number of digits 3
-number:  134  table size:  648
-guess number 1  is: 145 table size: 648       nb: 1    nh: 1
-guess number 2  is: 153 table size: 40        nb: 1    nh: 1
-guess number 3  is: 543 table size: 2         nb: 0    nh: 2
-guess number 4  is: 134 table size: 1         nb: 3    nh: 0
+game number 7, number of digits 5
+number:  75643  table size:  27216
+guess number 1  is: 75841 table size: 27216     nb: 3    nh: 0
+guess number 2  is: 72891 table size: 184       nb: 1    nh: 0
+guess number 3  is: 65840 table size: 14        nb: 2    nh: 1
+guess number 4  is: 75643 table size: 5         nb: 5    nh: 0
 number of tries:  4
 =========================================================================== 
 
 
-game number 24, number of digits 3
-number:  705  table size:  648
-guess number 1  is: 342 table size: 648       nb: 0    nh: 0
-guess number 2  is: 179 table size: 180       nb: 0    nh: 1
-guess number 3  is: 756 table size: 60        nb: 1    nh: 1
-guess number 4  is: 785 table size: 8         nb: 2    nh: 0
-guess number 5  is: 705 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 25, number of digits 3
-number:  291  table size:  648
-guess number 1  is: 630 table size: 648       nb: 0    nh: 0
-guess number 2  is: 914 table size: 210       nb: 0    nh: 2
-guess number 3  is: 421 table size: 36        nb: 1    nh: 1
-guess number 4  is: 291 table size: 6         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 26, number of digits 3
-number:  864  table size:  648
-guess number 1  is: 945 table size: 648       nb: 0    nh: 1
-guess number 2  is: 473 table size: 228       nb: 0    nh: 1
-guess number 3  is: 790 table size: 68        nb: 0    nh: 0
-guess number 4  is: 124 table size: 20        nb: 1    nh: 0
-guess number 5  is: 684 table size: 2         nb: 1    nh: 2
-guess number 6  is: 864 table size: 1         nb: 3    nh: 0
+game number 8, number of digits 5
+number:  57892  table size:  27216
+guess number 1  is: 94532 table size: 27216     nb: 1    nh: 2
+guess number 2  is: 49830 table size: 3864      nb: 1    nh: 1
+guess number 3  is: 14825 table size: 429       nb: 1    nh: 2
+guess number 4  is: 87235 table size: 60        nb: 1    nh: 3
+guess number 5  is: 89527 table size: 2         nb: 0    nh: 5
+guess number 6  is: 57892 table size: 1         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 27, number of digits 3
-number:  873  table size:  648
-guess number 1  is: 710 table size: 648       nb: 0    nh: 1
-guess number 2  is: 672 table size: 210       nb: 1    nh: 0
-guess number 3  is: 874 table size: 40        nb: 2    nh: 0
-guess number 4  is: 879 table size: 6         nb: 2    nh: 0
-guess number 5  is: 873 table size: 2         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 28, number of digits 3
-number:  567  table size:  648
-guess number 1  is: 957 table size: 648       nb: 1    nh: 1
-guess number 2  is: 756 table size: 40        nb: 0    nh: 3
-guess number 3  is: 567 table size: 1         nb: 3    nh: 0
-number of tries:  3
-=========================================================================== 
-
-
-game number 29, number of digits 3
-number:  720  table size:  648
-guess number 1  is: 861 table size: 648       nb: 0    nh: 0
-guess number 2  is: 523 table size: 180       nb: 1    nh: 0
-guess number 3  is: 473 table size: 30        nb: 0    nh: 1
-guess number 4  is: 927 table size: 10        nb: 1    nh: 1
-guess number 5  is: 597 table size: 2         nb: 0    nh: 1
-guess number 6  is: 720 table size: 1         nb: 3    nh: 0
+game number 9, number of digits 5
+number:  68154  table size:  27216
+guess number 1  is: 51062 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 29641 table size: 5440      nb: 0    nh: 3
+guess number 3  is: 42180 table size: 1143      nb: 1    nh: 2
+guess number 4  is: 86109 table size: 179       nb: 1    nh: 2
+guess number 5  is: 16287 table size: 33        nb: 0    nh: 3
+guess number 6  is: 68154 table size: 6         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 30, number of digits 3
-number:  394  table size:  648
-guess number 1  is: 137 table size: 648       nb: 0    nh: 1
-guess number 2  is: 921 table size: 228       nb: 0    nh: 1
-guess number 3  is: 618 table size: 68        nb: 0    nh: 0
-guess number 4  is: 274 table size: 30        nb: 1    nh: 0
-guess number 5  is: 253 table size: 4         nb: 0    nh: 1
-guess number 6  is: 579 table size: 2         nb: 0    nh: 1
-guess number 7  is: 394 table size: 1         nb: 3    nh: 0
+game number 10, number of digits 5
+number:  23745  table size:  27216
+guess number 1  is: 69380 table size: 27216     nb: 0    nh: 1
+guess number 2  is: 17824 table size: 2280      nb: 0    nh: 3
+guess number 3  is: 41759 table size: 768       nb: 1    nh: 2
+guess number 4  is: 74052 table size: 160       nb: 0    nh: 4
+guess number 5  is: 52746 table size: 28        nb: 2    nh: 2
+guess number 6  is: 23745 table size: 2         nb: 5    nh: 0
+number of tries:  6
+=========================================================================== 
+
+
+game number 11, number of digits 5
+number:  61387  table size:  27216
+guess number 1  is: 73941 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 94120 table size: 5888      nb: 0    nh: 1
+guess number 3  is: 57639 table size: 426       nb: 0    nh: 3
+guess number 4  is: 38716 table size: 85        nb: 0    nh: 5
+guess number 5  is: 61387 table size: 7         nb: 5    nh: 0
+number of tries:  5
+=========================================================================== 
+
+
+game number 12, number of digits 5
+number:  15034  table size:  27216
+guess number 1  is: 95078 table size: 27216     nb: 2    nh: 0
+guess number 2  is: 15428 table size: 600       nb: 2    nh: 1
+guess number 3  is: 15032 table size: 84        nb: 4    nh: 0
+guess number 4  is: 15062 table size: 2         nb: 3    nh: 0
+guess number 5  is: 15034 table size: 1         nb: 5    nh: 0
+number of tries:  5
+=========================================================================== 
+
+
+game number 13, number of digits 5
+number:  91604  table size:  27216
+guess number 1  is: 13765 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 42693 table size: 6864      nb: 1    nh: 2
+guess number 3  is: 20654 table size: 1075      nb: 2    nh: 1
+guess number 4  is: 81624 table size: 61        nb: 3    nh: 0
+guess number 5  is: 91604 table size: 1         nb: 5    nh: 0
+number of tries:  5
+=========================================================================== 
+
+
+game number 14, number of digits 5
+number:  69703  table size:  27216
+guess number 1  is: 17426 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 92084 table size: 6864      nb: 0    nh: 2
+guess number 3  is: 60758 table size: 1540      nb: 2    nh: 1
+guess number 4  is: 60973 table size: 99        nb: 2    nh: 3
+guess number 5  is: 69703 table size: 2         nb: 5    nh: 0
+number of tries:  5
+=========================================================================== 
+
+
+game number 15, number of digits 5
+number:  32015  table size:  27216
+guess number 1  is: 19624 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 73819 table size: 6864      nb: 1    nh: 1
+guess number 3  is: 57862 table size: 750       nb: 0    nh: 2
+guess number 4  is: 25039 table size: 137       nb: 1    nh: 3
+guess number 5  is: 20315 table size: 11        nb: 2    nh: 3
+guess number 6  is: 23105 table size: 2         nb: 1    nh: 4
+guess number 7  is: 32015 table size: 1         nb: 5    nh: 0
 number of tries:  7
 =========================================================================== 
 
 
-game number 31, number of digits 3
-number:  581  table size:  648
-guess number 1  is: 165 table size: 648       nb: 0    nh: 2
-guess number 2  is: 519 table size: 60        nb: 1    nh: 1
-guess number 3  is: 521 table size: 9         nb: 2    nh: 0
-guess number 4  is: 501 table size: 5         nb: 2    nh: 0
-guess number 5  is: 581 table size: 4         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 32, number of digits 3
-number:  638  table size:  648
-guess number 1  is: 950 table size: 648       nb: 0    nh: 0
-guess number 2  is: 738 table size: 210       nb: 2    nh: 0
-guess number 3  is: 736 table size: 12        nb: 1    nh: 1
-guess number 4  is: 638 table size: 2         nb: 3    nh: 0
+game number 16, number of digits 5
+number:  56921  table size:  27216
+guess number 1  is: 86951 table size: 27216     nb: 3    nh: 1
+guess number 2  is: 86935 table size: 96        nb: 2    nh: 1
+guess number 3  is: 85941 table size: 35        nb: 2    nh: 1
+guess number 4  is: 56921 table size: 11        nb: 5    nh: 0
 number of tries:  4
 =========================================================================== 
 
 
-game number 33, number of digits 3
-number:  143  table size:  648
-guess number 1  is: 732 table size: 648       nb: 0    nh: 1
-guess number 2  is: 360 table size: 228       nb: 0    nh: 1
-guess number 3  is: 176 table size: 60        nb: 1    nh: 0
-guess number 4  is: 183 table size: 12        nb: 2    nh: 0
-guess number 5  is: 143 table size: 3         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 34, number of digits 3
-number:  306  table size:  648
-guess number 1  is: 142 table size: 648       nb: 0    nh: 0
-guess number 2  is: 897 table size: 180       nb: 0    nh: 0
-guess number 3  is: 605 table size: 18        nb: 1    nh: 1
-guess number 4  is: 630 table size: 5         nb: 0    nh: 3
-guess number 5  is: 306 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 35, number of digits 3
-number:  857  table size:  648
-guess number 1  is: 852 table size: 648       nb: 2    nh: 0
-guess number 2  is: 752 table size: 20        nb: 1    nh: 1
-guess number 3  is: 857 table size: 2         nb: 3    nh: 0
-number of tries:  3
-=========================================================================== 
-
-
-game number 36, number of digits 3
-number:  167  table size:  648
-guess number 1  is: 531 table size: 648       nb: 0    nh: 1
-guess number 2  is: 625 table size: 228       nb: 0    nh: 1
-guess number 3  is: 954 table size: 68        nb: 0    nh: 0
-guess number 4  is: 172 table size: 30        nb: 1    nh: 1
-guess number 5  is: 273 table size: 3         nb: 0    nh: 1
-guess number 6  is: 167 table size: 2         nb: 3    nh: 0
+game number 17, number of digits 5
+number:  21048  table size:  27216
+guess number 1  is: 30752 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 65934 table size: 7020      nb: 0    nh: 1
+guess number 3  is: 27819 table size: 472       nb: 1    nh: 2
+guess number 4  is: 21086 table size: 70        nb: 3    nh: 1
+guess number 5  is: 21480 table size: 4         nb: 2    nh: 3
+guess number 6  is: 21048 table size: 2         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 37, number of digits 3
-number:  704  table size:  648
-guess number 1  is: 681 table size: 648       nb: 0    nh: 0
-guess number 2  is: 795 table size: 180       nb: 1    nh: 0
-guess number 3  is: 435 table size: 30        nb: 0    nh: 1
-guess number 4  is: 390 table size: 10        nb: 0    nh: 1
-guess number 5  is: 704 table size: 2         nb: 3    nh: 0
+game number 18, number of digits 5
+number:  32189  table size:  27216
+guess number 1  is: 61830 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 16273 table size: 5440      nb: 0    nh: 3
+guess number 3  is: 32981 table size: 1102      nb: 3    nh: 2
+guess number 4  is: 92381 table size: 5         nb: 2    nh: 3
+guess number 5  is: 23981 table size: 2         nb: 1    nh: 4
+guess number 6  is: 32189 table size: 1         nb: 5    nh: 0
+number of tries:  6
+=========================================================================== 
+
+
+game number 19, number of digits 5
+number:  65128  table size:  27216
+guess number 1  is: 89405 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 57610 table size: 7020      nb: 0    nh: 3
+guess number 3  is: 65743 table size: 1410      nb: 2    nh: 0
+guess number 4  is: 61083 table size: 35        nb: 1    nh: 2
+guess number 5  is: 65128 table size: 7         nb: 5    nh: 0
 number of tries:  5
 =========================================================================== 
 
 
-game number 38, number of digits 3
-number:  650  table size:  648
-guess number 1  is: 802 table size: 648       nb: 0    nh: 1
-guess number 2  is: 683 table size: 210       nb: 1    nh: 0
-guess number 3  is: 581 table size: 40        nb: 0    nh: 1
-guess number 4  is: 213 table size: 6         nb: 0    nh: 0
-guess number 5  is: 650 table size: 1         nb: 3    nh: 0
-number of tries:  5
+game number 20, number of digits 5
+number:  24687  table size:  27216
+guess number 1  is: 98145 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 89673 table size: 6864      nb: 1    nh: 2
+guess number 3  is: 82960 table size: 1056      nb: 0    nh: 3
+guess number 4  is: 23694 table size: 290       nb: 2    nh: 1
+guess number 5  is: 43608 table size: 20        nb: 1    nh: 2
+guess number 6  is: 24687 table size: 2         nb: 5    nh: 0
+number of tries:  6
 =========================================================================== 
 
 
-game number 39, number of digits 3
-number:  841  table size:  648
-guess number 1  is: 705 table size: 648       nb: 0    nh: 0
-guess number 2  is: 813 table size: 210       nb: 1    nh: 1
-guess number 3  is: 832 table size: 24        nb: 1    nh: 0
-guess number 4  is: 841 table size: 3         nb: 3    nh: 0
-number of tries:  4
-=========================================================================== 
-
-
-game number 40, number of digits 3
-number:  456  table size:  648
-guess number 1  is: 671 table size: 648       nb: 0    nh: 1
-guess number 2  is: 847 table size: 228       nb: 0    nh: 1
-guess number 3  is: 732 table size: 70        nb: 0    nh: 0
-guess number 4  is: 460 table size: 28        nb: 1    nh: 1
-guess number 5  is: 456 table size: 4         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 41, number of digits 3
-number:  759  table size:  648
-guess number 1  is: 594 table size: 648       nb: 0    nh: 2
-guess number 2  is: 915 table size: 60        nb: 0    nh: 2
-guess number 3  is: 451 table size: 7         nb: 1    nh: 0
-guess number 4  is: 859 table size: 5         nb: 2    nh: 0
-guess number 5  is: 659 table size: 4         nb: 2    nh: 0
-guess number 6  is: 359 table size: 3         nb: 2    nh: 0
-guess number 7  is: 759 table size: 2         nb: 3    nh: 0
+game number 21, number of digits 5
+number:  92176  table size:  27216
+guess number 1  is: 63594 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 16752 table size: 6864      nb: 0    nh: 4
+guess number 3  is: 70165 table size: 361       nb: 1    nh: 2
+guess number 4  is: 71236 table size: 99        nb: 1    nh: 3
+guess number 5  is: 25137 table size: 20        nb: 1    nh: 2
+guess number 6  is: 97126 table size: 4         nb: 3    nh: 2
+guess number 7  is: 92176 table size: 1         nb: 5    nh: 0
 number of tries:  7
 =========================================================================== 
 
 
-game number 42, number of digits 3
-number:  649  table size:  648
-guess number 1  is: 365 table size: 648       nb: 0    nh: 1
-guess number 2  is: 584 table size: 228       nb: 0    nh: 1
-guess number 3  is: 893 table size: 68        nb: 0    nh: 1
-guess number 4  is: 159 table size: 17        nb: 1    nh: 0
-guess number 5  is: 649 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 43, number of digits 3
-number:  857  table size:  648
-guess number 1  is: 460 table size: 648       nb: 0    nh: 0
-guess number 2  is: 931 table size: 210       nb: 0    nh: 0
-guess number 3  is: 872 table size: 24        nb: 1    nh: 1
-guess number 4  is: 578 table size: 6         nb: 0    nh: 3
-guess number 5  is: 857 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 44, number of digits 3
-number:  643  table size:  648
-guess number 1  is: 960 table size: 648       nb: 0    nh: 1
-guess number 2  is: 643 table size: 210       nb: 3    nh: 0
-number of tries:  2
-=========================================================================== 
-
-
-game number 45, number of digits 3
-number:  761  table size:  648
-guess number 1  is: 831 table size: 648       nb: 1    nh: 0
-guess number 2  is: 791 table size: 114       nb: 2    nh: 0
-guess number 3  is: 491 table size: 9         nb: 1    nh: 0
-guess number 4  is: 701 table size: 4         nb: 2    nh: 0
-guess number 5  is: 721 table size: 3         nb: 2    nh: 0
-guess number 6  is: 761 table size: 2         nb: 3    nh: 0
-number of tries:  6
-=========================================================================== 
-
-
-game number 46, number of digits 3
-number:  762  table size:  648
-guess number 1  is: 145 table size: 648       nb: 0    nh: 0
-guess number 2  is: 637 table size: 180       nb: 0    nh: 2
-guess number 3  is: 379 table size: 33        nb: 0    nh: 1
-guess number 4  is: 768 table size: 8         nb: 2    nh: 0
-guess number 5  is: 762 table size: 2         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 47, number of digits 3
-number:  421  table size:  648
-guess number 1  is: 163 table size: 648       nb: 0    nh: 1
-guess number 2  is: 629 table size: 228       nb: 1    nh: 0
-guess number 3  is: 439 table size: 42        nb: 1    nh: 0
-guess number 4  is: 819 table size: 4         nb: 0    nh: 1
-guess number 5  is: 421 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 48, number of digits 3
-number:  580  table size:  648
-guess number 1  is: 219 table size: 648       nb: 0    nh: 0
-guess number 2  is: 734 table size: 180       nb: 0    nh: 0
-guess number 3  is: 680 table size: 18        nb: 2    nh: 0
-guess number 4  is: 685 table size: 3         nb: 1    nh: 1
-guess number 5  is: 650 table size: 2         nb: 1    nh: 1
-guess number 6  is: 580 table size: 1         nb: 3    nh: 0
-number of tries:  6
-=========================================================================== 
-
-
-game number 49, number of digits 3
-number:  820  table size:  648
-guess number 1  is: 180 table size: 648       nb: 1    nh: 1
-guess number 2  is: 610 table size: 35        nb: 1    nh: 0
-guess number 3  is: 890 table size: 6         nb: 2    nh: 0
-guess number 4  is: 840 table size: 5         nb: 2    nh: 0
-guess number 5  is: 870 table size: 4         nb: 2    nh: 0
-guess number 6  is: 830 table size: 3         nb: 2    nh: 0
-guess number 7  is: 850 table size: 2         nb: 2    nh: 0
-guess number 8  is: 820 table size: 1         nb: 3    nh: 0
-number of tries:  8
-=========================================================================== 
-
-
-game number 50, number of digits 3
-number:  746  table size:  648
-guess number 1  is: 823 table size: 648       nb: 0    nh: 0
-guess number 2  is: 175 table size: 180       nb: 0    nh: 1
-guess number 3  is: 504 table size: 60        nb: 0    nh: 1
-guess number 4  is: 610 table size: 18        nb: 0    nh: 1
-guess number 5  is: 941 table size: 5         nb: 1    nh: 0
-guess number 6  is: 956 table size: 2         nb: 1    nh: 0
-guess number 7  is: 746 table size: 1         nb: 3    nh: 0
+game number 22, number of digits 5
+number:  34867  table size:  27216
+guess number 1  is: 86912 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 95436 table size: 6864      nb: 0    nh: 3
+guess number 3  is: 72365 table size: 1477      nb: 1    nh: 2
+guess number 4  is: 42583 table size: 242       nb: 0    nh: 3
+guess number 5  is: 24397 table size: 64        nb: 2    nh: 1
+guess number 6  is: 68347 table size: 8         nb: 1    nh: 4
+guess number 7  is: 34867 table size: 1         nb: 5    nh: 0
 number of tries:  7
 =========================================================================== 
 
 
-game number 51, number of digits 3
-number:  567  table size:  648
-guess number 1  is: 158 table size: 648       nb: 0    nh: 1
-guess number 2  is: 534 table size: 228       nb: 1    nh: 0
-guess number 3  is: 931 table size: 42        nb: 0    nh: 0
-guess number 4  is: 874 table size: 19        nb: 0    nh: 1
-guess number 5  is: 527 table size: 3         nb: 2    nh: 0
-guess number 6  is: 567 table size: 2         nb: 3    nh: 0
+game number 23, number of digits 5
+number:  18056  table size:  27216
+guess number 1  is: 84231 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 65018 table size: 6864      nb: 1    nh: 4
+guess number 3  is: 10568 table size: 22        nb: 1    nh: 4
+guess number 4  is: 56108 table size: 9         nb: 0    nh: 5
+guess number 5  is: 61580 table size: 3         nb: 0    nh: 5
+guess number 6  is: 18056 table size: 1         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 52, number of digits 3
-number:  763  table size:  648
-guess number 1  is: 697 table size: 648       nb: 0    nh: 2
-guess number 2  is: 726 table size: 60        nb: 1    nh: 1
-guess number 3  is: 761 table size: 11        nb: 2    nh: 0
-guess number 4  is: 764 table size: 5         nb: 2    nh: 0
-guess number 5  is: 763 table size: 4         nb: 3    nh: 0
+game number 24, number of digits 5
+number:  28690  table size:  27216
+guess number 1  is: 30147 table size: 27216     nb: 0    nh: 1
+guess number 2  is: 58263 table size: 2280      nb: 1    nh: 2
+guess number 3  is: 98456 table size: 504       nb: 1    nh: 2
+guess number 4  is: 52796 table size: 93        nb: 1    nh: 2
+guess number 5  is: 28690 table size: 14        nb: 5    nh: 0
 number of tries:  5
 =========================================================================== 
 
 
-game number 53, number of digits 3
-number:  194  table size:  648
-guess number 1  is: 467 table size: 648       nb: 0    nh: 1
-guess number 2  is: 906 table size: 228       nb: 0    nh: 1
-guess number 3  is: 798 table size: 60        nb: 1    nh: 0
-guess number 4  is: 710 table size: 12        nb: 0    nh: 1
-guess number 5  is: 194 table size: 1         nb: 3    nh: 0
-number of tries:  5
+game number 25, number of digits 5
+number:  53169  table size:  27216
+guess number 1  is: 41739 table size: 27216     nb: 1    nh: 2
+guess number 2  is: 78031 table size: 3864      nb: 0    nh: 2
+guess number 3  is: 86794 table size: 906       nb: 0    nh: 2
+guess number 4  is: 91326 table size: 188       nb: 0    nh: 4
+guess number 5  is: 35169 table size: 12        nb: 3    nh: 2
+guess number 6  is: 35619 table size: 2         nb: 1    nh: 4
+guess number 7  is: 53169 table size: 1         nb: 5    nh: 0
+number of tries:  7
 =========================================================================== 
 
 
-game number 54, number of digits 3
-number:  871  table size:  648
-guess number 1  is: 245 table size: 648       nb: 0    nh: 0
-guess number 2  is: 961 table size: 180       nb: 1    nh: 0
-guess number 3  is: 760 table size: 30        nb: 0    nh: 1
-guess number 4  is: 903 table size: 10        nb: 0    nh: 0
-guess number 5  is: 871 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 55, number of digits 3
-number:  726  table size:  648
-guess number 1  is: 612 table size: 648       nb: 0    nh: 2
-guess number 2  is: 169 table size: 60        nb: 0    nh: 1
-guess number 3  is: 256 table size: 22        nb: 1    nh: 1
-guess number 4  is: 426 table size: 4         nb: 2    nh: 0
-guess number 5  is: 326 table size: 3         nb: 2    nh: 0
-guess number 6  is: 726 table size: 2         nb: 3    nh: 0
+game number 26, number of digits 5
+number:  35698  table size:  27216
+guess number 1  is: 83562 table size: 27216     nb: 0    nh: 4
+guess number 2  is: 35876 table size: 1272      nb: 2    nh: 2
+guess number 3  is: 38726 table size: 77        nb: 1    nh: 2
+guess number 4  is: 36850 table size: 23        nb: 1    nh: 3
+guess number 5  is: 51836 table size: 9         nb: 0    nh: 4
+guess number 6  is: 35698 table size: 4         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 56, number of digits 3
-number:  670  table size:  648
-guess number 1  is: 362 table size: 648       nb: 0    nh: 1
-guess number 2  is: 839 table size: 228       nb: 0    nh: 0
-guess number 3  is: 720 table size: 72        nb: 1    nh: 1
-guess number 4  is: 240 table size: 8         nb: 1    nh: 0
-guess number 5  is: 670 table size: 1         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 57, number of digits 3
-number:  354  table size:  648
-guess number 1  is: 712 table size: 648       nb: 0    nh: 0
-guess number 2  is: 396 table size: 180       nb: 1    nh: 0
-guess number 3  is: 594 table size: 30        nb: 1    nh: 1
-guess number 4  is: 895 table size: 5         nb: 0    nh: 1
-guess number 5  is: 354 table size: 2         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 58, number of digits 3
-number:  530  table size:  648
-guess number 1  is: 780 table size: 648       nb: 1    nh: 0
-guess number 2  is: 759 table size: 126       nb: 0    nh: 1
-guess number 3  is: 540 table size: 30        nb: 2    nh: 0
-guess number 4  is: 510 table size: 5         nb: 2    nh: 0
-guess number 5  is: 530 table size: 3         nb: 3    nh: 0
-number of tries:  5
-=========================================================================== 
-
-
-game number 59, number of digits 3
-number:  284  table size:  648
-guess number 1  is: 291 table size: 648       nb: 1    nh: 0
-guess number 2  is: 701 table size: 114       nb: 0    nh: 0
-guess number 3  is: 394 table size: 40        nb: 1    nh: 0
-guess number 4  is: 896 table size: 9         nb: 0    nh: 1
-guess number 5  is: 264 table size: 2         nb: 2    nh: 0
-guess number 6  is: 284 table size: 1         nb: 3    nh: 0
+game number 27, number of digits 5
+number:  85637  table size:  27216
+guess number 1  is: 78390 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 36704 table size: 5440      nb: 0    nh: 3
+guess number 3  is: 92473 table size: 972       nb: 0    nh: 2
+guess number 4  is: 17035 table size: 146       nb: 1    nh: 2
+guess number 5  is: 13687 table size: 34        nb: 2    nh: 2
+guess number 6  is: 85637 table size: 1         nb: 5    nh: 0
 number of tries:  6
 =========================================================================== 
 
 
-game number 60, number of digits 3
-number:  731  table size:  648
-guess number 1  is: 231 table size: 648       nb: 2    nh: 0
-guess number 2  is: 281 table size: 20        nb: 1    nh: 0
-guess number 3  is: 237 table size: 11        nb: 1    nh: 1
-guess number 4  is: 731 table size: 1         nb: 3    nh: 0
+game number 28, number of digits 5
+number:  50941  table size:  27216
+guess number 1  is: 75096 table size: 27216     nb: 0    nh: 3
+guess number 2  is: 86539 table size: 5440      nb: 0    nh: 2
+guess number 3  is: 23750 table size: 1122      nb: 0    nh: 2
+guess number 4  is: 62947 table size: 202       nb: 2    nh: 0
+guess number 5  is: 10987 table size: 9         nb: 2    nh: 1
+guess number 6  is: 50941 table size: 1         nb: 5    nh: 0
+number of tries:  6
+=========================================================================== 
+
+
+game number 29, number of digits 5
+number:  32591  table size:  27216
+guess number 1  is: 31896 table size: 27216     nb: 2    nh: 1
+guess number 2  is: 31640 table size: 1104      nb: 1    nh: 1
+guess number 3  is: 39256 table size: 216       nb: 1    nh: 3
+guess number 4  is: 51926 table size: 13        nb: 0    nh: 4
+guess number 5  is: 32195 table size: 3         nb: 3    nh: 2
+guess number 6  is: 35192 table size: 2         nb: 2    nh: 3
+guess number 7  is: 32591 table size: 1         nb: 5    nh: 0
+number of tries:  7
+=========================================================================== 
+
+
+game number 30, number of digits 5
+number:  12360  table size:  27216
+guess number 1  is: 48250 table size: 27216     nb: 1    nh: 1
+guess number 2  is: 47519 table size: 3420      nb: 0    nh: 1
+guess number 3  is: 13680 table size: 234       nb: 2    nh: 2
+guess number 4  is: 96380 table size: 24        nb: 2    nh: 1
+guess number 5  is: 12360 table size: 2         nb: 5    nh: 0
+number of tries:  5
+=========================================================================== 
+
+
+game number 31, number of digits 5
+number:  40173  table size:  27216
+guess number 1  is: 40615 table size: 27216     nb: 2    nh: 1
+guess number 2  is: 50693 table size: 1140      nb: 2    nh: 0
+guess number 3  is: 50718 table size: 60        nb: 1    nh: 2
+guess number 4  is: 40173 table size: 14        nb: 5    nh: 0
 number of tries:  4
+=========================================================================== 
+
+
+game number 32, number of digits 5
+number:  16853  table size:  27216
+guess number 1  is: 45210 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 53607 table size: 7020      nb: 0    nh: 3
+guess number 3  is: 74068 table size: 1384      nb: 0    nh: 2
+guess number 4  is: 60932 table size: 262       nb: 0    nh: 2
+guess number 5  is: 86153 table size: 52        nb: 3    nh: 2
+guess number 6  is: 16853 table size: 2         nb: 5    nh: 0
+number of tries:  6
+=========================================================================== 
+
+
+game number 33, number of digits 5
+number:  21957  table size:  27216
+guess number 1  is: 80176 table size: 27216     nb: 0    nh: 2
+guess number 2  is: 48092 table size: 7020      nb: 0    nh: 2
+guess number 3  is: 63241 table size: 1642      nb: 0    nh: 2
+guess number 4  is: 59683 table size: 317       nb: 0    nh: 2
+guess number 5  is: 75419 table size: 65        nb: 0    nh: 4
+guess number 6  is: 17925 table size: 5         nb: 1    nh: 4
+guess number 7  is: 21957 table size: 2         nb: 5    nh: 0
+number of tries:  7
+=========================================================================== 
+
+
+game number 34, number of digits 5
+number:  23461  table size:  27216
+guess number 1  is: 63045 table size: 27216     nb: 1    nh: 2
+guess number 2  is: 12054 table size: 3780      nb: 0    nh: 3
+guess number 3  is: 95641 table size: 770       nb: 1    nh: 2
+guess number 4  is: 58246 table size: 122       nb: 0    nh: 3
+guess number 5  is: 81605 table size: 25        nb: 0    nh: 2
+guess number 6  is: 23461 table size: 2         nb: 5    nh: 0
+number of tries:  6
 =========================================================================== 
 
 average number of guesses 
-            for  : 60 games, 
-            with : 3 digits,
-            is   : 5.066666666666666
+            for  : 34 games, 
+            with : 5 digits,
+            is   : 5.823529411764706

@@ -1,7 +1,5 @@
 import sys
 
-from tqdm import tqdm
-
 import bh
 from bh import BH
 from main_game_screen import Bull_and_cows_main_screen
@@ -108,7 +106,7 @@ class Controller:
         self.view2_try_me_screen.show_text("")
         with open("bhOutput.txt", 'w') as sys.stdout:
             l = []
-            for i in (tqdm((range(num_of_games)), desc='Running Computer VS Computer', leave=False, colour='green', ncols=100)):
+            for i in range(num_of_games):
                 print("\ngame number ", str(i + 1))
                 current_round = bh.BH(0, numberOfDigits=num_of_digits)
                 l.append(current_round.getCounter())
@@ -136,7 +134,7 @@ class Controller:
         with open("bhOutput.txt", 'w') as sys.stdout:
             for num_of_digits in (range(1, 7)):
                 l = []
-                for i in tqdm(range(num_of_games), desc=f'Running num_of_digits {num_of_digits} / 6', leave=False, colour='green', ncols=100): # tqdm(range(num_of_games), colour='green'):
+                for i in range(num_of_games):
                     print("\ngame number ", str(i + 1))
                     current_round = bh.BH(0, numberOfDigits=num_of_digits)
                     l.append(current_round.getCounter())
