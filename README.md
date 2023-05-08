@@ -9,7 +9,6 @@ and getting the results as graphs and raw data.
 * Python 3.6 or higher
 * tkinter library 
 * Matplotlib library
-* tqmd
 
 ## How to run the game
 * To run the game, execute the following command in the terminal: **python main.py**
@@ -51,8 +50,6 @@ Stats → Simulation and Statistics mode
 ## Installations 
 * To install tkinter using pip, open the terminal and type the following command: **`pip install tkinter`**
 * To install matplotlib using pip, open the terminal and type the following command: **`pip install matplotlib`**
-* To install tqmd using pip, open the terminal and type the following command: **`pip install tqdm`**
-
 
 # Thanks!
 * Yarden Mizrahi
