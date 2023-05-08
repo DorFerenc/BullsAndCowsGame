@@ -11,7 +11,7 @@ and getting the results as graphs and raw data.
 * Matplotlib library
 
 ## How to run the game
-* To run the game, execute the following command in the terminal: **python main.py**
+* To run the game, execute the following command in the terminal: **`python main.py`**
 * You can also right-click on the **main.py** file and and click on **Run 'main'**
 
 ## How to play the game
